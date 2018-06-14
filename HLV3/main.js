@@ -2182,12 +2182,10 @@ var UserComponent = /** @class */ (function () {
             sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Please Fill all the Fields");
         }
         else {
-            alert("invokes");
             var id_1 = bid;
             this.wcs.getAccount().then(function (address) {
-                _this.wcs.game_details(address, id_1).then(function (amount) {
-                    if (amount[1] > 0 || amount[2] > 0) {
-                        alert("You betted");
+                _this.wcs.game_details(address, id_1).then(function (amt) {
+                    if (amt[1] > 0 || amt[2] > 0) {
                         _this.wcs.game_set_map(id_1).then(function (result) {
                             var date = new Date().toLocaleString();
                             var b = new Date(date);
@@ -2198,11 +2196,9 @@ var UserComponent = /** @class */ (function () {
                             if (bet_time + 120 <= result[2]) {
                                 //  swal("Active Bet")
                                 if (choice == 0) {
-                                    alert("ether");
                                     _this.wcs.increase_ether(bid, amount);
                                 }
                                 else if (choice == 1) {
-                                    alert("Token");
                                     _this.wcs.increase_token(bid, amount);
                                 }
                             }
