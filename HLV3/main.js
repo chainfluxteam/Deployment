@@ -657,8 +657,6 @@ var BrokerComponent = /** @class */ (function () {
     BrokerComponent.prototype.cb = function (_name, pric) {
         if (_name == "" || pric == "") {
             var abc = pric * 1000;
-            alert("To Contract" + abc);
-            alert("Display" + abc / 1000);
             swal("Please Fill all the Fields");
         }
         else {
@@ -1346,6 +1344,7 @@ var Web3codeService = /** @class */ (function () {
                                 meta.spinner.show();
                                 _this._tokenContract.betting(a, chc, 0, { from: account, value: _this._web3.toWei(amt, 'ether'), gas: 600000 }, function (err, result) {
                                     if (err) {
+                                        resolve(result);
                                         reject(err);
                                     }
                                     else if (result == true) {
@@ -1381,6 +1380,7 @@ var Web3codeService = /** @class */ (function () {
                                 meta.spinner.show();
                                 _this._tokenContract.betting(a, chc, _this._web3.toWei(amt, 'ether'), { from: account, value: 0, gas: 600000 }, function (err, result) {
                                     if (err) {
+                                        resolve(result);
                                         reject(err);
                                     }
                                     else if (result == true) {
@@ -1414,6 +1414,7 @@ var Web3codeService = /** @class */ (function () {
                                 meta.spinner.show();
                                 _this._tokenContract.increase(bid, 0, { from: account, value: _this._web3.toWei(amt, 'ether'), gas: 600000 }, function (err, result) {
                                     if (err) {
+                                        resolve(result);
                                         reject(err);
                                     }
                                     else if (result == true) {
@@ -1447,6 +1448,7 @@ var Web3codeService = /** @class */ (function () {
                                 meta.spinner.show();
                                 _this._tokenContract.increase(bid, _this._web3.toWei(amt, 'ether'), { from: account, value: 0, gas: 600000 }, function (err, result) {
                                     if (err) {
+                                        resolve(result);
                                         reject(err);
                                     }
                                     else if (result == true) {
@@ -1481,6 +1483,7 @@ var Web3codeService = /** @class */ (function () {
                                 var option = false;
                                 _this._tokenContract.decrease(bid, option, _this._web3.toWei(amt, 'ether'), { from: account, value: 0, gas: 600000 }, function (err, result) {
                                     if (err) {
+                                        resolve(result);
                                         reject(err);
                                     }
                                     else if (result == true) {
@@ -1515,6 +1518,7 @@ var Web3codeService = /** @class */ (function () {
                                 var option = true;
                                 _this._tokenContract.decrease(bid, option, _this._web3.toWei(amt, 'ether'), { from: account, value: 0, gas: 600000 }, function (err, result) {
                                     if (err) {
+                                        resolve(result);
                                         reject(err);
                                     }
                                     else if (result == true) {
@@ -1550,6 +1554,7 @@ var Web3codeService = /** @class */ (function () {
                                 _this._tokenContract.trader_cancel_bet_and_widthdraw(bid, { from: account, gas: 600000 }, function (err, result) {
                                     if (err) {
                                         meta.spinner.hide();
+                                        resolve(result);
                                         reject(err);
                                     }
                                     else if (result == true) {
@@ -2145,145 +2150,95 @@ var UserComponent = /** @class */ (function () {
             sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Enter Number of Tokens");
         }
         else {
-            var not = num / 1000;
-            this.wcs.exchange_token(not);
+            this.wcs.exchange_token(num);
         }
     };
     UserComponent.prototype.bt = function (opt, id, chc, amt) {
-        var _this = this;
         if (opt == "" || id == "" || chc == "" || amt == "") {
             sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Please Fill all the Fields");
         }
         else {
-            this.wcs.game_set_map(id).then(function (result) {
-                var date = new Date().toLocaleString();
-                var b = new Date(date);
-                var c = Math.round(b);
-                var d = c / 1000.0;
-                var bet_time = parseInt(d);
-                if (bet_time + 120 <= result[2]) {
-                    sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Active Bet");
-                    if (opt == 0) {
-                        _this.wcs.bet_ether(id, chc, amt);
+            if (opt == 0) {
+                this.wcs.bet_ether(id, chc, amt).then(function (res) {
+                    if (!res) {
+                        sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Sorry! Bet Expired");
                     }
-                    else if (opt == 1) {
-                        _this.wcs.bet_token(id, chc, amt);
+                });
+            }
+            else if (opt == 1) {
+                this.wcs.bet_token(id, chc, amt).then(function (res) {
+                    if (!res) {
+                        sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Sorry! Bet Expired");
                     }
-                }
-                else {
-                    sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Sorry! Bet Expired");
-                }
-            });
+                });
+            }
         }
     };
     UserComponent.prototype.inc = function (choice, bid, amount) {
-        var _this = this;
         if (choice == "" || bid == "" || amount == "") {
             sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Please Fill all the Fields");
         }
         else {
-            var id_1 = bid;
-            this.wcs.getAccount().then(function (address) {
-                _this.wcs.game_details(address, id_1).then(function (amt) {
-                    if (amt[1] > 0 || amt[2] > 0) {
-                        _this.wcs.game_set_map(id_1).then(function (result) {
-                            var date = new Date().toLocaleString();
-                            var b = new Date(date);
-                            var c = Math.round(b);
-                            var d = c / 1000.0;
-                            var bet_time = parseInt(d);
-                            //  console.log(bet_time);
-                            if (bet_time + 120 <= result[2]) {
-                                //  swal("Active Bet")
-                                if (choice == 0) {
-                                    _this.wcs.increase_ether(bid, amount);
-                                }
-                                else if (choice == 1) {
-                                    _this.wcs.increase_token(bid, amount);
-                                }
-                            }
-                            else {
-                                sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Sorry! Bet Expired");
-                            }
-                        });
-                    }
-                    else {
-                        sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("You are not betted");
+            if (choice == 0) {
+                this.wcs.increase_ether(bid, amount).then(function (res) {
+                    if (!res) {
+                        sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Sorry! Unable to Increase bet amount");
                     }
                 });
-            });
+            }
+            else if (choice == 1) {
+                this.wcs.increase_token(bid, amount).then(function (rest) {
+                    if (!rest) {
+                        sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Sorry! Unable to Increase bet amount");
+                    }
+                });
+            }
         }
     };
     UserComponent.prototype.dec = function (choice, bid, amt) {
-        var _this = this;
         if (choice == "" || bid == "" || amt == "") {
             sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Please Fill all the Fields");
         }
         else {
-            this.wcs.getAccount().then(function (address) {
-                _this.wcs.game_details(address, bid).then(function (amount) {
-                    if (amount[1] > 0 || amount[2] > 0) {
-                        _this.wcs.game_set_map(bid).then(function (result) {
-                            var date = new Date().toLocaleString();
-                            var b = new Date(date);
-                            var c = Math.round(b);
-                            var d = c / 1000.0;
-                            var bet_time = parseInt(d);
-                            //  console.log(bet_time);
-                            if (bet_time + 120 <= result[2]) {
-                                sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Active Bet");
-                                if (choice == 0) {
-                                    _this.wcs.decrease_ether(bid, amt);
-                                }
-                                else if (choice == 1) {
-                                    _this.wcs.decrease_token(bid, amt);
-                                }
-                            }
-                            else {
-                                sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Sorry! Bet Expired");
-                            }
-                        });
-                    }
-                    else {
-                        sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("You are not Betted");
+            // this.wcs.getAccount().then(address => { 
+            //   this.wcs.game_details(address,bid).then(amount => {
+            //     if(amount[1]>0 || amount[2]>0)
+            //     {
+            // this.wcs.game_set_map(bid).then(result =>{
+            //   var date=new Date().toLocaleString();
+            //  var b :any=new Date(date);
+            //  var c:number =Math.round(b);
+            //  var d:any =c/1000.0;
+            //  var bet_time:number=parseInt(d);
+            // //  console.log(bet_time);
+            //   if(bet_time+120 <=result[2])
+            //    {
+            //      swal("Active Bet")
+            if (choice == 0) {
+                this.wcs.decrease_ether(bid, amt).then(function (res) {
+                    if (!res) {
+                        sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Sorry! Unable to decrease bet amount");
                     }
                 });
-            });
+            }
+            else if (choice == 1) {
+                this.wcs.decrease_token(bid, amt).then(function (rest) {
+                    if (!rest) {
+                        sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Sorry! Unable to decrease bet amount");
+                    }
+                });
+            }
         }
     };
     UserComponent.prototype.exit = function (bid) {
-        var _this = this;
         if (bid == "") {
             sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Please Enter a Bet id");
         }
         else {
-            this.wcs.getAccount().then(function (address) {
-                _this.wcs.game_details(address, bid).then(function (resu) {
-                    if ((resu[1] > 0 || resu[2] > 0) && resu[3] == false) {
-                        _this.wcs.game_set_map(bid).then(function (result) {
-                            var date = new Date().toLocaleString();
-                            var b = new Date(date);
-                            var c = Math.round(b);
-                            var d = c / 1000.0;
-                            var bet_time = parseInt(d);
-                            //  console.log(bet_time);
-                            if (bet_time + 60 <= result[2]) {
-                                _this.wcs.cancel_bet(bid);
-                            }
-                            else {
-                                sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Sorry! Bet Expired");
-                            }
-                        });
-                    }
-                    else {
-                        if (resu[1] == 0 && resu[2] == 0) {
-                            sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("you are Not betted");
-                        }
-                        else if (resu[3] == true) {
-                            sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("You are Already Cancelled this Bet");
-                        }
-                    }
-                });
+            this.wcs.cancel_bet(bid).then(function (res) {
+                if (!res) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Sorry! You are not allowed to exit");
+                }
             });
         }
     };
