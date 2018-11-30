@@ -1,5 +1,36 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./node_modules/webpack/buildin/global.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1, eval)("this");
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
 /***/ "./src/$$_lazy_route_resource lazy recursive":
 /*!**********************************************************!*\
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
@@ -23,2163 +54,24 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
-/***/ "./src/app/Authguard/financial.guard.ts":
-/*!**********************************************!*\
-  !*** ./src/app/Authguard/financial.guard.ts ***!
-  \**********************************************/
-/*! exports provided: FinancialGuard */
+/***/ "./src/app/Service/loan-service.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/Service/loan-service.service.ts ***!
+  \*************************************************/
+/*! exports provided: LoanServiceService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FinancialGuard", function() { return FinancialGuard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoanServiceService", function() { return LoanServiceService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var FinancialGuard = /** @class */ (function () {
-    function FinancialGuard(cs, router) {
-        this.cs = cs;
-        this.router = router;
-    }
-    FinancialGuard.prototype.canActivate = function (next, state) {
-        var _this = this;
-        return this.cs.fi_check_registeration().then(function (registered) {
-            console.log(registered);
-            if (!registered) {
-                _this.router.navigate(["fireg"]);
-                return false;
-            }
-            else {
-                return true;
-            }
-        });
-    };
-    FinancialGuard = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_2__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
-    ], FinancialGuard);
-    return FinancialGuard;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/Authguard/investor.guard.ts":
-/*!*********************************************!*\
-  !*** ./src/app/Authguard/investor.guard.ts ***!
-  \*********************************************/
-/*! exports provided: InvestorGuard */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InvestorGuard", function() { return InvestorGuard; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var InvestorGuard = /** @class */ (function () {
-    function InvestorGuard(cs, router) {
-        this.cs = cs;
-        this.router = router;
-    }
-    InvestorGuard.prototype.canActivate = function (next, state) {
-        var _this = this;
-        //return true;
-        return this.cs.investor_check_registeration().then(function (registered) {
-            console.log(registered);
-            if (!registered) {
-                _this.router.navigate(["inverstorreg"]);
-                return false;
-            }
-            else {
-                return true;
-            }
-        });
-    };
-    InvestorGuard = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_2__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
-    ], InvestorGuard);
-    return InvestorGuard;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/Authguard/spv.guard.ts":
-/*!****************************************!*\
-  !*** ./src/app/Authguard/spv.guard.ts ***!
-  \****************************************/
-/*! exports provided: SpvGuard */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SpvGuard", function() { return SpvGuard; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var SpvGuard = /** @class */ (function () {
-    function SpvGuard(cs, router) {
-        this.cs = cs;
-        this.router = router;
-    }
-    SpvGuard.prototype.canActivate = function (next, state) {
-        var _this = this;
-        //return true;
-        return this.cs.spv_check_registeration().then(function (registered) {
-            console.log(registered);
-            if (!registered) {
-                _this.router.navigate(["spvreg"]);
-                return false;
-            }
-            else {
-                return true;
-            }
-        });
-    };
-    SpvGuard = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_2__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
-    ], SpvGuard);
-    return SpvGuard;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/Contractabi.json":
-/*!**********************************!*\
-  !*** ./src/app/Contractabi.json ***!
-  \**********************************/
-/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, default */
-/***/ (function(module) {
-
-module.exports = [{"constant":false,"inputs":[{"name":"_loanId","type":"uint256[]"}],"name":"createPacking","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"Investor_ether","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"loanId","type":"uint256"},{"name":"FI","type":"address"}],"name":"purchase_loan","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_packindex","type":"uint256"},{"name":"choosespvadd","type":"address"}],"name":"purchase_pack","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes"},{"name":"_loan_interst","type":"uint256"},{"name":"_time","type":"uint256"}],"name":"register","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_token","type":"address"},{"name":"bank_address","type":"address"},{"name":"tokenvalue","type":"uint256"}],"name":"req_loan","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"ln_id","type":"uint256"},{"name":"fiaddress","type":"address"}],"name":"settlement","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"SPV_ether","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"inv_details","outputs":[{"name":"invsavailable_pack","type":"uint256"},{"name":"spvtotal","type":"uint256"},{"name":"fitotal","type":"uint256"},{"name":"spvt","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"uint256"}],"name":"ln_get","outputs":[{"name":"id","type":"uint256"},{"name":"token","type":"uint256"},{"name":"bank_address","type":"address"},{"name":"borr_address","type":"address"},{"name":"amount","type":"uint256"},{"name":"count","type":"uint256"},{"name":"months","type":"uint256"},{"name":"spvid","type":"uint256"},{"name":"token_address","type":"address"},{"name":"count1","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"loanadd","outputs":[{"name":"spv","type":"address"},{"name":"invs","type":"address"},{"name":"fins","type":"address"},{"name":"spck","type":"uint256"},{"name":"ipck","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"show_registers","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"spv_details","outputs":[{"name":"initial_spv_ether","type":"uint256"},{"name":"spv_loan","type":"uint256"},{"name":"interest","type":"uint256"},{"name":"spv_id","type":"uint256"},{"name":"spvlnid","type":"uint256"},{"name":"packln_id","type":"uint256"},{"name":"packid","type":"uint256"},{"name":"add","type":"address"},{"name":"invsadd","type":"address"},{"name":"fiadd","type":"address"},{"name":"name","type":"bytes"},{"name":"spvether","type":"uint256"},{"name":"invether","type":"uint256"},{"name":"available_pack","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"spv_reg","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"spv_registers","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"}];
-
-/***/ }),
-
-/***/ "./src/app/app-routing/app-routing.module.ts":
-/*!***************************************************!*\
-  !*** ./src/app/app-routing/app-routing.module.ts ***!
-  \***************************************************/
-/*! exports provided: AppRoutingModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes */ "./src/app/app-routing/routes.ts");
-// import { NgModule } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-// @NgModule({
-//   imports: [
-//     CommonModule
-//   ],
-//   declarations: []
-// })
-// export class AppRoutingModule { }
-
-
-
-
-
-var AppRoutingModule = /** @class */ (function () {
-    function AppRoutingModule() {
-    }
-    AppRoutingModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_3__["routes"])
-            ],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
-            declarations: [],
-            providers: [
-                { provide: _angular_common__WEBPACK_IMPORTED_MODULE_1__["APP_BASE_HREF"], useValue: '/' }
-            ]
-        })
-    ], AppRoutingModule);
-    return AppRoutingModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/app-routing/routes.ts":
-/*!***************************************!*\
-  !*** ./src/app/app-routing/routes.ts ***!
-  \***************************************/
-/*! exports provided: routes */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _financial_financial_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../financial/financial.component */ "./src/app/financial/financial.component.ts");
-/* harmony import */ var _spv_spv_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../spv/spv.component */ "./src/app/spv/spv.component.ts");
-/* harmony import */ var _inverstor_inverstor_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../inverstor/inverstor.component */ "./src/app/inverstor/inverstor.component.ts");
-/* harmony import */ var _totalfi_totalfi_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../totalfi/totalfi.component */ "./src/app/totalfi/totalfi.component.ts");
-/* harmony import */ var _monthlypayment_monthlypayment_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../monthlypayment/monthlypayment.component */ "./src/app/monthlypayment/monthlypayment.component.ts");
-/* harmony import */ var _purchaseloan_purchaseloan_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../purchaseloan/purchaseloan.component */ "./src/app/purchaseloan/purchaseloan.component.ts");
-/* harmony import */ var _createpack_createpack_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../createpack/createpack.component */ "./src/app/createpack/createpack.component.ts");
-/* harmony import */ var _spvpackdetail_spvpackdetail_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../spvpackdetail/spvpackdetail.component */ "./src/app/spvpackdetail/spvpackdetail.component.ts");
-/* harmony import */ var _investorpackdetail_investorpackdetail_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../investorpackdetail/investorpackdetail.component */ "./src/app/investorpackdetail/investorpackdetail.component.ts");
-/* harmony import */ var _purchasepack_purchasepack_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../purchasepack/purchasepack.component */ "./src/app/purchasepack/purchasepack.component.ts");
-/* harmony import */ var _metamask_error_metamask_error_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../metamask-error/metamask-error.component */ "./src/app/metamask-error/metamask-error.component.ts");
-/* harmony import */ var _financialreg_financialreg_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../financialreg/financialreg.component */ "./src/app/financialreg/financialreg.component.ts");
-/* harmony import */ var _investorreg_investorreg_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../investorreg/investorreg.component */ "./src/app/investorreg/investorreg.component.ts");
-/* harmony import */ var _spvreg_spvreg_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../spvreg/spvreg.component */ "./src/app/spvreg/spvreg.component.ts");
-/* harmony import */ var _Authguard_financial_guard__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Authguard/financial.guard */ "./src/app/Authguard/financial.guard.ts");
-/* harmony import */ var _Authguard_spv_guard__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Authguard/spv.guard */ "./src/app/Authguard/spv.guard.ts");
-/* harmony import */ var _Authguard_investor_guard__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../Authguard/investor.guard */ "./src/app/Authguard/investor.guard.ts");
-
-
-//import { BorrowerComponent } from '../borrower/borrower.component';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var routes = [
-    {
-        path: 'metamask',
-        component: _metamask_error_metamask_error_component__WEBPACK_IMPORTED_MODULE_11__["MetamaskErrorComponent"],
-    },
-    { path: 'home',
-        component: _home_home_component__WEBPACK_IMPORTED_MODULE_0__["HomeComponent"]
-    },
-    {
-        path: 'financial',
-        component: _financial_financial_component__WEBPACK_IMPORTED_MODULE_1__["FinancialComponent"],
-        canActivate: [_Authguard_financial_guard__WEBPACK_IMPORTED_MODULE_15__["FinancialGuard"]]
-    },
-    { path: 'fireg',
-        component: _financialreg_financialreg_component__WEBPACK_IMPORTED_MODULE_12__["FinancialregComponent"],
-    },
-    // { 
-    //     path:'Borrower',
-    //     component:BorrowerComponent 
-    // },
-    {
-        path: 'totalfi',
-        component: _totalfi_totalfi_component__WEBPACK_IMPORTED_MODULE_4__["TotalfiComponent"]
-    },
-    {
-        path: 'Monthlypayment',
-        component: _monthlypayment_monthlypayment_component__WEBPACK_IMPORTED_MODULE_5__["MonthlypaymentComponent"]
-    },
-    // { 
-    //     path:'Borrower',
-    //     component:BorrowerComponent 
-    // },
-    { path: 'spvreg',
-        component: _spvreg_spvreg_component__WEBPACK_IMPORTED_MODULE_14__["SpvregComponent"],
-    },
-    {
-        path: 'SPV',
-        component: _spv_spv_component__WEBPACK_IMPORTED_MODULE_2__["SPVComponent"],
-        canActivate: [_Authguard_spv_guard__WEBPACK_IMPORTED_MODULE_16__["SpvGuard"]]
-    },
-    {
-        path: 'purchaseloan',
-        component: _purchaseloan_purchaseloan_component__WEBPACK_IMPORTED_MODULE_6__["PurchaseloanComponent"],
-        canActivate: [_Authguard_spv_guard__WEBPACK_IMPORTED_MODULE_16__["SpvGuard"]]
-    },
-    {
-        path: 'createpack',
-        component: _createpack_createpack_component__WEBPACK_IMPORTED_MODULE_7__["CreatepackComponent"],
-        canActivate: [_Authguard_spv_guard__WEBPACK_IMPORTED_MODULE_16__["SpvGuard"]]
-    },
-    {
-        path: 'spvpackdetail',
-        component: _spvpackdetail_spvpackdetail_component__WEBPACK_IMPORTED_MODULE_8__["SpvpackdetailComponent"],
-        canActivate: [_Authguard_spv_guard__WEBPACK_IMPORTED_MODULE_16__["SpvGuard"]]
-    },
-    { path: 'inverstorreg',
-        component: _investorreg_investorreg_component__WEBPACK_IMPORTED_MODULE_13__["InvestorregComponent"],
-    },
-    {
-        path: 'Investor',
-        component: _inverstor_inverstor_component__WEBPACK_IMPORTED_MODULE_3__["InverstorComponent"],
-        canActivate: [_Authguard_investor_guard__WEBPACK_IMPORTED_MODULE_17__["InvestorGuard"]]
-    },
-    {
-        path: 'Purchasepack',
-        component: _purchasepack_purchasepack_component__WEBPACK_IMPORTED_MODULE_10__["PurchasepackComponent"],
-        canActivate: [_Authguard_investor_guard__WEBPACK_IMPORTED_MODULE_17__["InvestorGuard"]]
-    },
-    {
-        path: 'Investorpackdetail',
-        component: _investorpackdetail_investorpackdetail_component__WEBPACK_IMPORTED_MODULE_9__["InvestorpackdetailComponent"],
-        canActivate: [_Authguard_investor_guard__WEBPACK_IMPORTED_MODULE_17__["InvestorGuard"]]
-    },
-    {
-        path: '',
-        redirectTo: 'Fi',
-        pathMatch: 'full'
-    }
-];
-
-
-/***/ }),
-
-/***/ "./src/app/app.component.css":
-/*!***********************************!*\
-  !*** ./src/app/app.component.css ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/app.component.html":
-/*!************************************!*\
-  !*** ./src/app/app.component.html ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-3\">\r\n        <app-header></app-header>\r\n    </div>\r\n    <div class=\"col-sm-9\">\r\n        <router-outlet></router-outlet>\r\n    </div>\r\n</div>\r\n\r\n\r\n"
-
-/***/ }),
-
-/***/ "./src/app/app.component.ts":
-/*!**********************************!*\
-  !*** ./src/app/app.component.ts ***!
-  \**********************************/
-/*! exports provided: AppComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var AppComponent = /** @class */ (function () {
-    function AppComponent() {
-        this.title = 'app';
-    }
-    AppComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-root',
-            template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
-            styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
-    ], AppComponent);
-    return AppComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/app.module.ts":
-/*!*******************************!*\
-  !*** ./src/app/app.module.ts ***!
-  \*******************************/
-/*! exports provided: AppModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _financial_financial_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./financial/financial.component */ "./src/app/financial/financial.component.ts");
-/* harmony import */ var _spv_spv_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./spv/spv.component */ "./src/app/spv/spv.component.ts");
-/* harmony import */ var _inverstor_inverstor_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./inverstor/inverstor.component */ "./src/app/inverstor/inverstor.component.ts");
-/* harmony import */ var _metamask_error_metamask_error_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./metamask-error/metamask-error.component */ "./src/app/metamask-error/metamask-error.component.ts");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-/* harmony import */ var _app_routing_app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing/app-routing.module */ "./src/app/app-routing/app-routing.module.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _financialreg_financialreg_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./financialreg/financialreg.component */ "./src/app/financialreg/financialreg.component.ts");
-/* harmony import */ var _spvreg_spvreg_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./spvreg/spvreg.component */ "./src/app/spvreg/spvreg.component.ts");
-/* harmony import */ var _investorreg_investorreg_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./investorreg/investorreg.component */ "./src/app/investorreg/investorreg.component.ts");
-/* harmony import */ var _totalfi_totalfi_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./totalfi/totalfi.component */ "./src/app/totalfi/totalfi.component.ts");
-/* harmony import */ var _monthlypayment_monthlypayment_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./monthlypayment/monthlypayment.component */ "./src/app/monthlypayment/monthlypayment.component.ts");
-/* harmony import */ var _purchasepack_purchasepack_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./purchasepack/purchasepack.component */ "./src/app/purchasepack/purchasepack.component.ts");
-/* harmony import */ var _createpack_createpack_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./createpack/createpack.component */ "./src/app/createpack/createpack.component.ts");
-/* harmony import */ var _spvpackdetail_spvpackdetail_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./spvpackdetail/spvpackdetail.component */ "./src/app/spvpackdetail/spvpackdetail.component.ts");
-/* harmony import */ var _purchaseloan_purchaseloan_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./purchaseloan/purchaseloan.component */ "./src/app/purchaseloan/purchaseloan.component.ts");
-/* harmony import */ var _investorpackdetail_investorpackdetail_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./investorpackdetail/investorpackdetail.component */ "./src/app/investorpackdetail/investorpackdetail.component.ts");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./welcome/welcome.component */ "./src/app/welcome/welcome.component.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-//import { BorrowerComponent } from './borrower/borrower.component';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var AppModule = /** @class */ (function () {
-    function AppModule() {
-    }
-    AppModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"],
-                _financial_financial_component__WEBPACK_IMPORTED_MODULE_4__["FinancialComponent"],
-                //BorrowerComponent,
-                _spv_spv_component__WEBPACK_IMPORTED_MODULE_5__["SPVComponent"],
-                _inverstor_inverstor_component__WEBPACK_IMPORTED_MODULE_6__["InverstorComponent"],
-                _metamask_error_metamask_error_component__WEBPACK_IMPORTED_MODULE_7__["MetamaskErrorComponent"],
-                _header_header_component__WEBPACK_IMPORTED_MODULE_8__["HeaderComponent"],
-                _financialreg_financialreg_component__WEBPACK_IMPORTED_MODULE_12__["FinancialregComponent"],
-                _spvreg_spvreg_component__WEBPACK_IMPORTED_MODULE_13__["SpvregComponent"],
-                _investorreg_investorreg_component__WEBPACK_IMPORTED_MODULE_14__["InvestorregComponent"],
-                _totalfi_totalfi_component__WEBPACK_IMPORTED_MODULE_15__["TotalfiComponent"],
-                _monthlypayment_monthlypayment_component__WEBPACK_IMPORTED_MODULE_16__["MonthlypaymentComponent"],
-                _purchasepack_purchasepack_component__WEBPACK_IMPORTED_MODULE_17__["PurchasepackComponent"],
-                _createpack_createpack_component__WEBPACK_IMPORTED_MODULE_18__["CreatepackComponent"],
-                _spvpackdetail_spvpackdetail_component__WEBPACK_IMPORTED_MODULE_19__["SpvpackdetailComponent"],
-                _purchaseloan_purchaseloan_component__WEBPACK_IMPORTED_MODULE_20__["PurchaseloanComponent"],
-                _investorpackdetail_investorpackdetail_component__WEBPACK_IMPORTED_MODULE_21__["InvestorpackdetailComponent"],
-                _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_23__["WelcomeComponent"]
-            ],
-            imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _app_routing_app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_11__["ReactiveFormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
-                ngx_spinner__WEBPACK_IMPORTED_MODULE_22__["NgxSpinnerModule"]
-            ],
-            providers: [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_9__["ContactserviceService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
-        })
-    ], AppModule);
-    return AppModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/createpack/createpack.component.css":
-/*!*****************************************************!*\
-  !*** ./src/app/createpack/createpack.component.css ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/createpack/createpack.component.html":
-/*!******************************************************!*\
-  !*** ./src/app/createpack/createpack.component.html ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div><h1 style=\"color:#338ecf;text-align:center;\">Create Packs</h1></div> \r\n<br>\r\n    <div class=\"row\">   \r\n<div class=\"form-group col-sm-4\" id=\"create_pack\"> \r\n<div class=\"container\" style=\"border:3px solid #428bca;background:white;width:350px;height:200px;\">\r\n<div><h3 style=\"color: #338ecf;text-align:center;\">Create Pack</h3></div>\r\n<input type=\"text\" [(ngModel)]=\"pack_id\" #a value={{ids}}  class=\"form-control\" placeholder=\"loan id\" readonly/>\r\n<br>\r\n<input type=\"button\" [disabled]=button class=\"btn btn-primary\" #b (click)=\"createPack(a.value)\" value=\"Create\"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r\n<input type=\"button\" class=\"btn btn-danger\"  (click)=\"clear(a.value)\" value=\"Clear\"/>\r\n</div>\r\n</div>\r\n  \r\n</div>  \r\n&nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r\n<div class=\"row\">\r\n<div class=\"col-sm-8\" id=\"spv_loan_detail\">\r\n  <div class=\"container\" style=\"border:3px solid #428bca;background:white;overflow-y:auto;height:450px;\">\r\n    <div><h3 style=\"color:#338ecf;text-align:center;\">SPV Loan Details</h3><h3 style=\"color:#338ecf;text-align:right;\">Available Loan:{{loan}}</h3></div> \r\n    <table  class=\"table table-responsive-md\">\r\n    <thead>\r\n      <tr>\r\n        <th><h4 style=\"color: black;\">Loan Id</h4></th>\r\n        <th><h4 style=\"color: black;\">Token address</h4></th>\r\n        <th><h4 style=\"color: black;\">Token value</h4></th>\r\n        <th><h4 style=\"color: black;\">Bank Address</h4></th>\r\n        <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let bank of loandetails;\">\r\n            <td>{{bank.loanid}}</td>\r\n            <td>{{bank.tokenvalue}}</td>\r\n            <td>{{bank.tokenaddress}} </td>\r\n            <td>{{bank.bankaddress}}</td>\r\n            <td>{{bank.totalamount}}</td>\r\n            <td><button class=\"btn btn-primary\" (click)=\"selectloan(bank.loanid)\">SelectID</button></td>\r\n        </tr>\r\n    </tbody>\r\n  </table>\r\n  </div>\r\n</div>  \r\n</div>\r\n<ngx-spinner\r\n    bdColor=\"rgba(51,51,51,0.8)\"\r\n    size=\"medium\"\r\n    color=\"#fff\"\r\n    loadingText=\"Loading...\"\r\n    type=\"ball-scale-multiple\">\r\n</ngx-spinner>"
-
-/***/ }),
-
-/***/ "./src/app/createpack/createpack.component.ts":
-/*!****************************************************!*\
-  !*** ./src/app/createpack/createpack.component.ts ***!
-  \****************************************************/
-/*! exports provided: CreatepackComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreatepackComponent", function() { return CreatepackComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! web3 */ "./node_modules/web3/src/index.js");
+/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(web3__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ethereumjs-tx */ "./node_modules/ethereumjs-tx/es5/index.js");
+/* harmony import */ var ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
 /* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var CreatepackComponent = /** @class */ (function () {
-    function CreatepackComponent(spv, router, spinner) {
-        var _this = this;
-        this.spv = spv;
-        this.router = router;
-        this.spinner = spinner;
-        this.loanid = [];
-        this.ids = [];
-        this.details = [];
-        this.detail = [];
-        this.loandetails = [];
-        this.purdetails = [];
-        this.packdetails = [];
-        spv.getAccount().then(function (address) { return _this.address = address; });
-    }
-    CreatepackComponent.prototype.choosefi = function (bank_address) {
-        var _this = this;
-        this.spv.bank_reg(bank_address).then(function (val) {
-            for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                _this.spv.loandetails(val[9], j).then(function (result) {
-                    if (result[0] > 0) {
-                        _this.purdetails.push({ "loanid": result[0], "tokenaddress": result[7], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
-                    }
-                });
-            }
-        });
-    };
-    CreatepackComponent.prototype.selectloan = function (loanid) {
-        var ii = this.ids.length;
-        var i;
-        // console.log(ii);
-        // console.log(this.ids[0]);
-        if (ii == 0) {
-            this.ids.push(loanid);
-        }
-        else {
-            for (i = 0; i < this.ids.length; i++) {
-                if (parseInt(this.ids[i]) == loanid) {
-                    break;
-                }
-            }
-            if (i == this.ids.length) {
-                this.ids.push(loanid);
-            }
-        }
-    };
-    CreatepackComponent.prototype.clear = function (a) {
-        console.log("s");
-        this.ids.length = 0;
-        console.log(a = this.ids);
-        a = this.ids;
-    };
-    CreatepackComponent.prototype.createPack = function (a) {
-        var _this = this;
-        if (this.ids.length > 0) {
-            this.button = false;
-            this.spinner.show();
-            var value = a.split(",");
-            console.log(value);
-            for (var i = 0; i < value.length; i++) {
-                console.log(value.length);
-                this.loanid.push(parseInt(value[i]));
-            }
-            this.spv.createPack(this.loanid).then(function (res) {
-                console.log("Hash :" + res);
-                console.log(res[0]);
-                console.log(res.length);
-                if (1 === res.length) {
-                    _this.spinner.hide();
-                }
-                else
-                    _this.spv.hash(res).then(function (result) {
-                        console.log("result : " + result);
-                        _this.spinner.hide();
-                        _this.router.navigate(['']);
-                    });
-            });
-        }
-        else {
-            this.button = true;
-        }
-        this.button = false;
-    };
-    CreatepackComponent.prototype.pur_loan = function (loanid, bankaddress) {
-        this.spv.pur_loan(loanid, bankaddress).then(function (res) {
-        });
-    };
-    CreatepackComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.spv.getAccount().then(function (address) { return _this.address = address; });
-        this.spv.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        this.spv.spv_reg1().then(function (result) {
-            _this.details.push({ "spvaddress": _this.address, "totalamount": result[0], "totalloan": result[1], "availablepack": result[2] });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (result) {
-                    _this.detail.push({ "bank_address": result[9], "bank_name": result[10], "deposit_amount": result[0], "loan_interest": result[2] });
-                });
-            });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (val) {
-                    for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                        var a = j;
-                        _this.spv.loandetails(item, a).then(function (result) {
-                            _this.spv.spv_loanid(result[0]).then(function (result1) {
-                                if (_this.address == result1[0] && result1[3] != 1 && result[6] > result[5]) {
-                                    _this.loandetails.push({ "loanid": result[0], "tokenaddress": result[8], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
-                                }
-                            });
-                        });
-                        _this.spv.investortable1(_this.address).then(function (result1) {
-                            _this.loan = result1[3];
-                            console.log(result1[3]);
-                        });
-                    }
-                });
-            });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (val) {
-                    for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                        _this.spv.loandetails(item, j).then(function (result) {
-                            if (_this.address == result[3]) {
-                                _this.purdetails.push({ "loanid": result[0], "tokenaddress": result[7], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
-                            }
-                        });
-                    }
-                });
-            });
-        });
-        this.spv.spv_reg1().then(function (res) {
-            for (var i = res[5].toNumber(); i <= res[6].toNumber(); i++) {
-                _this.spv.loandetails(res[7], i).then(function (result) {
-                    var a = result[1] / 1000000000000000000;
-                    if (a > 0) {
-                        _this.packdetails.push({ "packid": result[0], "tokenvalue": a });
-                    }
-                });
-            }
-        });
-    };
-    CreatepackComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-createpack',
-            template: __webpack_require__(/*! ./createpack.component.html */ "./src/app/createpack/createpack.component.html"),
-            styles: [__webpack_require__(/*! ./createpack.component.css */ "./src/app/createpack/createpack.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"]])
-    ], CreatepackComponent);
-    return CreatepackComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/financial/financial.component.css":
-/*!***************************************************!*\
-  !*** ./src/app/financial/financial.component.css ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/financial/financial.component.html":
-/*!****************************************************!*\
-  !*** ./src/app/financial/financial.component.html ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div><h1 style=\"color:#338ecf;text-align:center;\">Financial Institution Details</h1></div> \r\n<br><br><br>\r\n                <div class=\"container\" style=\"border:3px solid #428bca;background:white;height:350px;overflow-y:auto;\">\r\n                                <div class=\"col-sm-12\" id=\"fidetail_hide1\">\r\n                        <h3 style=\"color: #338ecf;text-align:center;\">Financial Institute Details</h3> \r\n                <table  class=\"table table-responsive-md\">\r\n                        <thead>\r\n                        <tr>\r\n                        <th><h4 style=\"color: black;\">Financial Institute Address</h4></th>\r\n                        <th><h4 style=\"color: black;\">Bank Name</h4></th>\r\n                        <th><h4 style=\"color: black;\">Balance</h4></th>\r\n                        <th><h4 style=\"color: black;\">Fixed Int</h4></th>\r\n                        <th><h4 style=\"color: black;\">Duration</h4></th>\r\n                        </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                                <tr *ngFor=\"let bank of details;\">\r\n                                        <td color=\"white\">{{bank.bank_address}}</td>\r\n                                        <td >{{bank.bank_name}} </td>\r\n                                        <td>{{bank.deposit_amount}}</td>\r\n                                        <td>{{bank.loan_interest}}</td>\r\n                                        <td>{{bank.duration}}</td>\r\n                                </tr>\r\n                        </tbody>\r\n                </table>\r\n                </div>\r\n        </div> \r\n\r\n        <br><br><br>\r\n\r\n       \r\n                <div class=\"container\" style=\"border:3px solid #428bca;background:white;overflow-y:auto;height:350px;\">\r\n                                <div class=\"col-sm-12\" id=\"fidetail_hide1\">\r\n                        <h3 style=\"color: #338ecf;text-align:center;\">Financial Institute Loan Details</h3> \r\n                        <table  class=\"table table-responsive-md\">\r\n                                <thead>\r\n                                        <tr>\r\n                                                <th><h4 style=\"color: black;\">Loan Id</h4></th>\r\n                                                <th><h4 style=\"color: black;\">Token Address</h4></th>\r\n                                                <th><h4 style=\"color: black;\">token value</h4></th>\r\n                                                <th><h4 style=\"color: black;\">Borrower Address</h4></th>\r\n                                                <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n                                                <th><h4 style=\"color: black;\">Total Paid Ins.</h4></th>\r\n                                                <th><h4 style=\"color: black;\">Total Months</h4></th>\r\n                                                <th><h4 style=\"color: black;\">Balance Loan</h4></th>\r\n                                                <th><h4 style=\"color: black;\">Balance Installment</h4></th>\r\n                                        </tr>\r\n                                </thead>\r\n                                <tbody>\r\n                                        <tr *ngFor=\"let bank of loandetails;\">\r\n                                                <td>{{bank.loanid}}</td>\r\n                                                <td>{{bank.tokenaddress}} </td>\r\n                                                <td>{{bank.tokenvalue}}</td>\r\n                                                <td>{{bank.borroweraddress}}</td>\r\n                                                <td>{{bank.totalamount}}</td>\r\n                                                <td>{{bank.totalpaidins}}</td>\r\n                                                <td>{{bank.totalmonth}}</td>\r\n                                                <td>{{bank.balanceloan}}</td>\r\n                                                <td>{{bank.balanceins}}</td>\r\n                                        </tr>\r\n                                </tbody>\r\n                        </table>\r\n                </div>\r\n        </div>  \r\n\r\n\r\n \r\n \r\n \r\n \r\n \r\n "
-
-/***/ }),
-
-/***/ "./src/app/financial/financial.component.ts":
-/*!**************************************************!*\
-  !*** ./src/app/financial/financial.component.ts ***!
-  \**************************************************/
-/*! exports provided: FinancialComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FinancialComponent", function() { return FinancialComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! web3 */ "./node_modules/web3/index.js");
-/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(web3__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var FinancialComponent = /** @class */ (function () {
-    function FinancialComponent(reg, router) {
-        var _this = this;
-        this.reg = reg;
-        this.router = router;
-        this.details = [];
-        this.loandetails = [];
-        reg.getAccount().then(function (address) { return _this.address = address; });
-    }
-    FinancialComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.reg.getAccount().then(function (address) { return _this.address = address; });
-        this.reg.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        console.log(this.address);
-        var meta = this;
-        meta.reg.getUserBalance().then(function (balance) { return meta.balance = balance; });
-        meta.reg.getAccount().then(function (acc) {
-            _this.account = acc;
-            meta.id1 = setInterval(function () {
-                if (typeof window.web3 !== 'undefined') {
-                    meta._web3 = new web3__WEBPACK_IMPORTED_MODULE_2__(window.web3.currentProvider);
-                    if (meta._web3.eth.accounts[0] !== meta.account) {
-                        meta.account = meta._web3.eth.accounts[0];
-                        if (meta._web3.eth.accounts[0] === undefined) {
-                            meta.router.navigate(['metamask']);
-                            clearInterval(this.interval);
-                        }
-                        else {
-                            window.location.reload(true);
-                            // alert('Address Change Detected Please Refresh Page');
-                        }
-                    }
-                }
-                else {
-                    meta.router.navigate(['metamask']);
-                }
-            }, 200);
-        });
-        meta.id2 = setInterval(function () {
-            var _this = this;
-            meta.reg.getUserBalance().then(function (balance) { return _this.balance = balance; });
-            //meta.alltablework();
-        }, 20000);
-        this.reg.bank_reg1().then(function (obj) {
-            console.log(_this.address);
-            console.log("works");
-            console.log(obj);
-            var a = obj[2] / 100;
-            _this.details.push({ "bank_address": _this.address, "bank_name": obj[10], "deposit_amount": obj[0], "loan_interest": a, "duration": obj[1] });
-        });
-        this.reg.borrower_view_fi().then(function (obj) {
-            _this.reg.bank_reg1().then(function (val) {
-                for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                    _this.reg.loandetails(val[9], j).then(function (result) {
-                        var e = result[4] / val[1];
-                        var f = result[6] - result[5];
-                        var c = e * f;
-                        if (result[0] > 0) {
-                            _this.loandetails.push({ "loanid": result[0], "tokenaddress": result[8], "tokenvalue": result[1], "borroweraddress": result[3], "totalamount": result[4], "totalpaidins": result[5], "totalmonth": result[6], "balanceloan": c, "balanceins": e });
-                        }
-                    });
-                }
-            });
-        });
-    };
-    FinancialComponent.prototype.ngOnDestroy = function () {
-        if (this.id1) {
-            clearInterval(this.id1);
-        }
-        if (this.id2) {
-            clearInterval(this.id2);
-        }
-    };
-    FinancialComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-financial',
-            template: __webpack_require__(/*! ./financial.component.html */ "./src/app/financial/financial.component.html"),
-            styles: [__webpack_require__(/*! ./financial.component.css */ "./src/app/financial/financial.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
-    ], FinancialComponent);
-    return FinancialComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/financialreg/financialreg.component.css":
-/*!*********************************************************!*\
-  !*** ./src/app/financialreg/financialreg.component.css ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/* .container\r\n{\r\n    margin: 20% 50%;\r\n    \r\n} */\r\nbody {font-family: Arial, Helvetica, sans-serif;}\r\n* {box-sizing: border-box}\r\n/* Full-width input fields */\r\n/* input[type=text], input[type=password],input[type=number] {\r\n    width: 95%;\r\n    padding: 15px;\r\n    margin: 5px 0 22px 0;\r\n    display: inline-block;\r\n    border: none;\r\n    background: #f1f1f1;\r\n} */\r\ninput[type=text]:focus, input[type=password]:focus,input[type=number]:focus {\r\n    background-color: #ddd;\r\n    outline: none;\r\n}\r\nhr {\r\n    border: 1px solid #f1f1f1;\r\n    margin-bottom: 25px;\r\n}\r\n/* Set a style for all buttons */\r\nbutton {\r\n   \r\n    color: white;\r\n    padding: 14px 20px;\r\n    margin: 8px 0;\r\n    border: none;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    opacity: 0.9;\r\n}\r\nbutton:hover {\r\n    opacity:1;\r\n}\r\n/* Extra styles for the cancel button */\r\n.btn-danger {\r\n    padding: 14px 20px;\r\n    background-color: #f44336;\r\n}\r\n/* Float cancel and signup buttons and add an equal width */\r\n.btn-primary, .btn-danger {\r\n  float: left;\r\n  width: 50%;\r\n}\r\n/* Add padding to container elements */\r\n.container {\r\n    padding: 16px;\r\n}\r\n/* Clear floats */\r\n.clearfix::after {\r\n    content: \"\";\r\n    clear: both;\r\n    display: table;\r\n}\r\n/* Change styles for cancel button and signup button on extra small screens */\r\n@media screen and (max-width: 300px) {\r\n    .btn-primary, .btn-danger {\r\n       width: 100%;\r\n    }\r\n}\r\n"
-
-/***/ }),
-
-/***/ "./src/app/financialreg/financialreg.component.html":
-/*!**********************************************************!*\
-  !*** ./src/app/financialreg/financialreg.component.html ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<br><br><br>\r\n\r\n  <div class=\"container\" style=\"border:3px solid #428bca;background:white\">\r\n    <h1>Register The Financial Institution Here...</h1>\r\n    <p>Please fill in this form to create an account.</p>\r\n    <hr style=\"border:1px solid #428bca;\">\r\n\r\n    <form [formGroup]=\"angForm\" novalidate>\r\n  \r\n      <div class=\"form-group\">\r\n          <label>Bank Name:</label>\r\n          <input class=\"form-control\" formControlName=\"name\" type=\"text\" placeholder=\"Enter the Bank Name\" #a>\r\n      </div>\r\n      <div *ngIf=\"angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)\" class=\"alert alert-danger\" >\r\n          <div *ngIf=\"angForm.controls['name'].errors.required\">\r\n            BankName is required.\r\n          </div>\r\n      </div>\r\n\r\n       <div class=\"form-group\">\r\n          <label>Loan Interest</label>\r\n          <input class=\"form-control\" formControlName=\"address\" type=\"text\" placeholder=\"Enter the Loan Intrest \" #b> \r\n      </div>\r\n      <div *ngIf=\"angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls['address'].touched)\" class=\"alert alert-danger\">\r\n        <div *ngIf=\"angForm.controls['address'].errors.required\">\r\n            Loan Interest is required.\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"form-group\">\r\n          <label>Deposit Amount</label>\r\n          <input class=\"form-control\" formControlName=\"deposit\" type=\"text\" placeholder=\"Enter the Deposit Amount in Ether in Numbers \" #c>\r\n      </div>\r\n      <div *ngIf=\"angForm.controls['deposit'].invalid && (angForm.controls['deposit'].dirty || angForm.controls['deposit'].touched)\" class=\"alert alert-danger\">\r\n        <div *ngIf=\"angForm.controls['deposit'].errors.required\">\r\n          Deposit Amount is required.\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"form-group\">\r\n          <label>Duration(Total Months in Numbers)</label>\r\n          <input class=\"form-control\" formControlName=\"duration\" type=\"number\" placeholder=\"Enter the duration in Months\" #d>\r\n      </div>\r\n      <div *ngIf=\"angForm.controls['duration'].invalid && (angForm.controls['duration'].dirty || angForm.controls['duration'].touched)\" class=\"alert alert-danger\">\r\n        <div *ngIf=\"angForm.controls['duration'].errors.required\">\r\n          Duration is required.\r\n        </div>\r\n      </div>\r\n     \r\n      <button type=\"submit\"\r\n          [disabled]=\"angForm.pristine || angForm.invalid\" #b2 class=\"btn btn-primary\" (click)=\"register_bank(a.value,b.value,c.value,d.value)\">Register\r\n      </button>\r\n      <button type=\"submit\" class=\"btn btn-danger\" #b1 (click)=\"cancel()\">Cancel</button>\r\n</form>\r\n  \r\n\r\n\r\n<ngx-spinner\r\n  bdColor=\"rgba(51,51,51,0.8)\"\r\n  size=\"medium\"\r\n  color=\"#fff\"\r\n  loadingText=\"Loading...\"\r\n  type=\"ball-scale-multiple\">\r\n</ngx-spinner>\r\n"
-
-/***/ }),
-
-/***/ "./src/app/financialreg/financialreg.component.ts":
-/*!********************************************************!*\
-  !*** ./src/app/financialreg/financialreg.component.ts ***!
-  \********************************************************/
-/*! exports provided: FinancialregComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FinancialregComponent", function() { return FinancialregComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! web3 */ "./node_modules/web3/index.js");
-/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(web3__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var FinancialregComponent = /** @class */ (function () {
-    function FinancialregComponent(reg, router, spinner, fb) {
-        var _this = this;
-        this.reg = reg;
-        this.router = router;
-        this.spinner = spinner;
-        this.fb = fb;
-        reg.getAccount().then(function (address) { return _this.address = address; });
-        this.createForm();
-    }
-    FinancialregComponent.prototype.createForm = function () {
-        this.angForm = this.fb.group({
-            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            address: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            deposit: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            duration: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
-        });
-    };
-    FinancialregComponent.prototype.cancel = function () {
-        this.router.navigate(['home']);
-    };
-    FinancialregComponent.prototype.register_bank = function (a, b, c, d) {
-        var _this = this;
-        this.spinner.show();
-        //console.log(this.bank_name,this.loan_interest,this.deposit_amount,this.duration);
-        this.reg.register_bank1(a, b, c, d).then(function (res) {
-            console.log("Hash :" + res);
-            if (res === 0) {
-                _this.spinner.hide();
-            }
-            else
-                _this.reg.hash(res).then(function (result) {
-                    console.log("result : " + result);
-                    _this.spinner.hide();
-                    //this.router.navigate(['financial']);
-                    _this.reg.fi_check_registeration();
-                });
-        });
-    };
-    FinancialregComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        var meta = this;
-        meta.reg.getUserBalance().then(function (balance) { return meta.balance = balance; });
-        meta.reg.getAccount().then(function (acc) {
-            _this.account = acc;
-            meta.id1 = setInterval(function () {
-                if (typeof window.web3 !== 'undefined') {
-                    meta._web3 = new web3__WEBPACK_IMPORTED_MODULE_4__(window.web3.currentProvider);
-                    if (meta._web3.eth.accounts[0] !== meta.account) {
-                        meta.account = meta._web3.eth.accounts[0];
-                        if (meta._web3.eth.accounts[0] === undefined) {
-                            meta.router.navigate(['metamask']);
-                            clearInterval(this.interval);
-                        }
-                        else {
-                            window.location.reload(true);
-                            // alert('Address Change Detected Please Refresh Page');
-                        }
-                    }
-                }
-                else {
-                    meta.router.navigate(['metamask']);
-                }
-            }, 200);
-        });
-        meta.id2 = setInterval(function () {
-            var _this = this;
-            meta.reg.getUserBalance().then(function (balance) { return _this.balance = balance; });
-            //meta.alltablework();
-        }, 20000);
-    };
-    FinancialregComponent.prototype.ngOnDestroy = function () {
-        if (this.id1) {
-            clearInterval(this.id1);
-        }
-        if (this.id2) {
-            clearInterval(this.id2);
-        }
-    };
-    FinancialregComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-financialreg',
-            template: __webpack_require__(/*! ./financialreg.component.html */ "./src/app/financialreg/financialreg.component.html"),
-            styles: [__webpack_require__(/*! ./financialreg.component.css */ "./src/app/financialreg/financialreg.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]])
-    ], FinancialregComponent);
-    return FinancialregComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/header/header.component.css":
-/*!*********************************************!*\
-  !*** ./src/app/header/header.component.css ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "body,html{\r\n    height: 100%;\r\n}\r\n\r\n/* remove outer padding */\r\n\r\n.container-main .row{\r\n    padding: 0px;\r\n    margin: 0px;\r\n}\r\n\r\n/*Remove rounded coners*/\r\n\r\nnav.sidebar.navbar {\r\n    border-radius: 0px;\r\n}\r\n\r\nnav.sidebar, .container-main{\r\n    transition: margin 200ms ease-out;\r\n}\r\n\r\n/* Icons */\r\n\r\n.menu-icon {\r\n    font-size: 20px;\r\n}\r\n\r\n/* Add gap to nav and right windows.*/\r\n\r\n/*.container-main{\r\n    padding: 10px 10px 0 10px;\r\n}*/\r\n\r\n/* Colors */\r\n\r\n.navbar-m2p {\r\n    background-color: #3071a9;\r\n    border-color: #3071a9;\r\n    height: 2000%;\r\n}\r\n\r\n.navbar-m2p span, .navbar-m2p a {\r\n    color: #FFFFFF;\r\n}\r\n\r\n.active .dropdown-toggle {\r\n    background-color: #245682;\r\n    border-color: #245682;\r\n}\r\n\r\n.nav .open > a {\r\n    background-color: #245682;\r\n    border-color: #245682;\r\n}\r\n\r\n.nav li > a:hover, .nav .open > a:hover,\r\n.nav li > a:focus, .nav .open > a:focus,\r\n.nav li > a:active, .nav .open > a:active {\r\n    background-color: #245682;\r\n}\r\n\r\n.nav .open ul > li {\r\n    background-color: #428bca\r\n}\r\n\r\n.navbar-m2p .navbar-nav .open .dropdown-menu>li>a {\r\n    color: #FFFFFF;\r\n    padding: 10px;\r\n}\r\n\r\n/* borda menu active */\r\n\r\n.navbar-m2p .navbar-nav .active a {\r\n    margin-left: -1px;\r\n    border-left: 5px solid #428bca;\r\n}\r\n\r\n/* Hamburger */\r\n\r\n.navbar-toggle {\r\n    background-color: white;\r\n    border: 1px solid black;\r\n}\r\n\r\n.navbar-toggle .icon-bar,\r\n.navbar-toggle .icon-bar + .icon-bar {\r\n    background-color: #428bca;\r\n}\r\n\r\nnav:hover .forAnimate{\r\n    opacity: 1;\r\n}\r\n\r\n.navbar-m2p .dropdown-menu {\r\n    padding: 0px;\r\n}\r\n\r\n.nav li.separator {\r\n    padding: 10px 15px;\r\n    text-transform: uppercase;\r\n    background-color: #6aa3d5;\r\n    color: white;\r\n}\r\n\r\n.navbar-header\r\n{\r\n    background-color: black;\r\n}\r\n\r\n/* .....NavBar: Icon only with coloring/layout.....*/\r\n\r\n/*small/medium side display*/\r\n\r\n@media (min-width: 768px) {\r\n\r\n    /*Allow main to be next to Nav*/\r\n    .container-main{\r\n        position: absolute;\r\n        width: calc(100% - 40px); /*keeps 100% minus nav size*/\r\n        margin-left: 40px;\r\n        float: right;\r\n    }\r\n\r\n    /*lets nav bar to be showed on mouseover*/\r\n    nav.sidebar:hover + .container-main{\r\n        margin-left: 300px;\r\n    }\r\n\r\n    /*Center Brand*/\r\n    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {\r\n        margin-left: 0px;\r\n    }\r\n    /*Center Brand*/\r\n    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{\r\n        text-align: center;\r\n        width: 100%;\r\n        margin-left: 0px;\r\n        font-size: 25px;\r\n        line-height: 27px;\r\n    }\r\n\r\n    /*Center Icons*/\r\n    nav.sidebar a{\r\n        padding-right: 13px;\r\n    }\r\n\r\n    /* Colors/style dropdown box*/\r\n    nav.sidebar .navbar-nav .open .dropdown-menu {\r\n        position: static;\r\n        float: none;\r\n        width: auto;\r\n        margin-top: 0;\r\n        background-color: transparent;\r\n        border: 0;\r\n        box-shadow: none;\r\n    }\r\n\r\n    /*allows nav box to use 100% width*/\r\n    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{\r\n        padding: 0 1px 0 1px;\r\n    }\r\n\r\n    /*gives sidebar width/height*/\r\n    nav.sidebar{\r\n        width: 300px;\r\n        height: 100%;\r\n        position:fixed;\r\n        margin-left: -260px;\r\n        float: left;\r\n        z-index: 8000;\r\n        margin-bottom: 0px;\r\n    }\r\n\r\n    /*give sidebar 100% width;*/\r\n    nav.sidebar li {\r\n        width: 100%;\r\n    }\r\n\r\n    /* Move nav to full on mouse over*/\r\n    nav.sidebar:hover{\r\n        margin-left: 0px;\r\n    }\r\n    /*for hiden things when navbar hidden*/\r\n    .forAnimate{\r\n        opacity: 0;\r\n    }\r\n}\r\n\r\n/* .....NavBar: Fully showing nav bar..... */\r\n\r\n@media (min-width: 1330px) {\r\n\r\n    /*Allow main to be next to Nav*/\r\n    .container-main{\r\n        width: calc(100% - 300px); /*keeps 100% minus nav size*/\r\n        margin-left: 300px;\r\n    }\r\n\r\n    /*Show all nav*/\r\n    nav.sidebar{\r\n        margin-left: 0px;\r\n        float: left;\r\n    }\r\n    /*Show hidden items on nav*/\r\n    nav.sidebar .forAnimate{\r\n        opacity: 1;\r\n    }\r\n}"
-
-/***/ }),
-
-/***/ "./src/app/header/header.component.html":
-/*!**********************************************!*\
-  !*** ./src/app/header/header.component.html ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\r\n\r\n<nav class=\"navbar navbar-m2p sidebar\" role=\"navigation\">\r\n    <div class=\"container-fluid\">\r\n        <!-- Brand and toggle get grouped for better mobile display -->\r\n        <div class=\"navbar-header\">\r\n            <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-sidebar-navbar-collapse-1\">\r\n                <span class=\"sr-only\">Toggle navigation</span>\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n            </button>\r\n            <a class=\"navbar-brand\" href=\"#\">\r\n               <font size=\"5\"style=\"color: #6aa3d5\">LOAN</font><font size=\"4\">SECURITIZATION</font>\r\n            </a>\r\n        </div>\r\n        <!-- Collect the nav links, forms, and other content for toggling -->\r\n        <div class=\"collapse navbar-collapse\" id=\"bs-sidebar-navbar-collapse-1\">\r\n            <ul class=\"nav navbar-nav\">\r\n            <li class=\"separator\">Account Details</li>\r\n            <a>Account:</a><input type=\"text\" class=\"form-control\" value={{address}} placeholder=\"Address\"readonly/>\r\n             <a>Balance in Eth:</a><input type=\"text\" class=\"form-control\" value={{balance}} placeholder=\"Balance\"readonly/>\r\n             <li class=\"separator\">Content</li>\r\n                <!-- Home -->\r\n                <!-- <li class=\"active open\"> -->\r\n                        <li class=\"\">\r\n                    <a href=\"#\" routerLink=\"/home\" class=\"sidebar-title\">\r\n                      <span class=\"pull-right hidden-xs showopacity glyphicon material-icons\">av_timer</span>Home\r\n                  </a>\r\n                </li>\r\n                <!-- Financial Institution -->\r\n                <li class=\"\">\r\n                        <a href=\"#\" routerLink=\"/financial\"  class=\"sidebar-title\">\r\n                        <span class=\"menu-icon pull-right hidden-xs showopacity glyphicon material-icons\">burst_mode</span>Financial Institution\r\n                    </a>\r\n                </li>\r\n                <!-- Borrower -->\r\n                <li class=\"\">\r\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\r\n                        <span class=\"menu-icon pull-right hidden-xs showopacity glyphicon material-icons\">description</span>\r\n                        Borrower <span class=\"caret\"></span>\r\n                    </a>\r\n                    <ul class=\"dropdown-menu forAnimate\" role=\"menu\">\r\n                        <li><a href=\"#\" routerLink=\"/totalfi\" ><i class=\"material-icons\">add</i>Home</a></li>\r\n                        <li><a href=\"#\" routerLink=\"/Monthlypayment\" ><i class=\"material-icons\">add</i>Monthly Payment</a></li>\r\n                    </ul>\r\n                </li>\r\n                <!-- SPV -->\r\n                <li class=\"\">\r\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\r\n                        <span class=\"menu-icon pull-right hidden-xs showopacity glyphicon material-icons\">chat_bubble_outline</span>\r\n                        SPV <span class=\"caret\"></span>\r\n                    </a>\r\n                    <ul class=\"dropdown-menu forAnimate\" role=\"menu\">\r\n                            <li><a href=\"#\" routerLink=\"/SPV\" ><i class=\"material-icons\">add</i>Home</a></li>\r\n                            <li><a href=\"#\" routerLink=\"/purchaseloan\" ><i class=\"material-icons\">add</i>Purchase Loan</a></li>\r\n                            <li><a href=\"#\" routerLink=\"/createpack\" ><i class=\"material-icons\">add</i>Create Pack</a></li>\r\n                            <li><a href=\"#\" routerLink=\"/spvpackdetail\" ><i class=\"material-icons\">add</i>SPV Pack Detail</a></li>\r\n                    </ul>\r\n                </li>\r\n                <!-- Investor -->\r\n                <li class=\"dropdown\">\r\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\r\n                        <span style=\"font-size:16px;\" class=\"pull-right hidden-xs showopacity glyphicon material-icons\">label</span>\r\n                        Investor <span class=\"caret\"></span>\r\n                    </a>\r\n                    <ul class=\"dropdown-menu forAnimate\" role=\"menu\">\r\n                            <li><a href=\"#\" routerLink=\"/Investor\" ><i class=\"material-icons\">add</i>Home</a></li>\r\n                            <li><a href=\"#\" routerLink=\"/Purchasepack\" ><i class=\"material-icons\">add</i>Purchase Pack</a></li>\r\n                            <li><a href=\"#\" routerLink=\"/Investorpackdetail\" ><i class=\"material-icons\">add</i>Investor Pack Detail</a></li>\r\n                    </ul>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</nav>"
-
-/***/ }),
-
-/***/ "./src/app/header/header.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/header/header.component.ts ***!
-  \********************************************/
-/*! exports provided: HeaderComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! web3 */ "./node_modules/web3/index.js");
-/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(web3__WEBPACK_IMPORTED_MODULE_3__);
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent(take, router) {
-        var _this = this;
-        this.take = take;
-        this.router = router;
-        take.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        take.getAccount().then(function (address) { return _this.address = address; });
-    }
-    HeaderComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        var meta = this;
-        meta.take.getUserBalance().then(function (balance) { return meta.balance = balance; });
-        meta.take.getAccount().then(function (acc) {
-            _this.account = acc;
-            meta.id1 = setInterval(function () {
-                if (typeof window.web3 !== 'undefined') {
-                    meta._web3 = new web3__WEBPACK_IMPORTED_MODULE_3__(window.web3.currentProvider);
-                    if (meta._web3.eth.accounts[0] !== meta.account) {
-                        meta.account = meta._web3.eth.accounts[0];
-                        if (meta._web3.eth.accounts[0] === undefined) {
-                            meta.router.navigate(['metamask']);
-                            clearInterval(this.interval);
-                        }
-                        else {
-                            window.location.reload(true);
-                        }
-                    }
-                }
-                else {
-                    meta.router.navigate(['metamask']);
-                }
-            }, 200);
-        });
-        meta.id2 = setInterval(function () {
-            var _this = this;
-            meta.take.getUserBalance().then(function (balance) { return _this.balance = balance; });
-            //meta.alltablework();
-        }, 20000);
-    };
-    HeaderComponent.prototype.ngOnDestroy = function () {
-        if (this.id1) {
-            clearInterval(this.id1);
-        }
-        if (this.id2) {
-            clearInterval(this.id2);
-        }
-    };
-    HeaderComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-header',
-            template: __webpack_require__(/*! ./header.component.html */ "./src/app/header/header.component.html"),
-            styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/header/header.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
-    ], HeaderComponent);
-    return HeaderComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/home.component.css":
-/*!*****************************************!*\
-  !*** ./src/app/home/home.component.css ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/home/home.component.html":
-/*!******************************************!*\
-  !*** ./src/app/home/home.component.html ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/home/home.component.ts":
-/*!****************************************!*\
-  !*** ./src/app/home/home.component.ts ***!
-  \****************************************/
-/*! exports provided: HomeComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
-    }
-    HomeComponent.prototype.ngOnInit = function () {
-    };
-    HomeComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-home',
-            template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
-            styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], HomeComponent);
-    return HomeComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/inverstor/inverstor.component.css":
-/*!***************************************************!*\
-  !*** ./src/app/inverstor/inverstor.component.css ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "th,td \r\n{\r\n    text-align:center\r\n}\r\n.table-wrapper-2 \r\n{\r\n    display: block;\r\n    max-height: 300px;\r\n    overflow-y: auto;\r\n    overflow-y:scroll;\r\n}"
-
-/***/ }),
-
-/***/ "./src/app/inverstor/inverstor.component.html":
-/*!****************************************************!*\
-  !*** ./src/app/inverstor/inverstor.component.html ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div>\r\n  <h1 style=\"color:#338ecf;text-align:center;\">Investor Details</h1>\r\n</div>\r\n<div classs=\"container\">\r\n  <div id=\"invester_register\">\r\n    <div class=\"container\">\r\n                 \r\n                  <div class=\"container\" style=\"border:3px solid #428bca;background:white;height:200px;overflow-y:auto;\">\r\n                      <div class=\"col-sm-12\" id=\"investor_detail\">\r\n                    <h3 style=\"color: #338ecf;text-align:center;\">Investor  Details</h3>\r\n                                  <table class=\"table table-hover\" id=\"invesdetai_table\">\r\n                                      <thead>\r\n                                        <tr>\r\n                                          <th><h4 style=\"color: black;\">Investor Address</h4></th>\r\n                                          <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n                                          <th><h4 style=\"color: black;\">Package</h4></th>\r\n                                        </tr>\r\n                                      </thead>\r\n                                      <tbody>\r\n                                      <tr *ngFor=\"let investor of details;\">\r\n                                          <td >{{investor.investor_address}}</td>\r\n                                          <td >{{investor.Totalamt}} </td>\r\n                                          <td>{{investor.pack}}</td>\r\n                                      </tr>\r\n                      \r\n                                      </tbody>\r\n                                    </table>\r\n                    </div>\r\n                </div>  \r\n\r\n       \r\n      </div>\r\n      </div>\r\n  </div>\r\n\r\n"
-
-/***/ }),
-
-/***/ "./src/app/inverstor/inverstor.component.ts":
-/*!**************************************************!*\
-  !*** ./src/app/inverstor/inverstor.component.ts ***!
-  \**************************************************/
-/*! exports provided: InverstorComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InverstorComponent", function() { return InverstorComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var InverstorComponent = /** @class */ (function () {
-    function InverstorComponent(inv) {
-        var _this = this;
-        this.inv = inv;
-        this.details = [];
-        this.details1 = [];
-        this.spvdetails = [];
-        this.packdetails = [];
-        inv.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        inv.getAccount().then(function (address) { return _this.address = address; });
-    }
-    // inv_reg(){
-    //   alert("hai");
-    //  console.log(this.inves_ether);
-    //  this.inv.Investorether(this.inves_ether).then((res)=>{
-    //     alert("second")
-    //     console.log(res)
-    //  });
-    // }
-    InverstorComponent.prototype.pur_pack = function () {
-        alert("hai");
-        console.log(this.spvaddress);
-        this.inv.purchasepack(this.packageid, this.spvaddress).then(function (res) {
-            alert("second");
-            console.log(res);
-        });
-    };
-    InverstorComponent.prototype.choosespv = function (spvaddress) {
-        var _this = this;
-        this.inv.spv_reg2(spvaddress).then(function (res) {
-            for (var i = res[5].toNumber(); i <= res[6].toNumber(); i++) {
-                _this.inv.loandetails(res[7], i).then(function (result) {
-                    if (result[0] > 0) {
-                        var a = result[1] / 1000000000000000000;
-                        _this.packdetails.push({ "packid": result[0], "tokenvalue": a });
-                    }
-                });
-            }
-        });
-    };
-    InverstorComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.inv.getAccount().then(function (address) { return _this.address = address; });
-        this.inv.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        console.log(this.address);
-        this.inv.investordetails().then(function (obj) {
-            _this.inv.investortable().then(function (obj1) {
-                if (obj[12] > 0)
-                    _this.details.push({ "investor_address": obj[8], "Totalamt": obj[12], "pack": obj1[0] });
-            });
-        });
-        this.inv.spv_details().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.inv.spv_reg2(item).then(function (result) {
-                    _this.spvdetails.push({ "spvaddress": result[7], "totalamount": result[11], "totalloan": result[1], "availablepack": result[13] });
-                });
-            });
-        });
-        this.inv.spv_details().then(function (obj) {
-            obj.forEach(function (item) {
-                console.log(item);
-                _this.inv.spv_reg2(item).then(function (res) {
-                    console.log(res);
-                    for (var i = res[5].toNumber(); i <= res[6].toNumber(); i++) {
-                        console.log(i);
-                        _this.inv.loandetails1(i).then(function (result) {
-                            console.log(result[0]);
-                            if (result[0] > 0) {
-                                var a = result[1] / 1000000000000000000;
-                                _this.details1.push({ "investor_package": result[0], "token_value": a });
-                            }
-                        });
-                    }
-                });
-            });
-        });
-    };
-    InverstorComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-inverstor',
-            template: __webpack_require__(/*! ./inverstor.component.html */ "./src/app/inverstor/inverstor.component.html"),
-            styles: [__webpack_require__(/*! ./inverstor.component.css */ "./src/app/inverstor/inverstor.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"]])
-    ], InverstorComponent);
-    return InverstorComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/investorpackdetail/investorpackdetail.component.css":
-/*!*********************************************************************!*\
-  !*** ./src/app/investorpackdetail/investorpackdetail.component.css ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/investorpackdetail/investorpackdetail.component.html":
-/*!**********************************************************************!*\
-  !*** ./src/app/investorpackdetail/investorpackdetail.component.html ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div><h1 style=\"color:#338ecf;text-align:center;\">Investor Pack Details</h1></div> \r\n<br>\r\n<br><br>\r\n    <div class=\"col-sm-2\" id=\"invester_pack_details\">\r\n      <div class=\"container\" style=\"border:3px solid #428bca;background:white;height:350px;overflow-y:auto;\">\r\n        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <h3 style=\"color: #338ecf;text-align:center;\">Inverstor Package Details</h3></div> \r\n      <table class=\"table table-hover\" id=\"inves_loan_table\">\r\n          <thead>\r\n            <tr>\r\n              <th><h4 style=\"color: black;\">Package Id</h4></th>\r\n              <th><h4 style=\"color: black;\">Total Amount</h4></th>            \r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n              <tr *ngFor=\"let investorpackage of details1;\">\r\n                  <td >{{investorpackage.investor_package}}</td>\r\n                  <td >{{investorpackage.token_value}} </td>\r\n               </tr>\r\n\r\n          </tbody>\r\n        </table>\r\n        </div>\r\n    </div>  \r\n  "
-
-/***/ }),
-
-/***/ "./src/app/investorpackdetail/investorpackdetail.component.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/investorpackdetail/investorpackdetail.component.ts ***!
-  \********************************************************************/
-/*! exports provided: InvestorpackdetailComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InvestorpackdetailComponent", function() { return InvestorpackdetailComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-// import { Component, OnInit } from '@angular/core';
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-// @Component({
-//   selector: 'app-investorpackdetail',
-//   templateUrl: './investorpackdetail.component.html',
-//   styleUrls: ['./investorpackdetail.component.css']
-// })
-// export class InvestorpackdetailComponent implements OnInit {
-//   constructor() { }
-//   ngOnInit() {
-//   }
-// }
-
-
-var InvestorpackdetailComponent = /** @class */ (function () {
-    function InvestorpackdetailComponent(inv) {
-        var _this = this;
-        this.inv = inv;
-        this.details = [];
-        this.details1 = [];
-        this.spvdetails = [];
-        this.packdetails = [];
-        inv.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        inv.getAccount().then(function (address) { return _this.address = address; });
-    }
-    // inv_reg(){
-    //   alert("hai");
-    //  console.log(this.inves_ether);
-    //  this.inv.Investorether(this.inves_ether).then((res)=>{
-    //     alert("second")
-    //     console.log(res)
-    //  });
-    // }
-    InvestorpackdetailComponent.prototype.pur_pack = function () {
-        alert("hai");
-        console.log(this.spvaddress);
-        this.inv.purchasepack(this.packageid, this.spvaddress).then(function (res) {
-            alert("second");
-            console.log(res);
-        });
-    };
-    InvestorpackdetailComponent.prototype.choosespv = function (spvaddress) {
-        var _this = this;
-        this.inv.spv_reg2(spvaddress).then(function (res) {
-            for (var i = res[5].toNumber(); i <= res[6].toNumber(); i++) {
-                _this.inv.loandetails(res[7], i).then(function (result) {
-                    if (result[0] > 0) {
-                        var a = result[1] / 1000000000000000000;
-                        _this.packdetails.push({ "packid": result[0], "tokenvalue": a });
-                    }
-                });
-            }
-        });
-    };
-    InvestorpackdetailComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.inv.getAccount().then(function (address) { return _this.address = address; });
-        this.inv.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        console.log(this.address);
-        this.inv.investordetails().then(function (obj) {
-            if (obj[0] > 0)
-                _this.details.push({ "investor_address": obj[8], "Totalamt": obj[0], "pack": obj[2] });
-        });
-        this.inv.spv_details().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.inv.spv_reg2(item).then(function (result) {
-                    _this.spvdetails.push({ "spvaddress": result[7], "totalamount": result[0], "totalloan": result[1], "availablepack": result[2] });
-                });
-            });
-        });
-        this.inv.spv_details().then(function (obj) {
-            obj.forEach(function (item) {
-                console.log(item);
-                _this.inv.spv_reg2(item).then(function (res) {
-                    console.log(res);
-                    for (var i = res[5].toNumber(); i <= res[6].toNumber(); i++) {
-                        console.log(i);
-                        _this.inv.loandetails1(i).then(function (result) {
-                            if (result[0] > 0) {
-                                var a = result[1] / 1000000000000000000;
-                                _this.details1.push({ "investor_package": result[0], "token_value": a });
-                            }
-                        });
-                    }
-                });
-            });
-        });
-    };
-    InvestorpackdetailComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-investorpackdetail',
-            template: __webpack_require__(/*! ./investorpackdetail.component.html */ "./src/app/investorpackdetail/investorpackdetail.component.html"),
-            styles: [__webpack_require__(/*! ./investorpackdetail.component.css */ "./src/app/investorpackdetail/investorpackdetail.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"]])
-    ], InvestorpackdetailComponent);
-    return InvestorpackdetailComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/investorreg/investorreg.component.css":
-/*!*******************************************************!*\
-  !*** ./src/app/investorreg/investorreg.component.css ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/* .container\r\n{\r\n    margin: 20% 50%;\r\n    \r\n} */\r\nbody {font-family: Arial, Helvetica, sans-serif;}\r\n* {box-sizing: border-box}\r\n/* Full-width input fields */\r\n/* input[type=text], input[type=password],input[type=number] {\r\n    width: 95%;\r\n    padding: 15px;\r\n    margin: 5px 0 22px 0;\r\n    display: inline-block;\r\n    border: none;\r\n    background: #f1f1f1;\r\n} */\r\ninput[type=text]:focus, input[type=password]:focus,input[type=number]:focus {\r\n    background-color: #ddd;\r\n    outline: none;\r\n}\r\nhr {\r\n    border: 1px solid #f1f1f1;\r\n    margin-bottom: 25px;\r\n}\r\n/* Set a style for all buttons */\r\nbutton {\r\n   \r\n    color: white;\r\n    padding: 14px 20px;\r\n    margin: 8px 0;\r\n    border: none;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    opacity: 0.9;\r\n}\r\nbutton:hover {\r\n    opacity:1;\r\n}\r\n/* Extra styles for the cancel button */\r\n.btn-danger {\r\n    padding: 14px 20px;\r\n    background-color: #f44336;\r\n}\r\n/* Float cancel and signup buttons and add an equal width */\r\n.btn-primary, .btn-danger {\r\n  float: left;\r\n  width: 50%;\r\n}\r\n/* Add padding to container elements */\r\n.container {\r\n    padding: 16px;\r\n}\r\n/* Clear floats */\r\n.clearfix::after {\r\n    content: \"\";\r\n    clear: both;\r\n    display: table;\r\n}\r\n/* Change styles for cancel button and signup button on extra small screens */\r\n@media screen and (max-width: 300px) {\r\n    .btn-primary, .btn-danger {\r\n       width: 100%;\r\n    }\r\n}\r\n"
-
-/***/ }),
-
-/***/ "./src/app/investorreg/investorreg.component.html":
-/*!********************************************************!*\
-  !*** ./src/app/investorreg/investorreg.component.html ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\r\n<div class=\"container\">\r\n  \r\n      <div class=\"container\" style=\"border:3px solid #428bca;;background:white\">\r\n          <h1>Register The Investor Here...</h1>\r\n          <p>Please fill in this form to create an account.</p>\r\n          <hr style=\"border:1px solid #428bca;\">\r\n          <form [formGroup]=\"angForm\" #fid novalidate>\r\n      \r\n            <div class=\"form-group\">\r\n                <label>Deposit Amount</label>\r\n                <input class=\"form-control\" formControlName=\"amt\" type=\"text\" placeholder=\"Enter the amount in Ether\" #a>\r\n            </div>\r\n            <div *ngIf=\"angForm.controls['amt'].invalid && (angForm.controls['amt'].dirty || angForm.controls['amt'].touched)\" class=\"alert alert-danger\" >\r\n                <div *ngIf=\"angForm.controls['amt'].errors.required\">\r\n                  Deposit is required.\r\n                </div>\r\n            </div>\r\n            <button type=\"submit\"\r\n                [disabled]=\"angForm.pristine || angForm.invalid\" class=\"btn btn-primary\" (click)=\"inv_reg(a.value)\">Register\r\n            </button>\r\n            <button type=\"submit\" class=\"btn btn-danger\" (click)=\"fid.reset()\">Cancel</button>\r\n      </form>\r\n        </div>\r\n    \r\n  \r\n</div>\r\n\r\n\r\n<ngx-spinner\r\n      bdColor=\"rgba(51,51,51,0.8)\"\r\n      size=\"medium\"\r\n      color=\"#fff\"\r\n      loadingText=\"Loading...\"\r\n      type=\"ball-scale-multiple\">\r\n</ngx-spinner>\r\n\r\n<ngx-spinner></ngx-spinner>\r\n"
-
-/***/ }),
-
-/***/ "./src/app/investorreg/investorreg.component.ts":
-/*!******************************************************!*\
-  !*** ./src/app/investorreg/investorreg.component.ts ***!
-  \******************************************************/
-/*! exports provided: InvestorregComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InvestorregComponent", function() { return InvestorregComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var InvestorregComponent = /** @class */ (function () {
-    function InvestorregComponent(inv, router, spinner, fb) {
-        var _this = this;
-        this.inv = inv;
-        this.router = router;
-        this.spinner = spinner;
-        this.fb = fb;
-        inv.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        inv.getAccount().then(function (address) { return _this.address = address; });
-        this.createForm();
-    }
-    InvestorregComponent.prototype.createForm = function () {
-        this.angForm = this.fb.group({
-            amt: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]
-        });
-    };
-    InvestorregComponent.prototype.cancel = function () {
-        this.router.navigate(['home']);
-    };
-    InvestorregComponent.prototype.inv_reg = function (a) {
-        var _this = this;
-        this.spinner.show();
-        console.log(a);
-        this.inv.Investorether(a).then(function (res) {
-            console.log("Hash :" + res);
-            if (res === 0) {
-                _this.spinner.hide();
-            }
-            else
-                _this.inv.hash(res).then(function (result) {
-                    console.log("result : " + result);
-                    _this.spinner.hide();
-                    _this.router.navigate(['Investor']);
-                });
-        });
-    };
-    InvestorregComponent.prototype.ngOnInit = function () {
-    };
-    InvestorregComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-investorreg',
-            template: __webpack_require__(/*! ./investorreg.component.html */ "./src/app/investorreg/investorreg.component.html"),
-            styles: [__webpack_require__(/*! ./investorreg.component.css */ "./src/app/investorreg/investorreg.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]])
-    ], InvestorregComponent);
-    return InvestorregComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/metamask-error/metamask-error.component.css":
-/*!*************************************************************!*\
-  !*** ./src/app/metamask-error/metamask-error.component.css ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".center {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    width: 50%;\r\n}"
-
-/***/ }),
-
-/***/ "./src/app/metamask-error/metamask-error.component.html":
-/*!**************************************************************!*\
-  !*** ./src/app/metamask-error/metamask-error.component.html ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<html>\r\n\t<head>\r\n\t\t<title>Ethereum Account Connectivity Error Page</title>\r\n\t</head>\r\n\t<body>\r\n\t\t<br><br><br>\r\n\t\t <img class=\"center\" src=\"./assets/metamask-fox-logo.png\"/> \r\n\t\t\r\n\t\t\t<p style=\"text-align:center\">\r\n\t\t\t\t<br>There was an error while fetching your account.\r\n\t\t\t\t<br>Make sure your Ethereum client is configured correctly\r\n\r\n\t\t\t\t<br>Tips:\r\n\t\t\t\t<br>Ensure you unlocked your MetaMask plugin.\r\n\t\t\t\t<br>If you don't have MetaMask plugin install here: \r\n\t\t\t\t<br><a href =\"https://metamask.io/ \">https://metamask.io/</a>\r\n\t\t\t</p>\r\n\t\r\n\t</body>\r\n</html>"
-
-/***/ }),
-
-/***/ "./src/app/metamask-error/metamask-error.component.ts":
-/*!************************************************************!*\
-  !*** ./src/app/metamask-error/metamask-error.component.ts ***!
-  \************************************************************/
-/*! exports provided: MetamaskErrorComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MetamaskErrorComponent", function() { return MetamaskErrorComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! web3 */ "./node_modules/web3/index.js");
-/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(web3__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var MetamaskErrorComponent = /** @class */ (function () {
-    function MetamaskErrorComponent(wcs, router) {
-        this.wcs = wcs;
-        this.router = router;
-    }
-    MetamaskErrorComponent.prototype.ngOnInit = function () {
-        var meta = this;
-        this.id1 = setInterval(function () {
-            if (typeof window.web3 !== 'undefined') {
-                meta._web3 = new web3__WEBPACK_IMPORTED_MODULE_2__(window.web3.currentProvider);
-                if (meta._web3.eth.accounts[0] !== undefined) {
-                    meta.router.navigate(['home']);
-                }
-            }
-        }, 200);
-    };
-    MetamaskErrorComponent.prototype.ngOnDestroy = function () {
-        if (this.id1) {
-            clearInterval(this.id1);
-        }
-    };
-    MetamaskErrorComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-metamask-error',
-            template: __webpack_require__(/*! ./metamask-error.component.html */ "./src/app/metamask-error/metamask-error.component.html"),
-            styles: [__webpack_require__(/*! ./metamask-error.component.css */ "./src/app/metamask-error/metamask-error.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_3__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
-    ], MetamaskErrorComponent);
-    return MetamaskErrorComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/monthlypayment/monthlypayment.component.css":
-/*!*************************************************************!*\
-  !*** ./src/app/monthlypayment/monthlypayment.component.css ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/monthlypayment/monthlypayment.component.html":
-/*!**************************************************************!*\
-  !*** ./src/app/monthlypayment/monthlypayment.component.html ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div><h1 style=\"color:#338ecf;text-align:center;\">Monthly Payment</h1></div> \r\n<br><br><br>\r\n<div class=\"col-sm-12\" id=\"borrrow_hide\">\r\n    <div class=\"container\" style=\"border:3px solid #428bca;background:white;overflow-y:auto;height:450px;\">\r\n              <h3 style=\"color: #338ecf;text-align:center;\">Borrower Loan Details</h3>\r\n        <table class=\"table table-responsive-md\">\r\n        <!-- <thead class=\"mdb-color lighten-4\"> -->\r\n                    <tr>\r\n                      <th><h4 style=\"color: black;\">Loan Id</h4></th>\r\n                      <th><h4 style=\"color: black;\">Token Address</h4></th>\r\n                      <th><h4 style=\"color: black;\">Token value</h4></th>\r\n                      <!-- <th><h4 style=\"color: black;\">Token name</h4></th> -->\r\n                      <th><h4 style=\"color: black;\">Bank Address</h4></th>\r\n                      <!-- <th><h4 style=\"color: black;\">Borrower Address<h4></th> -->\r\n                      <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n                      <th><h4 style=\"color: black;\">Total Paid Ins.</h4></th>\r\n                      <!-- <th><h4 style=\"color: black;\">Last Paid</h4></th> -->\r\n                      <th><h4 style=\"color: black;\">Total Months</h4></th>\r\n                      <th><h4 style=\"color: black;\">Balance Loan</h4></th>\r\n                      <th><h4 style=\"color: black;\">Balance Installment</h4></th>\r\n                    </tr>\r\n                  <!-- </thead> -->\r\n                  <tbody id=\"get_loan_list\">\r\n                    <tr *ngFor=\"let bank of loandetails;\">\r\n                        <td>{{bank.loanid}}</td>\r\n                        <td>{{bank.tokenaddress}} </td>\r\n                        <td>{{bank.tokenvalue}}</td>\r\n                        <td>{{bank.bankaddress}}</td>\r\n                        <td>{{bank.totalamount}}</td>\r\n                        <td>{{bank.totalpaidins}}</td>\r\n                        <td>{{bank.totalmonth}}</td>\r\n                        <td>{{bank.balanceloan}}</td>\r\n                        <td>{{bank.balanceins}}</td>\r\n                        <td><button  class=\"btn btn-primary\"  (click)=\"MonthlyPayment(bank.loanid,bank.bankaddress,bank.balanceins)\">Payment</button></td>\r\n                        <!-- <td><a class=\"btn btn-primary\" (click)=\"delete(data.id)\"><i class=\"fa fa-trash\"></i></a></td> -->\r\n                    </tr>     \r\n                  </tbody>\r\n                </table>\r\n</div>\r\n   </div>\r\n\r\n\r\n   <ngx-spinner\r\n              bdColor=\"rgba(51,51,51,0.8)\"\r\n              size=\"medium\"\r\n              color=\"#fff\"\r\n              loadingText=\"Loading...\"\r\n              type=\"ball-scale-multiple\">\r\n        </ngx-spinner>"
-
-/***/ }),
-
-/***/ "./src/app/monthlypayment/monthlypayment.component.ts":
-/*!************************************************************!*\
-  !*** ./src/app/monthlypayment/monthlypayment.component.ts ***!
-  \************************************************************/
-/*! exports provided: MonthlypaymentComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MonthlypaymentComponent", function() { return MonthlypaymentComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-// declare let window: any;
-// import * as Web3 from 'web3';
-
-
-var MonthlypaymentComponent = /** @class */ (function () {
-    function MonthlypaymentComponent(get, router, spinner) {
-        var _this = this;
-        this.get = get;
-        this.router = router;
-        this.spinner = spinner;
-        this.alldetails = [];
-        this.loandetails = [];
-        this.isButtonVisible = true;
-        get.getAccount().then(function (address) { return _this.address = address; });
-        get.borrower_view_fi();
-    }
-    MonthlypaymentComponent.prototype.MonthlyPayment = function (loanid, bankaddress, balanceins) {
-        var _this = this;
-        this.spinner.show();
-        this.get.MonthlyPayment(loanid, bankaddress, balanceins).then(function (res) {
-            console.log(res);
-            console.log("Hash :" + res);
-            if (res === 0) {
-                _this.spinner.hide();
-            }
-            else
-                _this.get.hash(res).then(function (result) {
-                    console.log("result : " + result);
-                    _this.spinner.hide();
-                    _this.get.loandetails(bankaddress, loanid).then(function (result) {
-                        if (result[5] == result[6]) {
-                            alert("The Loan Process is completed and the respected Token is delivered to revered Account Shortly");
-                        }
-                    });
-                });
-        });
-    };
-    MonthlypaymentComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.get.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                // console.log(item);
-                console.log(_this.address);
-                _this.get.bank_reg(item).then(function (val) {
-                    for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                        _this.get.loandetails(item, j).then(function (result) {
-                            var e = result[4] / val[1];
-                            var f = result[6] - result[5];
-                            var c = e * f;
-                            console.log();
-                            console.log(f);
-                            if (_this.address == result[3] && result[5] < result[6]) {
-                                _this.loandetails.push({ "loanid": result[0], "tokenaddress": result[8], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4], "totalpaidins": result[5], "totalmonth": result[6], "balanceloan": c, "balanceins": e });
-                            }
-                        });
-                    }
-                });
-            });
-        });
-    };
-    MonthlypaymentComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-monthlypayment',
-            template: __webpack_require__(/*! ./monthlypayment.component.html */ "./src/app/monthlypayment/monthlypayment.component.html"),
-            styles: [__webpack_require__(/*! ./monthlypayment.component.css */ "./src/app/monthlypayment/monthlypayment.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_2__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"]])
-    ], MonthlypaymentComponent);
-    return MonthlypaymentComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/purchaseloan/purchaseloan.component.css":
-/*!*********************************************************!*\
-  !*** ./src/app/purchaseloan/purchaseloan.component.css ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/purchaseloan/purchaseloan.component.html":
-/*!**********************************************************!*\
-  !*** ./src/app/purchaseloan/purchaseloan.component.html ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div><h1 style=\"color:#338ecf;text-align:center;\">Loan Purchasing</h1></div> \r\n<br>\r\n<br><br>\r\n    <div class=\"col-sm-8\" id=\"fidetail_hide1\">\r\n    <div class=\"container\" style=\"border:3px solid #428bca;background:white;height:350px;overflow-y:auto;\">\r\n      <h3 style=\"color: #338ecf;text-align:center;\">Financial Institute Details</h3> \r\n    <table  class=\"table table-responsive-md\">\r\n    <thead>\r\n    <tr>\r\n    <th><h4 style=\"color: black;\">Financial Institute Address</h4></th>\r\n    <th><h4 style=\"color: black;\">Bank Name</h4></th>\r\n    <th><h4 style=\"color: black;\">Balance</h4></th>\r\n    <th><h4 style=\"color: black;\">Fixed Int</h4></th>\r\n    <th><h4 style=\"color: black;\">Duration</h4></th>\r\n    <th><h4 style=\"color: black;\">Available Loan</h4></th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let bank of detail;\">\r\n            <td >{{bank.bank_address}}</td>\r\n            <td >{{bank.bank_name}} </td>\r\n            <td>{{bank.deposit_amount}}</td>\r\n            <td>{{bank.loan_interest}}</td>\r\n            <td>{{bank.duration}}</td>\r\n            <td>{{bank.loan}}</td>\r\n            <td><button class=\"btn btn-primary\" (click)=\"choosefi(bank.bank_address)\">choose</button></td>\r\n        </tr>\r\n    </tbody>\r\n    </table>\r\n    </div>\r\n    </div>\r\n    &nbsp;  &nbsp;  &nbsp;  &nbsp;\r\n    <div class=\"col-sm-8\" id=\"spv_deta\">\r\n    &nbsp;\r\n    <div class=\"container\" style=\"border:3px solid #428bca;background:white;overflow-y:auto;height:400px;\">\r\n      <div><h3 style=\"color: #338ecf;text-align:center;\">FI Loan Details</h3></div>\r\n    <table  class=\"table table-responsive-md\">\r\n        <thead>\r\n          <tr>\r\n            <th><h4 style=\"color: black;\">Loan Id</h4></th>\r\n            <th><h4 style=\"color: black;\">token address</h4></th>\r\n            <th><h4 style=\"color: black;\">Token Value</h4></th>\r\n            <th><h4 style=\"color: black;\">Bank Address</h4></th>\r\n            <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n          </tr>\r\n        </thead>\r\n        <tbody >\r\n          <tr *ngFor=\"let spv of purdetails;\">\r\n            <td >{{spv.loanid}}</td>\r\n            <td >{{spv.tokenaddress}} </td>\r\n            <td>{{spv.tokenvalue}}</td>\r\n            <td>{{spv.bankaddress}}</td>\r\n            <td>{{spv.totalamount}}</td>\r\n            <td><button  class=\"btn btn-primary\" (click)=\"pur_loan(spv.loanid,spv.bankaddress)\">Buy</button></td>    \r\n        </tr>\r\n    \r\n        </tbody>\r\n      </table>\r\n      </div>\r\n    </div>  \r\n    \r\n   \r\n    <ngx-spinner\r\n    bdColor=\"rgba(51,51,51,0.8)\"\r\n    size=\"medium\"\r\n    color=\"#fff\"\r\n    loadingText=\"Loading...\"\r\n    type=\"ball-scale-multiple\">\r\n</ngx-spinner>"
-
-/***/ }),
-
-/***/ "./src/app/purchaseloan/purchaseloan.component.ts":
-/*!********************************************************!*\
-  !*** ./src/app/purchaseloan/purchaseloan.component.ts ***!
-  \********************************************************/
-/*! exports provided: PurchaseloanComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchaseloanComponent", function() { return PurchaseloanComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var PurchaseloanComponent = /** @class */ (function () {
-    function PurchaseloanComponent(spv, router, spinner) {
-        var _this = this;
-        this.spv = spv;
-        this.router = router;
-        this.spinner = spinner;
-        this.loanid = [];
-        this.details = [];
-        this.detail = [];
-        this.loandetails = [];
-        this.purdetails = [];
-        this.packdetails = [];
-        spv.getAccount().then(function (address) { return _this.address = address; });
-    }
-    PurchaseloanComponent.prototype.choosefi = function (bank_address) {
-        var _this = this;
-        this.spv.bank_reg(bank_address).then(function (val) {
-            for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                _this.spv.loandetails(val[9], j).then(function (result) {
-                    _this.spv.spv_loanid(result[0]).then(function (result1) {
-                        if (result[0] > 0 && result1[0] == "0x0000000000000000000000000000000000000000" && result[5] < result[6]) {
-                            _this.purdetails.push({ "loanid": result[0], "tokenaddress": result[8], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
-                        }
-                    });
-                });
-            }
-            _this.purdetails = [];
-        });
-    };
-    PurchaseloanComponent.prototype.createPack = function (a) {
-        var value = a.split(",");
-        console.log(value);
-        for (var i = 0; i < value.length; i++) {
-            console.log(value.length);
-            this.loanid.push(parseInt(value[i]));
-        }
-        this.spv.createPack(this.loanid).then(function (res) {
-        });
-    };
-    PurchaseloanComponent.prototype.pur_loan = function (loanid, bankaddress) {
-        var _this = this;
-        this.spinner.show();
-        this.spv.pur_loan(loanid, bankaddress).then(function (res) {
-            console.log("Hash :" + res);
-            if (res === 0) {
-                _this.spinner.hide();
-            }
-            else
-                _this.spv.hash(res).then(function (result) {
-                    console.log("result : " + result);
-                    _this.spinner.hide();
-                    _this.router.navigate(['createpack']);
-                });
-        });
-    };
-    PurchaseloanComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.spv.getAccount().then(function (address) { return _this.address = address; });
-        this.spv.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        this.spv.spv_reg1().then(function (result) {
-            _this.spv.investortable().then(function (obj1) {
-                _this.details.push({ "spvaddress": _this.address, "totalamount": result[0], "totalloan": result[1], "availablepack": obj1[1] });
-            });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (result) {
-                    var a = result[2] / 100;
-                    _this.spv.investortable1(item).then(function (result1) {
-                        if (_this.address != result[9]) {
-                            _this.detail.push({ "bank_address": result[9], "bank_name": result[10], "deposit_amount": result[0], "loan_interest": a, "duration": result[1], "loan": result1[2] });
-                        }
-                    });
-                });
-            });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (val) {
-                    for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                        var a = j;
-                        _this.spv.loandetails(item, a).then(function (result) {
-                            _this.spv.spv_loanid(result[0]).then(function (result1) {
-                                if (_this.address == result1[0]) {
-                                    _this.loandetails.push({ "loanid": result[0], "tokenaddress": result[8], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
-                                }
-                            });
-                        });
-                    }
-                });
-            });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (val) {
-                    for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                        _this.spv.loandetails(item, j).then(function (result) {
-                            if (_this.address == result[3]) {
-                                _this.purdetails.push({ "loanid": result[0], "tokenaddress": result[8], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
-                            }
-                        });
-                    }
-                });
-            });
-        });
-        this.spv.spv_reg1().then(function (res) {
-            for (var i = res[5].toNumber(); i <= res[6].toNumber(); i++) {
-                _this.spv.loandetails(res[7], i).then(function (result) {
-                    var a = result[1] / 1000000000000000000;
-                    if (a > 0) {
-                        _this.packdetails.push({ "packid": result[0], "tokenvalue": a });
-                    }
-                });
-            }
-        });
-    };
-    PurchaseloanComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-purchaseloan',
-            template: __webpack_require__(/*! ./purchaseloan.component.html */ "./src/app/purchaseloan/purchaseloan.component.html"),
-            styles: [__webpack_require__(/*! ./purchaseloan.component.css */ "./src/app/purchaseloan/purchaseloan.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"]])
-    ], PurchaseloanComponent);
-    return PurchaseloanComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/purchasepack/purchasepack.component.css":
-/*!*********************************************************!*\
-  !*** ./src/app/purchasepack/purchasepack.component.css ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/purchasepack/purchasepack.component.html":
-/*!**********************************************************!*\
-  !*** ./src/app/purchasepack/purchasepack.component.html ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div><h1 style=\"color:#338ecf;text-align:center;\">Purchasing Pack</h1></div> \r\n<br>\r\n<br><br>\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-8\" id=\"spvdetail_hide1\">\r\n            <div class=\"container\" style=\"border:3px solid #428bca;background:white;height:250px;overflow-y:auto;\">\r\n              <div><h3 style=\"color: #338ecf;text-align:center;\">SPV Details</h3></div> \r\n            <table class=\"table table-hover\">\r\n              <thead>\r\n                <tr>\r\n                  <th><h4 style=\"color: black;\">SPV Address</h4></th>\r\n                  <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n                  <th><h4 style=\"color: black;\">Available Loan</h4></th>\r\n                  <th><h4 style=\"color: black;\">Available pack</h4></th>\r\n                </tr>\r\n              </thead>\r\n              <tbody id=\"spv_list1\">\r\n                <tr *ngFor=\"let spv of spvdetails;\">\r\n                  <td >{{spv.spvaddress}} </td>\r\n                  <td>{{spv.totalamount}}</td>\r\n                  <td>{{spv.totalloan}}</td>\r\n                  <td>{{spv.availablepack}}</td>\r\n                  <td><button class=\"btn btn-primary\" (click)=\"choosespv(spv.spvaddress)\">choose</button></td>\r\n              </tr>\r\n              </tbody>\r\n          </table>\r\n          </div>\r\n        </div>\r\n    </div>  \r\n    <br>\r\n    <br>\r\n    <!-- <div class=\"row\">\r\n        <div class=\"form-group col-sm-4\" id=\"purchase_pack\">\r\n            <div class=\"container\" style=\"background:white;height:200px;width:350px;\">\r\n              <div><h3 style=\"color: #338ecf;text-align:center;\">Purchase Pack</h3></div> \r\n            <input type=\"text\" [(ngModel)]=\"spvaddress\" id=\"spv_add\" class=\"form-control\" placeholder=\"SPV Adress\"/>\r\n            <input type=\"text\" [(ngModel)]=\"packageid\" id=\"pack_id\" class=\"form-control\" placeholder=\"Pack Id\"/>\r\n            <input type=\"button\" class=\"btn btn-primary\" (click)=\"pur_pack()\" value=\"Purchase\"/>\r\n            <div id=\"status\"></div>\r\n            </div>\r\n          </div>\r\n                    </div> -->\r\n                    &nbsp;\r\n                    <div class=\"row\">\r\n                        <div class=\"col-sm-2\" id=\"spv_packdetail\">\r\n                            <div class=\"container\" style=\"border:3px solid #428bca;background:white;height:250px;overflow-y:auto;\">\r\n                              <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style=\"color: #338ecf;text-align:center;\">SPV package details</h3></div> \r\n                            <table class=\"table table-hover\" id=\"invester_cls\">\r\n                                <thead>\r\n                                  <tr>\r\n                                    <th><h4 style=\"color: black;\">SPV Address</h4></th>\r\n                                    <th><h4 style=\"color: black;\">Package Id</h4></th>\r\n                                    <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n                                  </tr>\r\n                                </thead>\r\n                                <tbody id=\"spvpackdetail_body\">\r\n                                  <tr *ngFor=\"let spv of packdetails;\">\r\n                                    <td>{{spv.address}}</td>\r\n                                    <td>{{spv.packid}}</td>\r\n                                    <td>{{spv.tokenvalue}} </td> \r\n                                    <td><button class=\"btn btn-primary\" (click)=\"pur_pack(spv.address,spv.packid)\">Buy</button></td>\r\n                                </tr>\r\n                                </tbody>\r\n                              </table>\r\n                              </div>\r\n                          </div>  \r\n                          </div>\r\n                          <ngx-spinner\r\n                          bdColor=\"rgba(51,51,51,0.8)\"\r\n                          size=\"medium\"\r\n                          color=\"#fff\"\r\n                          loadingText=\"Loading...\"\r\n                          type=\"ball-scale-multiple\">\r\n                      </ngx-spinner>\r\n                          "
-
-/***/ }),
-
-/***/ "./src/app/purchasepack/purchasepack.component.ts":
-/*!********************************************************!*\
-  !*** ./src/app/purchasepack/purchasepack.component.ts ***!
-  \********************************************************/
-/*! exports provided: PurchasepackComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchasepackComponent", function() { return PurchasepackComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
-// import { Component, OnInit } from '@angular/core';
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-// @Component({
-//   selector: 'app-purchasepack',
-//   templateUrl: './purchasepack.component.html',
-//   styleUrls: ['./purchasepack.component.css']
-// })
-// export class PurchasepackComponent implements OnInit {
-//   constructor() { }
-//   ngOnInit() {
-//   }
-// }
-
-
-
-
-var PurchasepackComponent = /** @class */ (function () {
-    function PurchasepackComponent(inv, router, spinner) {
-        var _this = this;
-        this.inv = inv;
-        this.router = router;
-        this.spinner = spinner;
-        this.details = [];
-        this.details1 = [];
-        this.spvdetails = [];
-        this.packdetails = [];
-        inv.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        inv.getAccount().then(function (address) { return _this.address = address; });
-    }
-    PurchasepackComponent.prototype.pur_pack = function (packid, address) {
-        var _this = this;
-        this.spinner.show();
-        this.inv.purchasepack(address, packid).then(function (res) {
-            if (res === 0) {
-                _this.spinner.hide();
-            }
-            else
-                _this.inv.hash(res).then(function (result) {
-                    console.log("result : " + result);
-                    _this.spinner.hide();
-                    _this.router.navigate(['Investorpackdetail']);
-                });
-        });
-    };
-    PurchasepackComponent.prototype.choosespv = function (spvaddress) {
-        var _this = this;
-        this.inv.spv_reg2(spvaddress).then(function (res) {
-            for (var i = res[5].toNumber(); i <= res[6].toNumber(); i++) {
-                _this.inv.loandetails(res[7], i).then(function (result) {
-                    _this.inv.spv_loanid(result[0]).then(function (result1) {
-                        if (result[0] > 0 && result1[4] != 1) {
-                            var a = result[1] / 1000000000000000000;
-                            _this.packdetails.push({ "address": res[7], "packid": result[0], "tokenvalue": a });
-                        }
-                    });
-                });
-            }
-            _this.packdetails = [];
-        });
-    };
-    PurchasepackComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.inv.getAccount().then(function (address) { return _this.address = address; });
-        this.inv.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        console.log(this.address);
-        this.inv.investordetails().then(function (obj) {
-            if (obj[0] > 0)
-                _this.details.push({ "investor_address": obj[8], "Totalamt": obj[0], "pack": obj[2] });
-        });
-        this.inv.spv_details().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.inv.spv_reg2(item).then(function (result) {
-                    _this.inv.investortable1(result[7]).then(function (obj1) {
-                        _this.spvdetails.push({ "spvaddress": result[7], "totalamount": result[11], "totalloan": obj1[1], "availablepack": result[13] });
-                    });
-                });
-            });
-        });
-        this.inv.spv_details().then(function (obj) {
-            obj.forEach(function (item) {
-                console.log(item);
-                _this.inv.spv_reg2(item).then(function (res) {
-                    console.log(res);
-                    for (var i = res[5].toNumber(); i <= res[6].toNumber(); i++) {
-                        console.log(i);
-                        _this.inv.loandetails1(i).then(function (result) {
-                            console.log(result[0]);
-                            if (result[0] > 0) {
-                                var a = result[1] / 1000000000000000000;
-                                _this.details1.push({ "investor_package": result[0], "token_value": a });
-                            }
-                        });
-                    }
-                });
-            });
-        });
-    };
-    PurchasepackComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-purchasepack',
-            template: __webpack_require__(/*! ./purchasepack.component.html */ "./src/app/purchasepack/purchasepack.component.html"),
-            styles: [__webpack_require__(/*! ./purchasepack.component.css */ "./src/app/purchasepack/purchasepack.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"]])
-    ], PurchasepackComponent);
-    return PurchasepackComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/service/contactservice.service.ts":
-/*!***************************************************!*\
-  !*** ./src/app/service/contactservice.service.ts ***!
-  \***************************************************/
-/*! exports provided: ContactserviceService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactserviceService", function() { return ContactserviceService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! web3 */ "./node_modules/web3/index.js");
-/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(web3__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2227,703 +119,192 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
-var tokenAbi = __webpack_require__(/*! ../Contractabi.json */ "./src/app/Contractabi.json");
-var ContactserviceService = /** @class */ (function () {
-    function ContactserviceService(router) {
-        this.router = router;
-        this._account = null;
-        this._tokenContractAddress = "0xcf576583222736b60d1de28d333c37f0ada3a7d9";
-        if (typeof window.web3 !== 'undefined') {
-            // Use Mist/MetaMask's provider
-            this._web3 = new web3__WEBPACK_IMPORTED_MODULE_2__(window.web3.currentProvider);
-        }
-        else {
-            console.warn("Please use a dapp browser like mist or MetaMask plugin for chrome");
-        }
-        this._web3.version.getNetwork(function (err, netId) {
-            switch (netId) {
-                case "1":
-                    console.log('This is mainnet');
-                    break;
-                case "2":
-                    console.log('This is deprecated Morden test network');
-                    break;
-                case "3":
-                    console.log('This is ropsten test network');
-                    break;
-                case "4":
-                    console.log('This is the Rinkeby test network');
-                case "42":
-                    console.log('This is the kovan test network');
-                    break;
-                default:
-                    console.log('This is an unknown network.');
-            }
+var Buffer = __webpack_require__(/*! buffer/ */ "./node_modules/buffer/index.js").Buffer;
+
+
+var loanAbi = __webpack_require__(/*! ./loan.json */ "./src/app/Service/loan.json");
+var LoanServiceService = /** @class */ (function () {
+    function LoanServiceService(spinner, cookieService) {
+        this.spinner = spinner;
+        this.cookieService = cookieService;
+        this.address = null;
+        this.loan_contractaddress = "0xE5a8F6011340bC953eF43c05aF3798d6ED020ca6";
+        this._web3 = new web3__WEBPACK_IMPORTED_MODULE_1___default.a(new web3__WEBPACK_IMPORTED_MODULE_1___default.a.providers.HttpProvider('https://ropsten.infura.io/Vr1GWcLG0XzcdrZHWMPu'));
+        this.loan_contract = new this._web3.eth.Contract(loanAbi, this.loan_contractaddress, {
+            gaslimit: 3000000,
         });
-        this._tokenContract = this._web3.eth.contract(tokenAbi).at(this._tokenContractAddress);
     }
-    //account address working//
-    ContactserviceService.prototype.getAccount = function () {
+    LoanServiceService.prototype.privatekey_by_address = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        if (!(this._account == null)) return [3 /*break*/, 2];
-                        _a = this;
-                        return [4 /*yield*/, new Promise(function (resolve, reject) {
-                                _this._web3.eth.getAccounts(function (err, accs) {
-                                    if (err != null) {
-                                        alert('There was an error fetching your accounts.');
-                                        return;
-                                    }
-                                    if (accs.length === 0) {
-                                        alert('Couldn\'t get any accounts! Make sure your Ethereum client is configured correctly.');
-                                        return;
-                                    }
-                                    resolve(accs[0]);
-                                });
-                            })];
-                    case 1:
-                        _a._account = (_b.sent());
-                        this._web3.eth.defaultAccount = this._account;
-                        _b.label = 2;
-                    case 2: return [2 /*return*/, Promise.resolve(this._account)];
-                }
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.get_cookie().then(function (privatekey) {
+                            var senderaddress = instance._web3.eth.accounts.privateKeyToAccount("0x" + privatekey, 'hex');
+                            resolve(senderaddress);
+                        });
+                    })];
             });
         });
     };
-    //account balance working//
-    ContactserviceService.prototype.getUserBalance = function () {
+    LoanServiceService.prototype.set_cookie = function (private_key) {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var account;
+            var instance;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [4 /*yield*/, new Promise(function (resolve, reject) {
-                                _this._web3.eth.getBalance(account, function (err, balance) {
-                                    balance = _this._web3.fromWei(balance, "ether") + "";
-                                    resolve(balance);
-                                });
-                            })];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
+                instance = this;
+                instance.cookieService.set('privateKey', private_key);
+                // console.log("cookie successfully set");
+                this.get_cookie();
+                return [2 /*return*/];
             });
         });
     };
-    ContactserviceService.prototype.fi_check_registeration = function () {
+    LoanServiceService.prototype.check_cookie = function (private_key) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
-            var account, meta;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var instance = _this;
+                        var cookieExists = instance.cookieService.check(private_key);
+                        resolve(cookieExists);
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.get_cookie = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        resolve(instance.cookieService.get('privateKey'));
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.getAccount = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance, account_adddress;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.get_cookie().then(function (private_key) {
+                            account_adddress = instance._web3.eth.accounts.privateKeyToAccount('0x' + private_key);
+                            resolve(account_adddress["address"]);
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.getUserBalance = function (account) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance._web3.eth.getBalance(account, function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(instance._web3.utils.fromWei(result, 'ether'));
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.check_spv = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var instance;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        account = '';
-                        meta = this;
-                        return [4 /*yield*/, meta.getAccount().then(function (address) { return _this.account = address; })];
+                        instance = this;
+                        return [4 /*yield*/, instance.privatekey_by_address().then(function (address) { return _this.account = address["address"]; })];
                     case 1:
                         _a.sent();
                         return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                meta._tokenContract.spv_details(_this.account, function (error, result) {
-                                    if (error) {
-                                        reject(error);
+                                instance.loan_contract.methods.spv_id_get(_this.account).call(function (err, result) {
+                                    if (err != null) {
+                                        reject(err);
                                     }
                                     else {
-                                        console.log(meta.account);
-                                        console.log(result[9]);
-                                        if (result[9] === meta.account) {
-                                            console.log(result[9] === meta.account);
+                                        if (result == 0) {
+                                            // alert("Not registered")
+                                            resolve(false);
+                                        }
+                                        else {
+                                            // alert("Already Registered")
+                                            resolve(true);
                                         }
                                     }
-                                    resolve(result[9] === meta.account);
                                 });
                             })];
                 }
             });
         });
     };
-    ContactserviceService.prototype.spv_check_registeration = function () {
+    LoanServiceService.prototype.check_investor = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
-            var account, meta;
+            var instance;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        account = '';
-                        meta = this;
-                        return [4 /*yield*/, meta.getAccount().then(function (address) { return _this.account = address; })];
+                        instance = this;
+                        return [4 /*yield*/, instance.privatekey_by_address().then(function (acc) { return _this.address = acc["address"]; })];
                     case 1:
                         _a.sent();
                         return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                meta._tokenContract.spv_details(_this.account, function (error, result) {
-                                    if (error) {
-                                        reject(error);
+                                instance.loan_contract.methods.investor_id_get(_this.address).call(function (err, result) {
+                                    if (err != null) {
+                                        reject(err);
                                     }
                                     else {
-                                        console.log(meta.account);
-                                        console.log(result[7]);
-                                        if (result[7] === meta.account) {
-                                            console.log(result[7] === meta.account);
+                                        if (result == 0) {
+                                            // alert("Not registered")
+                                            resolve(false);
+                                        }
+                                        else {
+                                            // alert("Already Registered")
+                                            resolve(true);
                                         }
                                     }
-                                    resolve(result[7] === meta.account);
                                 });
                             })];
                 }
             });
         });
     };
-    ContactserviceService.prototype.investor_check_registeration = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var account, meta;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        account = '';
-                        meta = this;
-                        return [4 /*yield*/, meta.getAccount().then(function (address) { return _this.account = address; })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                meta._tokenContract.spv_details(_this.account, function (error, result) {
-                                    if (error) {
-                                        reject(error);
-                                    }
-                                    else {
-                                        console.log(meta.account);
-                                        console.log(result[8]);
-                                        if (result[8] === meta.account) {
-                                            console.log(result[8] === meta.account);
-                                        }
-                                    }
-                                    resolve(result[8] === meta.account);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //fi loan details//
-    ContactserviceService.prototype.bank_reg1 = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.spv_details(account, function (error, result) {
-                                    if (error) {
-                                        reject(error);
-                                    }
-                                    result[10] = _web3.toAscii(result[10]);
-                                    result[0] = _web3.fromWei(result[0], "ether");
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //borrower loan details//
-    ContactserviceService.prototype.bank_reg = function (add) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.spv_details(add, function (error, result) {
-                                    if (error) {
-                                        reject(error);
-                                    }
-                                    result[10] = _web3.toAscii(result[10]);
-                                    result[0] = _web3.fromWei(result[0], "ether");
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    ContactserviceService.prototype.loandetails = function (add, id) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.ln_get(add, id, function (error, result) {
-                                    result[4] = meta._web3.fromWei(result[4], "ether");
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    ContactserviceService.prototype.borrower_view_fi = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount().then(function (address) { return _this._account = address; })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                _this._tokenContract.show_registers(function (err, result1) {
-                                    var gen_id = 0;
-                                    resolve(result1);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //register bank//
-    ContactserviceService.prototype.register_bank1 = function (a, b, c, d) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var account, bb;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        bb = b * 100;
-                        console.log("b value:" + b);
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.register.sendTransaction(a, bb, d, { from: account, value: _this._web3.toWei(c, "ether"), gas: 600000 }, function (err, result) {
-                                    if (err != null) {
-                                        //reject(err);
-                                        console.log(err);
-                                        resolve(0);
-                                    }
-                                    console.log(result);
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //request loan//
-    ContactserviceService.prototype.request_loan = function (d, e, f) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.req_loan(d, e, f, { from: account, gas: 600000 }, function (err, result) {
-                                    if (err != null) {
-                                        //reject(err);
-                                        resolve(0);
-                                    }
-                                    resolve((result));
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //monthly payment//
-    ContactserviceService.prototype.MonthlyPayment = function (d, e, f) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.settlement(d, e, { from: account, value: _this._web3.toWei(f, "ether"), gas: 600000 }, function (err, result) {
-                                    if (err != null) {
-                                        //reject(err);
-                                        resolve(0);
-                                    }
-                                    resolve((result));
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //spv reg//
-    ContactserviceService.prototype.spv_reg = function (a) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                _this._tokenContract.SPV_ether({ from: account, value: _this._web3.toWei(a, "ether"), gas: 600000 }, function (err, result) {
-                                    if (err != null) {
-                                        //reject(err);
-                                        resolve(0);
-                                    }
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //purchase loan//
-    ContactserviceService.prototype.pur_loan = function (a, b) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                _this._tokenContract.purchase_loan(a, b, { from: account, gas: 600000 }, function (err, result) {
-                                    if (err != null) {
-                                        //reject(err);
-                                        resolve(0);
-                                    }
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //create pack//
-    ContactserviceService.prototype.createPack = function (a) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                _this._tokenContract.createPacking(a, { from: account, gas: 600000 }, function (err, result) {
-                                    if (err != null) {
-                                        //reject(err);
-                                        console.log([0]);
-                                        resolve([0]);
-                                    }
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    ContactserviceService.prototype.spv_reg1 = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.spv_details(account, function (error, result) {
-                                    if (error) {
-                                        reject(error);
-                                    }
-                                    result[10] = _web3.toAscii(result[10]);
-                                    result[11] = meta._web3.fromWei(result[11], "ether");
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    ContactserviceService.prototype.spv_view = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount().then(function (address) { return _this._account = address; })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                _this._tokenContract.spv_registers(function (err, result1) {
-                                    var gen_id = 0;
-                                    resolve(result1);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    ContactserviceService.prototype.spv_loanid = function (add) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.loanadd(add, function (error, result) {
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //investor ether//
-    ContactserviceService.prototype.Investorether = function (a) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.Investor_ether({ from: account, value: _this._web3.toWei(a, "ether"), gas: 600000 }, function (error, result) {
-                                    if (error) {
-                                        //reject(error);
-                                        resolve(0);
-                                    }
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //investor details//
-    ContactserviceService.prototype.investordetails = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.spv_details.call(account, function (error, result) {
-                                    if (error) {
-                                        reject(error);
-                                    }
-                                    // result[2] = _web3.toAscii(result[2])
-                                    result[12] = meta._web3.fromWei(result[12], "ether");
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    ContactserviceService.prototype.investortable = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.inv_details.call(account, function (error, result) {
-                                    if (error) {
-                                        reject(error);
-                                    }
-                                    // result[2] = _web3.toAscii(result[2])
-                                    //result[0] = meta._web3.fromWei(result[0],"ether")
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    ContactserviceService.prototype.investortable1 = function (add) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.inv_details.call(add, function (error, result) {
-                                    if (error) {
-                                        reject(error);
-                                    }
-                                    // result[2] = _web3.toAscii(result[2])
-                                    //result[0] = meta._web3.fromWei(result[0],"ether")
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //purchase pack//
-    ContactserviceService.prototype.purchasepack = function (a, b) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.purchase_pack(a, b, { from: account, gas: 600000 }, function (error, result) {
-                                    if (error != null) {
-                                        //reject(err);
-                                        resolve(0);
-                                    }
-                                    resolve(result);
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    ContactserviceService.prototype.spv_details = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount().then(function (address) { return _this._account = address; })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                _this._tokenContract.spv_registers(function (err, result1) {
-                                    resolve(result1);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    //spv details//
-    ContactserviceService.prototype.spv_reg2 = function (add) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.spv_details(add, function (error, result) {
-                                    if (error) {
-                                        reject(error);
-                                    }
-                                    result[10] = _web3.toAscii(result[10]);
-                                    result[11] = meta._web3.fromWei(result[11], "ether");
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    ContactserviceService.prototype.loandetails1 = function (id) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var meta, account;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        meta = this;
-                        return [4 /*yield*/, this.getAccount()];
-                    case 1:
-                        account = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                var _web3 = _this._web3;
-                                _this._tokenContract.ln_get(account, id, function (error, result) {
-                                    result[4] = meta._web3.fromWei(result[4], "ether");
-                                    resolve(result);
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    ContactserviceService.prototype.hash = function (a) {
+    // public async hash(a): Promise<boolean> {
+    //   let meta = this;
+    //   return new Promise((resolve, reject) => {
+    //     var accountInterval = setInterval(function()
+    //     {
+    //       meta._web3.eth.getTransactionReceipt(a,function(err,result){
+    //         if(err != null) {
+    //         reject(err);
+    //         }
+    //         if(result !== null)
+    //         {
+    //           clearInterval(accountInterval);
+    //           if(result.status == 0x1)
+    //           {
+    //             resolve(true);
+    //           }
+    //           else
+    //           {           
+    //             resolve(false);
+    //           }
+    //         }
+    //       })
+    //     },100)
+    //   }) as Promise<boolean>;
+    // }
+    LoanServiceService.prototype.hash = function (a) {
         return __awaiter(this, void 0, void 0, function () {
             var meta;
             return __generator(this, function (_a) {
@@ -2932,22 +313,18 @@ var ContactserviceService = /** @class */ (function () {
                         var accountInterval = setInterval(function () {
                             meta._web3.eth.getTransactionReceipt(a, function (err, result) {
                                 if (err != null) {
-                                    reject(err);
+                                    console.log("hash err");
+                                    resolve(0);
                                 }
                                 if (result !== null) {
                                     clearInterval(accountInterval);
-                                    // console.log("obj 1 :"+result);
                                     if (result.status == 0x1) {
-                                        // console.log("obj "+result.status)
-                                        resolve("Success");
-                                        meta.router.navigate(['']);
-                                        // window.location.reload();
+                                        console.log("hash result.status == 0x1");
+                                        resolve(1);
                                     }
                                     else {
-                                        // console.log("obj "+result.status)
-                                        resolve("Failed");
-                                        meta.router.navigate(['']);
-                                        // window.location.reload();
+                                        console.log("hash result.status == else");
+                                        resolve(2);
                                     }
                                 }
                             });
@@ -2956,27 +333,3242 @@ var ContactserviceService = /** @class */ (function () {
             });
         });
     };
-    ContactserviceService = __decorate([
+    LoanServiceService.prototype.contract_balance = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.contract_balance().call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.current_time = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.current_time().call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.pool_owned_by = function (pool_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.pool_owned_by(pool_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.check_issuer = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var instance;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        instance = this;
+                        return [4 /*yield*/, instance.privatekey_by_address().then(function (address) { return _this.address = address["address"]; })];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/, new Promise(function (resolve, reject) {
+                                instance.loan_contract.methods.issuer().call(function (err, result) {
+                                    if (err != null) {
+                                        reject(err);
+                                    }
+                                    else if (result == instance.address) {
+                                        resolve(true);
+                                    }
+                                    else {
+                                        resolve(false);
+                                    }
+                                });
+                            })];
+                }
+            });
+        });
+    };
+    LoanServiceService.prototype.bank_ids = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.bank_ids().call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                var arr = [];
+                                for (var i = 1; i <= result; i++) {
+                                    arr.push(i);
+                                }
+                                resolve(arr);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.bank_detail_map = function (bank_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.bank_detail_map(bank_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                var tmp = instance._web3.utils.toAscii(result);
+                                var bank_name = "";
+                                for (var i = 0; i < 32; i++) {
+                                    if ((tmp[i] == " ") || (tmp[i] >= "a" && tmp[i] <= "z") || (tmp[i] >= "A" && tmp[i] <= "Z"))
+                                        bank_name = bank_name + tmp[i];
+                                }
+                                resolve(bank_name);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.add_bank = function (byte_names, privatekey) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var privatekeydetails = instance._web3.eth.accounts.privateKeyToAccount("0x" + privatekey, 'hex');
+                        var senderaddress = privatekeydetails["address"];
+                        instance._web3.eth.getTransactionCount(senderaddress, function (err, result) {
+                            var nonce = result.toString(16);
+                            var private_key = Buffer.from(privatekey, 'hex');
+                            var contract_function = instance.loan_contract.methods.add_bank(byte_names);
+                            var contract_function_abi = contract_function.encodeABI();
+                            var txParams = {
+                                nonce: '0x' + nonce,
+                                gasPrice: '0x4A817C800',
+                                gasLimit: 4000000,
+                                from: senderaddress,
+                                to: instance.loan_contractaddress,
+                                value: '0x00',
+                                data: contract_function_abi
+                            };
+                            var tx = new ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__(txParams);
+                            tx.sign(private_key);
+                            var serializedtx = tx.serialize();
+                            instance._web3.eth.sendSignedTransaction('0x' + serializedtx.toString('hex'), function (err, result) {
+                                //  console.log(result);
+                                if (err != null) {
+                                    console.log("err");
+                                    resolve(0);
+                                }
+                                else {
+                                    instance.hash(result).then(function (res) {
+                                        if (res == 0) {
+                                            resolve(0);
+                                        }
+                                        else if (res == 1) {
+                                            resolve(1);
+                                        }
+                                        else if (res == 2) {
+                                            resolve(2);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.borrower_ids = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.borrower_ids().call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                var arr = [];
+                                for (var i = 1; i <= result; i++) {
+                                    arr.push(i);
+                                }
+                                resolve(arr);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.borrower_map = function (borrower_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.borrower_map(borrower_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                var tmp = instance._web3.utils.toAscii(result);
+                                var borrower_name = "";
+                                for (var i = 0; i < 32; i++) {
+                                    if ((tmp[i] == " ") || (tmp[i] >= "a" && tmp[i] <= "z") || (tmp[i] >= "A" && tmp[i] <= "Z"))
+                                        borrower_name = borrower_name + tmp[i];
+                                }
+                                resolve(borrower_name);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.add_borrower = function (bank_id, borrower_name, privatekey) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var privatekeydetails = instance._web3.eth.accounts.privateKeyToAccount("0x" + privatekey);
+                        var senderaddress = privatekeydetails["address"];
+                        instance._web3.eth.getTransactionCount(senderaddress, function (err, result) {
+                            var nonce = result.toString(16);
+                            var private_key = Buffer.from(privatekey, 'hex');
+                            var contract_function = instance.loan_contract.methods.add_borrower(bank_id, borrower_name);
+                            var contract_function_abi = contract_function.encodeABI();
+                            var txParams = {
+                                nonce: '0x' + nonce,
+                                gasPrice: '0x4A817C800',
+                                gasLimit: 4000000,
+                                from: senderaddress,
+                                to: instance.loan_contractaddress,
+                                value: '0x00',
+                                data: contract_function_abi
+                            };
+                            var tx = new ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__(txParams);
+                            tx.sign(private_key);
+                            var serializedtx = tx.serialize();
+                            instance._web3.eth.sendSignedTransaction('0x' + serializedtx.toString('hex'), function (err, result) {
+                                if (err != null) {
+                                    console.log("err");
+                                    resolve(0);
+                                }
+                                else {
+                                    instance.hash(result).then(function (res) {
+                                        if (res == 0) {
+                                            resolve(0);
+                                        }
+                                        else if (res == 1) {
+                                            resolve(1);
+                                        }
+                                        else if (res == 2) {
+                                            resolve(2);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.show_borrower = function (bank_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.show_borrower(bank_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.loan_ids = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.loan_ids().call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                var arr = [];
+                                for (var i = 1; i <= result; i++) {
+                                    arr.push(i);
+                                }
+                                // console.log(result.toNumber());
+                                resolve(arr);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.borrower_details_map = function (loan_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.borrower_details_map(loan_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.asset_ids = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.asset_ids().call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                var arr = [];
+                                for (var i = 1; i <= result; i++) {
+                                    arr.push(i);
+                                }
+                                resolve(arr);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.add_loan = function (borrower_id, loan_amount, interest_rate, loan_duration, asset_details, asset_amount, borrower_paid, privatekey) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var privatekeydetails = instance._web3.eth.accounts.privateKeyToAccount("0x" + privatekey);
+                        var senderaddress = privatekeydetails["address"];
+                        instance._web3.eth.getTransactionCount(senderaddress, function (err, result) {
+                            var nonce = result.toString(16);
+                            var private_key = Buffer.from(privatekey, 'hex');
+                            var contract_function = instance.loan_contract.methods.add_loan(borrower_id, loan_amount, interest_rate, loan_duration, asset_details, asset_amount, borrower_paid);
+                            var contract_function_abi = contract_function.encodeABI();
+                            var txParams = {
+                                nonce: '0x' + nonce,
+                                gasPrice: '0x4A817C800',
+                                gasLimit: 4000000,
+                                from: senderaddress,
+                                to: instance.loan_contractaddress,
+                                value: '0x00',
+                                data: contract_function_abi
+                            };
+                            var tx = new ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__(txParams);
+                            tx.sign(private_key);
+                            var serializedtx = tx.serialize();
+                            instance._web3.eth.sendSignedTransaction('0x' + serializedtx.toString('hex'), function (err, result) {
+                                if (err != null) {
+                                    console.log("err");
+                                    resolve(0);
+                                }
+                                else {
+                                    instance.hash(result).then(function (res) {
+                                        if (res == 0) {
+                                            resolve(0);
+                                        }
+                                        else if (res == 1) {
+                                            resolve(1);
+                                        }
+                                        else if (res == 2) {
+                                            resolve(2);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.update_loan = function (loanid, amount, option, owned_spv_id, owned_inv_id, privatekey) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var privatekeydetails = instance._web3.eth.accounts.privateKeyToAccount("0x" + privatekey);
+                        var senderaddress = privatekeydetails["address"];
+                        instance._web3.eth.getTransactionCount(senderaddress, function (err, result) {
+                            var nonce = result.toString(16);
+                            var private_key = Buffer.from(privatekey, 'hex');
+                            var contract_function = instance.loan_contract.methods.update_loan(loanid, amount, option, owned_spv_id, owned_inv_id);
+                            var contract_function_abi = contract_function.encodeABI();
+                            var txParams = {
+                                nonce: '0x' + nonce,
+                                gasPrice: '0x4A817C800',
+                                gasLimit: 4000000,
+                                from: senderaddress,
+                                to: instance.loan_contractaddress,
+                                value: '0x00',
+                                data: contract_function_abi
+                            };
+                            var tx = new ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__(txParams);
+                            tx.sign(private_key);
+                            var serializedtx = tx.serialize();
+                            instance._web3.eth.sendSignedTransaction('0x' + serializedtx.toString('hex'), function (err, result) {
+                                if (err != null) {
+                                    console.log("err");
+                                    resolve(0);
+                                }
+                                else {
+                                    instance.hash(result).then(function (res) {
+                                        if (res == 0) {
+                                            resolve(0);
+                                        }
+                                        else if (res == 1) {
+                                            resolve(1);
+                                        }
+                                        else if (res == 2) {
+                                            resolve(2);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.pool_ids = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.pool_ids().call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                var arr = [];
+                                for (var i = 1; i <= result; i++) {
+                                    arr.push(i);
+                                }
+                                resolve(arr);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.pool_details = function (pool_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.pool_details(pool_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.show_loanids_of_pool = function (pool_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.show_loanids_of_pool(pool_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.create_pool = function (loan_ids, value, privatekey) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var privatekeydetails = instance._web3.eth.accounts.privateKeyToAccount("0x" + privatekey);
+                        var senderaddress = privatekeydetails["address"];
+                        instance._web3.eth.getTransactionCount(senderaddress, function (err, result) {
+                            var nonce = result.toString(16);
+                            var private_key = Buffer.from(privatekey, 'hex');
+                            var contract_function = instance.loan_contract.methods.create_pool(loan_ids, value);
+                            var contract_function_abi = contract_function.encodeABI();
+                            var txParams = {
+                                nonce: '0x' + nonce,
+                                gasPrice: '0x4A817C800',
+                                gasLimit: 4000000,
+                                from: senderaddress,
+                                to: instance.loan_contractaddress,
+                                value: '0x00',
+                                data: contract_function_abi
+                            };
+                            var tx = new ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__(txParams);
+                            tx.sign(private_key);
+                            var serializedtx = tx.serialize();
+                            instance._web3.eth.sendSignedTransaction('0x' + serializedtx.toString('hex'), function (err, result) {
+                                if (err != null) {
+                                    console.log("err");
+                                    resolve(0);
+                                }
+                                else {
+                                    instance.hash(result).then(function (res) {
+                                        if (res == 0) {
+                                            resolve(0);
+                                        }
+                                        else if (res == 1) {
+                                            resolve(1);
+                                        }
+                                        else if (res == 2) {
+                                            resolve(2);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.spv_ids = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.spv_ids().call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                var arr = [];
+                                for (var i = 1; i <= result; i++) {
+                                    arr.push(i);
+                                }
+                                resolve(arr);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.spv_details = function (spv_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.spv_details(spv_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.spv_id_get = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.spv_id_get(address).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.register_spv = function (privatekey) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var privatekeydetails = instance._web3.eth.accounts.privateKeyToAccount("0x" + privatekey);
+                        var senderaddress = privatekeydetails["address"];
+                        instance._web3.eth.getTransactionCount(senderaddress, function (err, result) {
+                            var nonce = result.toString(16);
+                            var private_key = Buffer.from(privatekey, 'hex');
+                            var contract_function = instance.loan_contract.methods.register_spv();
+                            var contract_function_abi = contract_function.encodeABI();
+                            var txParams = {
+                                nonce: '0x' + nonce,
+                                gasPrice: '0x4A817C800',
+                                gasLimit: 4000000,
+                                from: senderaddress,
+                                to: instance.loan_contractaddress,
+                                value: '0x00',
+                                data: contract_function_abi
+                            };
+                            var tx = new ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__(txParams);
+                            tx.sign(private_key);
+                            var serializedtx = tx.serialize();
+                            instance._web3.eth.sendSignedTransaction('0x' + serializedtx.toString('hex'), function (err, result) {
+                                if (err != null) {
+                                    console.log("err");
+                                    resolve(0);
+                                }
+                                else {
+                                    instance.hash(result).then(function (res) {
+                                        if (res == 0) {
+                                            resolve(0);
+                                        }
+                                        else if (res == 1) {
+                                            resolve(1);
+                                        }
+                                        else if (res == 2) {
+                                            resolve(2);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.is_owned_spv = function (spv_id, pool_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.is_owned_spv(spv_id, pool_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.spv_id_by_pool_id = function (pool_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.spv_id_by_pool_id(pool_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.spv_buy_pool = function (pool_id, amount, privatekey) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var privatekeydetails = instance._web3.eth.accounts.privateKeyToAccount("0x" + privatekey);
+                        var senderaddress = privatekeydetails["address"];
+                        instance._web3.eth.getTransactionCount(senderaddress, function (err, result) {
+                            var nonce = result.toString(16);
+                            var private_key = Buffer.from(privatekey, 'hex');
+                            var amt = instance._web3.utils.toHex(amount);
+                            var contract_function = instance.loan_contract.methods.spv_buy_pool(pool_id);
+                            var contract_function_abi = contract_function.encodeABI();
+                            var txParams = {
+                                nonce: '0x' + nonce,
+                                gasPrice: '0x4A817C800',
+                                gasLimit: 4000000,
+                                from: senderaddress,
+                                to: instance.loan_contractaddress,
+                                value: amt,
+                                data: contract_function_abi
+                            };
+                            console.log("inside");
+                            var tx = new ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__(txParams);
+                            tx.sign(private_key);
+                            var serializedtx = tx.serialize();
+                            instance._web3.eth.sendSignedTransaction('0x' + serializedtx.toString('hex'), function (err, result) {
+                                if (err != null) {
+                                    console.log("err");
+                                    resolve(0);
+                                }
+                                else {
+                                    instance.hash(result).then(function (res) {
+                                        if (res == 0) {
+                                            resolve(0);
+                                        }
+                                        else if (res == 1) {
+                                            resolve(1);
+                                        }
+                                        else if (res == 2) {
+                                            resolve(2);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.investor_ids = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.investor_ids().call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                var arr = [];
+                                for (var i = 1; i <= result; i++) {
+                                    arr.push(i);
+                                }
+                                resolve(arr);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.investor_details = function (investor_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.investor_details(investor_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.investor_id_get = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.investor_id_get(address).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.is_owned_investor = function (inv_id, pool_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.is_owned_investor(inv_id, pool_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.register_investor = function (privatekey) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var privatekeydetails = instance._web3.eth.accounts.privateKeyToAccount("0x" + privatekey);
+                        var senderaddress = privatekeydetails["address"];
+                        instance._web3.eth.getTransactionCount(senderaddress, function (err, result) {
+                            var nonce = result.toString(16);
+                            var private_key = Buffer.from(privatekey, 'hex');
+                            var contract_function = instance.loan_contract.methods.register_investor();
+                            var contract_function_abi = contract_function.encodeABI();
+                            var txParams = {
+                                nonce: '0x' + nonce,
+                                gasPrice: '0x4A817C800',
+                                gasLimit: 4000000,
+                                from: senderaddress,
+                                to: instance.loan_contractaddress,
+                                value: '0x00',
+                                data: contract_function_abi
+                            };
+                            var tx = new ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__(txParams);
+                            tx.sign(private_key);
+                            var serializedtx = tx.serialize();
+                            instance._web3.eth.sendSignedTransaction('0x' + serializedtx.toString('hex'), function (err, result) {
+                                if (err != null) {
+                                    console.log("err");
+                                    resolve(0);
+                                }
+                                else {
+                                    instance.hash(result).then(function (res) {
+                                        if (res == 0) {
+                                            resolve(0);
+                                        }
+                                        else if (res == 1) {
+                                            resolve(1);
+                                        }
+                                        else if (res == 2) {
+                                            resolve(2);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.investor_purchase = function (pool_id, privatekey, amount) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var privatekeydetails = instance._web3.eth.accounts.privateKeyToAccount("0x" + privatekey);
+                        var senderaddress = privatekeydetails["address"];
+                        instance._web3.eth.getTransactionCount(senderaddress, function (err, result) {
+                            var nonce = result.toString(16);
+                            var private_key = Buffer.from(privatekey, 'hex');
+                            var amt = instance._web3.utils.toHex(amount);
+                            var contract_function = instance.loan_contract.methods.investor_purchase(pool_id);
+                            var contract_function_abi = contract_function.encodeABI();
+                            var txParams = {
+                                nonce: '0x' + nonce,
+                                gasPrice: '0x4A817C800',
+                                gasLimit: 4000000,
+                                from: senderaddress,
+                                to: instance.loan_contractaddress,
+                                value: amt,
+                                data: contract_function_abi
+                            };
+                            var tx = new ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__(txParams);
+                            tx.sign(private_key);
+                            var serializedtx = tx.serialize();
+                            instance._web3.eth.sendSignedTransaction('0x' + serializedtx.toString('hex'), function (err, result) {
+                                if (err != null) {
+                                    console.log("err");
+                                    resolve(0);
+                                }
+                                else {
+                                    instance.hash(result).then(function (res) {
+                                        if (res == 0) {
+                                            resolve(0);
+                                        }
+                                        else if (res == 1) {
+                                            resolve(1);
+                                        }
+                                        else if (res == 2) {
+                                            resolve(2);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.issuer_withdraw = function (how_much_amount, privatekey) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var privatekeydetails = instance._web3.eth.accounts.privateKeyToAccount("0x" + privatekey);
+                        var senderaddress = privatekeydetails["address"];
+                        instance._web3.eth.getTransactionCount(senderaddress, function (err, result) {
+                            var nonce = result.toString(16);
+                            var private_key = Buffer.from(privatekey, 'hex');
+                            var contract_function = instance.loan_contract.methods.issuer_withdraw(how_much_amount);
+                            var contract_function_abi = contract_function.encodeABI();
+                            var txParams = {
+                                nonce: '0x' + nonce,
+                                gasPrice: '0x4A817C800',
+                                gasLimit: 4000000,
+                                from: senderaddress,
+                                to: instance.loan_contractaddress,
+                                value: '0x00',
+                                data: contract_function_abi
+                            };
+                            var tx = new ethereumjs_tx__WEBPACK_IMPORTED_MODULE_2__(txParams);
+                            tx.sign(private_key);
+                            var serializedtx = tx.serialize();
+                            instance._web3.eth.sendSignedTransaction('0x' + serializedtx.toString('hex'), function (err, result) {
+                                if (err != null) {
+                                    console.log("err");
+                                    resolve(0);
+                                }
+                                else {
+                                    instance.hash(result).then(function (res) {
+                                        if (res == 0) {
+                                            resolve(0);
+                                        }
+                                        else if (res == 1) {
+                                            resolve(1);
+                                        }
+                                        else if (res == 2) {
+                                            resolve(2);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.inv_id_by_pool_id = function (pool_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.inv_id_by_pool_id(pool_id, pool_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService.prototype.loan_status = function (loan_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var instance;
+            return __generator(this, function (_a) {
+                instance = this;
+                // var  id = instance._web3.utils.fromAscii(loan_id)
+                // console.log(id);
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        instance.loan_contract.methods.loan_status(loan_id).call(function (err, result) {
+                            if (err != null) {
+                                reject(err);
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    })];
+            });
+        });
+    };
+    LoanServiceService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
-    ], ContactserviceService);
-    return ContactserviceService;
+        __metadata("design:paramtypes", [ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
+    ], LoanServiceService);
+    return LoanServiceService;
 }());
 
 
 
 /***/ }),
 
-/***/ "./src/app/spv/spv.component.css":
-/*!***************************************!*\
-  !*** ./src/app/spv/spv.component.css ***!
-  \***************************************/
+/***/ "./src/app/Service/loan.json":
+/*!***********************************!*\
+  !*** ./src/app/Service/loan.json ***!
+  \***********************************/
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, default */
+/***/ (function(module) {
+
+module.exports = [{"anonymous":false,"inputs":[{"indexed":false,"name":"_from","type":"address"},{"indexed":false,"name":"_to","type":"address"},{"indexed":false,"name":"_amount","type":"uint256"}],"name":"transfer","type":"event"},{"constant":false,"inputs":[{"name":"_bank_name","type":"bytes32[]"}],"name":"add_bank","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"bank_id","type":"uint256"},{"name":"_borrower_name","type":"bytes32[]"}],"name":"add_borrower","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_borrower_id","type":"uint256"},{"name":"_loan_amount","type":"uint256"},{"name":"_interest_rate","type":"uint256"},{"name":"_loan_duration","type":"uint256"},{"name":"_asset_details","type":"string"},{"name":"_asset_amount","type":"uint256"},{"name":"_borrower_paid","type":"uint256"}],"name":"add_loan","outputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_loan_ids","type":"uint256[]"},{"name":"_value","type":"uint256"}],"name":"create_pool","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_pool_id","type":"uint256"}],"name":"investor_purchase","outputs":[{"name":"","type":"bool"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_amount","type":"uint256"}],"name":"issuer_withdraw","outputs":[{"name":"","type":"bool"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"register_investor","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"register_spv","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_pool_id","type":"uint256"}],"name":"spv_buy_pool","outputs":[{"name":"","type":"bool"}],"payable":true,"stateMutability":"payable","type":"function"},{"inputs":[],"payable":true,"stateMutability":"payable","type":"constructor"},{"constant":false,"inputs":[{"name":"_loan_id","type":"uint256"},{"name":"_amount","type":"uint256"},{"name":"_options","type":"uint256"},{"name":"spv_id","type":"uint256"},{"name":"inv_id","type":"uint256"}],"name":"update_loan","outputs":[{"name":"","type":"bool"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"asset_ids","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"bank_detail_map","outputs":[{"name":"bank_name","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"bank_ids","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"borrower_details_map","outputs":[{"name":"borrower_id","type":"uint256"},{"name":"loan_amount","type":"uint256"},{"name":"interest_rate","type":"uint256"},{"name":"loan_duration","type":"uint256"},{"name":"asset_id","type":"uint256"},{"name":"asset_details","type":"string"},{"name":"asset_amount","type":"uint256"},{"name":"borrower_paid","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"borrower_ids","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"borrower_map","outputs":[{"name":"borrower_name","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_loan_ids","type":"uint256[]"}],"name":"can_pack","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"contract_balance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"inv_id_by_pool_id","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"investor_details","outputs":[{"name":"investor_address","type":"address"},{"name":"gain_amount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"investor_id_get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"investor_ids","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"name":"is_owned_investor","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"name":"is_owned_spv","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"issuer","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"loan_ids","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_loan_id","type":"uint256"}],"name":"loan_status","outputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"pool_details","outputs":[{"name":"pool_value","type":"uint256"},{"name":"is_sold","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"pool_ids","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"bank_id","type":"uint256"}],"name":"show_borrower","outputs":[{"name":"","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_pool_id","type":"uint256"}],"name":"show_loanids_of_pool","outputs":[{"name":"","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"spv_details","outputs":[{"name":"spv_address","type":"address"},{"name":"gain_amount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"spv_id_by_pool_id","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"spv_id_get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"spv_ids","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}];
+
+/***/ }),
+
+/***/ "./src/app/addbank/addbank.component.html":
+/*!************************************************!*\
+  !*** ./src/app/addbank/addbank.component.html ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "th,td {\r\n    text-align:center\r\n}\r\n.table-wrapper-2 {\r\n    display: block;\r\n    max-height: 300px;\r\n    overflow-y: auto;\r\n    overflow-y:scroll;\r\n}\r\nth{\r\n    font-style: normal;\r\n}"
+module.exports = "\r\n  <br>\r\n<br>\r\n<div class=\"container-fluid \" >\r\n<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n      <blockquote class=\"blockquote bq-primary\">\r\n          <p class=\"bq-title\">Note:</p>\r\n          <p>You can also enter multiple Bank Names &nbsp;<strong>(ex:- HDFC,AXIS,SBI)</strong>&nbsp;&nbsp;<br>(or)&nbsp;&nbsp;You can Upload a csv file&nbsp;<strong>(ex:- File.csv)</strong></p>\r\n        </blockquote><br> \r\n  </div>\r\n</div>\r\n  <div class=\"row\">\r\n\r\n\r\n\r\n<div class=\"col-sm-4\"> \r\n  <div class=\"row\">\r\n    <div class=\"col-sm-2\"></div>\r\n    <div class=\"col-sm-10\">\r\n        <h4><b>Bank Details</b></h4><br>\r\n        <table class=\"table\" style=\"overflow-y:auto;display:block;height:250px;width:180px;\">\r\n            <thead class=\"tablecolor\">\r\n              <tr>\r\n                <th>Bank ID</th>\r\n                <th>Bank Name</th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let bank of banklist\" >\r\n                <td>{{ bank.bankid }}</td>\r\n                <td>{{ bank.bankname }}</td>\r\n              </tr>\r\n            </tbody>\r\n        </table>  \r\n    </div><br>\r\n  </div>     \r\n</div>\r\n\r\n\r\n\r\n  <div class=\"col-sm-8\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-6\">\r\n          <h3><strong>Bank Registration</strong></h3>\r\n          <br>\r\n              <div class=\"col-sm-12\">\r\n            \r\n                  <div class=\"col-sm-6\">\r\n                      <div class=\"md-form\">\r\n                        \r\n                          <div class=\"group\">      \r\n                              <input class=\"input\" type=\"text\" id=\"id1\"  #bankname required>\r\n                              <span class=\"highlight\"></span>\r\n                              <span class=\"bar\"></span>\r\n                              <label >Enter Bank Name</label>\r\n                            </div>\r\n\r\n                            \r\n                       \r\n                        </div>\r\n            \r\n              </div>\r\n              </div>\r\n              <div class=\"col-sm-12\" >\r\n                  <button class=\"btn btn-primary\" (click)=\"get_bank_Id(bankname.value)\">Register</button>\r\n                </div>\r\n                <br>\r\n                <br>            \r\n      </div>\r\n      <div class=\"col-sm-6\">\r\n             <h3><strong>Upload a File(.csv)</strong></h3><br><br>\r\n             <div class=\"col-sm-10\">             \r\n             <input type=\"file\" class=\"btn btn-primary\" id=\"fileUpload\"  class=\"form-control\" (change)=\"onChange($event)\" accept=\".csv\" required />      \r\n          </div>          \r\n      </div>\r\n    \r\n\r\n \r\n</div>\r\n</div>\r\n\r\n\r\n  <!-- <div class=\"col-sm-3\">\r\n      <div class=\"row\">\r\n          \r\n      </div>  \r\n  </div> -->\r\n<!-- row2 -->\r\n\r\n</div>\r\n\r\n\r\n</div>\r\n\r\n<ngx-spinner\r\n  bdColor=\"rgba(51,51,51,0.8)\"\r\n  size=\"medium\"\r\n  color=\"#fff\"\r\n  loadingText=\"Transaction in process...\"\r\n  type=\"ball-scale-multiple\">\r\n</ngx-spinner>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/addbank/addbank.component.scss":
+/*!************************************************!*\
+  !*** ./src/app/addbank/addbank.component.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "* {\n  box-sizing: border-box; }\n\n/* basic stylings ------------------------------------------ */\n\nh2 {\n  text-align: center;\n  margin-bottom: 50px; }\n\nh2 small {\n  font-weight: normal;\n  color: #888;\n  display: block; }\n\n.footer {\n  text-align: center; }\n\n.footer a {\n  color: #53B2C8; }\n\n/* form starting stylings ------------------------------- */\n\n.group {\n  position: relative;\n  margin-bottom: 45px; }\n\n.input {\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\n.input:focus {\n  outline: none; }\n\n/* LABEL ======================================= */\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n/* active state */\n\n.input:focus ~ label, .input:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n/* BOTTOM BARS ================================= */\n\n.bar {\n  position: relative;\n  display: block;\n  width: 300px; }\n\n.bar:before, .bar:after {\n  content: '';\n  height: 2px;\n  width: 0;\n  bottom: 1px;\n  position: absolute;\n  background: green;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n.bar:before {\n  left: 50%; }\n\n.bar:after {\n  right: 50%; }\n\n/* active state */\n\n.input:focus ~ .bar:before, .input:focus ~ .bar:after {\n  width: 50%; }\n\n/* HIGHLIGHTER ================================== */\n\n.highlight {\n  position: absolute;\n  height: 60%;\n  width: 100px;\n  top: 25%;\n  left: 0;\n  pointer-events: none;\n  opacity: 0.5; }\n\n/* active state */\n\n.input:focus ~ .highlight {\n  -webkit-animation: inputHighlighter 0.3s ease;\n  animation: inputHighlighter 0.3s ease; }\n\n/* ANIMATIONS ================ */\n\n@-webkit-keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n@keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n.tablecolor {\n  background-color: #3f51b5;\n  color: white; }\n\n::-webkit-scrollbar {\n  width: 8px;\n  height: 0px; }\n\n/* Track */\n\n::-webkit-scrollbar-track {\n  background: #f1f1f1; }\n\n/* Handle */\n\n::-webkit-scrollbar-thumb {\n  background: darkgrey; }\n\n/* Handle on hover */\n\n::-webkit-scrollbar-thumb:hover {\n  background: #3f51b5; }\n"
+
+/***/ }),
+
+/***/ "./src/app/addbank/addbank.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/addbank/addbank.component.ts ***!
+  \**********************************************/
+/*! exports provided: AddbankComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddbankComponent", function() { return AddbankComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! web3 */ "./node_modules/web3/src/index.js");
+/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(web3__WEBPACK_IMPORTED_MODULE_6__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var Buffer = __webpack_require__(/*! buffer/ */ "./node_modules/buffer/index.js").Buffer;
+var AddbankComponent = /** @class */ (function () {
+    function AddbankComponent(ls, router, spinner) {
+        this.ls = ls;
+        this.router = router;
+        this.spinner = spinner;
+        this.banklist = [];
+        jquery__WEBPACK_IMPORTED_MODULE_3___default()("#issuer").addClass("active");
+        jquery__WEBPACK_IMPORTED_MODULE_3___default()("#spv").removeClass("active");
+        jquery__WEBPACK_IMPORTED_MODULE_3___default()("#investor").removeClass("active");
+        this.bankid = '';
+        this._web3 = new web3__WEBPACK_IMPORTED_MODULE_6___default.a(new web3__WEBPACK_IMPORTED_MODULE_6___default.a.providers.HttpProvider('https://ropsten.infura.io/Vr1GWcLG0XzcdrZHWMPu'));
+        this.bank_table();
+    }
+    AddbankComponent.prototype.onChange = function (event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        var lss = this.ls;
+        var meta = this;
+        var table = this.bank_table();
+        var spin = this.spinner;
+        this.ls.get_cookie().then(function (privatekey) {
+            reader.onload = function (event) {
+                meta.get_file_data(reader.result);
+            };
+        });
+        reader.readAsText(file);
+    };
+    AddbankComponent.prototype.get_file_data = function (names) {
+        var _this = this;
+        // console.log(names);
+        if (names.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Enter Bank Name In Input textbox");
+            return;
+        }
+        var bank_names = [];
+        var tmp;
+        tmp = names.trim().split(",");
+        for (var i = 0; i < tmp.length; i++) {
+            var byte_name = this._web3.utils.fromAscii(tmp[i]);
+            bank_names.push(byte_name);
+        }
+        this.spinner.show();
+        this.ls.get_cookie().then(function (key) {
+            _this.ls.add_bank(bank_names, key).then(function (result) {
+                document.getElementById('id1').value = '';
+                document.getElementById('fileUpload').value = '';
+                _this.spinner.hide();
+                if (result == 0) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("You Rejected this Transaction");
+                }
+                else if (result == 2) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Transaction Failed !");
+                }
+                else if (result == 1) {
+                    _this.bank_table();
+                    sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Bank(s) Registered Successfully!");
+                }
+            });
+        });
+    };
+    AddbankComponent.prototype.get_bank_Id = function (bname) {
+        var _this = this;
+        // console.log("bname");
+        // console.log(bname);
+        if (bname.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Enter Bank Name In Input textbox");
+            return;
+        }
+        var bank_names = [];
+        var tmp;
+        tmp = bname.trim().split(",");
+        for (var i = 0; i < tmp.length; i++) {
+            var byte_name = this._web3.utils.fromAscii(tmp[i]);
+            bank_names.push(byte_name);
+        }
+        this.spinner.show();
+        this.ls.get_cookie().then(function (key) {
+            _this.ls.add_bank(bank_names, key).then(function (result) {
+                document.getElementById('id1').value = '';
+                _this.spinner.hide();
+                if (result == 0) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("You Rejected this Transaction");
+                }
+                else if (result == 2) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Transaction Failed !");
+                }
+                else if (result == 1) {
+                    _this.bank_table();
+                    sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Bank(s) Registered Successfully!");
+                }
+            });
+        });
+    };
+    AddbankComponent.prototype.bank_table = function () {
+        var _this = this;
+        this.banklist.length = 0;
+        this.ls.bank_ids().then(function (bank_ids) {
+            bank_ids.forEach(function (bank_id) {
+                // console.log(bank_id);
+                var obj = {};
+                _this.ls.bank_detail_map(bank_id).then(function (b_d) {
+                    obj['bankid'] = bank_id;
+                    obj['bankname'] = b_d;
+                    _this.banklist.push(obj);
+                });
+            });
+        });
+    };
+    AddbankComponent.prototype.ngOnInit = function () {
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    meta.router.navigate(["login"]);
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    AddbankComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    AddbankComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-addbank',
+            template: __webpack_require__(/*! ./addbank.component.html */ "./src/app/addbank/addbank.component.html"),
+            styles: [__webpack_require__(/*! ./addbank.component.scss */ "./src/app/addbank/addbank.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_4__["NgxSpinnerService"]])
+    ], AddbankComponent);
+    return AddbankComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/addborrower/addborrower.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/addborrower/addborrower.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\r\n  <br><br>\r\n  <div class=\"row\">\r\n      <div class=\"col-sm-12\">\r\n          <blockquote class=\"blockquote bq-primary\">\r\n              <p class=\"bq-title\">Note:</p>\r\n              <p>You can also enter multiple Borrower Names &nbsp;<strong>(ex:- Kumar,Kannan,Kishore)</strong>&nbsp;&nbsp;<br>(or)&nbsp;&nbsp;You can Upload a csv file&nbsp;<strong>(ex:- File.csv)</strong></p>            \r\n              <br>\r\n            </blockquote>\r\n      </div>\r\n  </div>\r\n  <br>\r\n  <div class=\"row\">\r\n      <div class=\"col-sm-3\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-2\"></div>\r\n            <div class=\"col-sm-10\">\r\n                <h4><b>Borrower Details</b></h4><br>\r\n                <table class=\"table\" style=\"overflow-y:auto;display:block;height:300px;width:195px;\">\r\n                    <thead class=\"tablecolor\">\r\n                      <tr>\r\n                        <th>Borrower ID</th>\r\n                        <th>Borrower Name</th>\r\n                      </tr>\r\n                    </thead>\r\n                    <tbody>\r\n                      <tr *ngFor=\"let borrower of borrowerlist\" >\r\n                        <td>{{ borrower.borrowerid }}</td>\r\n                        <td>{{ borrower.borrowername }}</td>\r\n                      </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n          </div>\r\n                \r\n        </div>\r\n    <div class=\"col-sm-3\">\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-2\"></div>\r\n            <div class=\"col-sm-10\">\r\n                <h4><b>Bank Details</b></h4><br>\r\n                <table class=\"table\" style=\"overflow-y:auto;display:block;height:300px;width:180px;\">\r\n                    <thead class=\"tablecolor\">\r\n                      <tr>\r\n                        <th>Bank ID</th>\r\n                        <th>Bank Name</th>\r\n                      </tr>\r\n                    </thead>\r\n                    <tbody>\r\n                      <tr *ngFor=\"let bank of banklist\" >\r\n                        <td>{{ bank.bankid }}</td>\r\n                        <td>{{ bank.bankname }}</td>\r\n                      </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n            <div class=\"col-sm-4\"></div>\r\n            \r\n        </div>\r\n            \r\n    </div>\r\n    <div class=\"col-sm-6\">      \r\n<div class=\"row\">\r\n  <div class=\"col-sm-6\">\r\n      <h3><strong>Borrower Registration</strong></h3><br><br>\r\n     \r\n      <div class=\"col-sm-12\">\r\n        <div class=\"group\">      \r\n          <input class=\"input\" type=\"text\" id=\"id1\"   #brwrname required>\r\n          <span class=\"highlight\"></span>\r\n          <span class=\"bar\"></span>\r\n          <label >Enter Borrower Name</label>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-12\"> \r\n        <div class=\"group\">      \r\n            <input class=\"input\" type=\"text\" id=\"id2\"   #bankid required>\r\n            <span class=\"highlight\"></span>\r\n            <span class=\"bar\"></span>\r\n            <label>Enter Bank ID</label>\r\n        </div>\r\n      </div> \r\n      <div class=\"col-sm-12\"> \r\n        <button class=\"btn btn-primary\" (click)=\"get_borrower_id(brwrname.value,bankid.value)\">Register</button>\r\n        <br><br>\r\n        </div>\r\n        \r\n        <br>  \r\n  </div>\r\n  <div class=\"col-sm-6\">                                           \r\n             <h3><strong>Upload a File(.csv)</strong></h3><br><br>  \r\n             <div class=\"group\">      \r\n                <input class=\"input\" type=\"text\" id=\"id3\"  #bankiid required>\r\n                <span class=\"highlight\"></span>\r\n                <span class=\"bar\"></span>\r\n                <label>Enter Bank ID</label>\r\n            </div>\r\n            <br>\r\n            <div class=\"col-sm-6\">\r\n                <input type=\"file\" class=\"btn btn-primary\" id=\"fileUpload\"  class=\"form-control\" (change)=\"onChange($event,bankiid.value)\" accept=\".csv\" required />      \r\n            </div>\r\n            \r\n          \r\n  </div>\r\n</div>            \r\n    </div>  \r\n  </div>\r\n</div>\r\n<ngx-spinner\r\nbdColor=\"rgba(51,51,51,0.8)\"\r\nsize=\"medium\"\r\ncolor=\"#fff\"\r\nloadingText=\"Transaction in process...\"\r\ntype=\"ball-scale-multiple\">\r\n\r\n</ngx-spinner>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/addborrower/addborrower.component.scss":
+/*!********************************************************!*\
+  !*** ./src/app/addborrower/addborrower.component.scss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "* {\n  box-sizing: border-box; }\n\n/* basic stylings ------------------------------------------ */\n\nh2 {\n  text-align: center;\n  margin-bottom: 50px; }\n\nh2 small {\n  font-weight: normal;\n  color: #888;\n  display: block; }\n\n.footer {\n  text-align: center; }\n\n.footer a {\n  color: #53B2C8; }\n\n/* form starting stylings ------------------------------- */\n\n.group {\n  position: relative;\n  margin-bottom: 45px; }\n\n.input {\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\n.input:focus {\n  outline: none; }\n\n/* LABEL ======================================= */\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n/* active state */\n\n.input:focus ~ label, .input:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n/* BOTTOM BARS ================================= */\n\n.bar {\n  position: relative;\n  display: block;\n  width: 300px; }\n\n.bar:before, .bar:after {\n  content: '';\n  height: 2px;\n  width: 0;\n  bottom: 1px;\n  position: absolute;\n  background: green;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n.bar:before {\n  left: 50%; }\n\n.bar:after {\n  right: 50%; }\n\n/* active state */\n\n.input:focus ~ .bar:before, .input:focus ~ .bar:after {\n  width: 50%; }\n\n/* HIGHLIGHTER ================================== */\n\n.highlight {\n  position: absolute;\n  height: 60%;\n  width: 100px;\n  top: 25%;\n  left: 0;\n  pointer-events: none;\n  opacity: 0.5; }\n\n/* active state */\n\n.input:focus ~ .highlight {\n  -webkit-animation: inputHighlighter 0.3s ease;\n  animation: inputHighlighter 0.3s ease; }\n\n/* ANIMATIONS ================ */\n\n@-webkit-keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n@keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n.tablecolor {\n  background-color: #3f51b5;\n  color: white; }\n\n::-webkit-scrollbar {\n  width: 8px;\n  height: 0px; }\n\n/* Track */\n\n::-webkit-scrollbar-track {\n  background: #f1f1f1; }\n\n/* Handle */\n\n::-webkit-scrollbar-thumb {\n  background: darkgrey; }\n\n/* Handle on hover */\n\n::-webkit-scrollbar-thumb:hover {\n  background: #3f51b5; }\n"
+
+/***/ }),
+
+/***/ "./src/app/addborrower/addborrower.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/addborrower/addborrower.component.ts ***!
+  \******************************************************/
+/*! exports provided: AddborrowerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddborrowerComponent", function() { return AddborrowerComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! web3 */ "./node_modules/web3/src/index.js");
+/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(web3__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_6__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var Buffer = __webpack_require__(/*! buffer/ */ "./node_modules/buffer/index.js").Buffer;
+var AddborrowerComponent = /** @class */ (function () {
+    function AddborrowerComponent(ls, router, spinner) {
+        var _this = this;
+        this.ls = ls;
+        this.router = router;
+        this.spinner = spinner;
+        this.loan_details = [];
+        this.borrowerlist = [];
+        this.banklist = [];
+        jquery__WEBPACK_IMPORTED_MODULE_3___default()("#issuer").addClass("active");
+        jquery__WEBPACK_IMPORTED_MODULE_3___default()("#spv").removeClass("active");
+        jquery__WEBPACK_IMPORTED_MODULE_3___default()("#investor").removeClass("active");
+        this._web3 = new web3__WEBPACK_IMPORTED_MODULE_4___default.a(new web3__WEBPACK_IMPORTED_MODULE_4___default.a.providers.HttpProvider('https://ropsten.infura.io/Vr1GWcLG0XzcdrZHWMPu'));
+        this.borrower_id = '';
+        this.ls.contract_balance().then(function (result) { return _this.balance = result; });
+    }
+    AddborrowerComponent.prototype.onChange = function (event, bank__id) {
+        if (bank__id.trim() != "") {
+            var lss = this.ls;
+            var meta = this;
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            this.ls.get_cookie().then(function (privatekey) {
+                reader.onload = function (event) {
+                    meta.get_file_data(reader.result.trim(), bank__id);
+                };
+            });
+            reader.readAsText(file);
+        }
+        else {
+            sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Enter Bank ID");
+        }
+    };
+    AddborrowerComponent.prototype.get_file_data = function (brwr_name, bank__id) {
+        var _this = this;
+        if (brwr_name.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Enter Borrower Name");
+            return;
+        }
+        if (bank__id.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Enter Bank Id");
+            return;
+        }
+        var borrower__names = [];
+        var tmp;
+        tmp = brwr_name.trim().split(",");
+        for (var i = 0; i < tmp.length; i++) {
+            borrower__names.push(this._web3.utils.fromAscii(tmp[i]));
+        }
+        this.spinner.show();
+        this.ls.get_cookie().then(function (key) {
+            _this.ls.add_borrower(bank__id, borrower__names, key).then(function (res) {
+                document.getElementById('id1').value = '';
+                document.getElementById('id2').value = '';
+                document.getElementById('id3').value = '';
+                document.getElementById('fileUpload').value = '';
+                _this.spinner.hide();
+                if (res == 0) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("You Rejected this Transaction");
+                }
+                else if (res == 2) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Transaction Failed !");
+                }
+                else if (res == 1) {
+                    _this.borrower_table();
+                    sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Borrower(s) Successfully Registered");
+                }
+            });
+        });
+    };
+    AddborrowerComponent.prototype.get_borrower_id = function (brwrname, bankid) {
+        var _this = this;
+        if (brwrname.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Enter Borrower Name");
+            return;
+        }
+        if (bankid.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Enter Bank Id");
+            return;
+        }
+        var borrower_names = [];
+        var tmp;
+        tmp = brwrname.trim().split(",");
+        for (var i = 0; i < tmp.length; i++) {
+            borrower_names.push(this._web3.utils.fromAscii(tmp[i]));
+        }
+        this.spinner.show();
+        this.ls.get_cookie().then(function (key) {
+            _this.ls.add_borrower(bankid, borrower_names, key).then(function (res) {
+                document.getElementById('id1').value = '';
+                document.getElementById('id2').value = '';
+                _this.spinner.hide();
+                if (res == 0) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("You Rejected this Transaction");
+                }
+                else if (res == 2) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Transaction Failed !");
+                }
+                else if (res == 1) {
+                    _this.borrower_table();
+                    sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Borrower(s) Successfully Registered");
+                }
+            });
+        });
+    };
+    AddborrowerComponent.prototype.table = function () {
+        var _this = this;
+        this.loan_details.length = 0;
+        this.ls.loan_ids().then(function (ids) {
+            ids.forEach(function (element) {
+                var obj = {};
+                _this.ls.borrower_details_map(element).then(function (result) {
+                    obj['loanid'] = element;
+                    obj['borrowerid'] = result[0];
+                    obj['borrowerloanamt'] = result[2];
+                    obj['borrowerintrest'] = result[1];
+                    obj['loanduration'] = result[3];
+                    obj['assetid'] = result[4];
+                    obj['assetdetails'] = result[5];
+                    obj['assetamt'] = result[6];
+                    obj['borrowerpaid'] = result[7];
+                    _this.loan_details.push(obj);
+                });
+            });
+        });
+    };
+    AddborrowerComponent.prototype.bank_table = function () {
+        var _this = this;
+        this.banklist.length = 0;
+        this.ls.bank_ids().then(function (bank_ids) {
+            bank_ids.forEach(function (bank_id) {
+                var obj = {};
+                _this.ls.bank_detail_map(bank_id).then(function (b_d) {
+                    obj['bankid'] = bank_id;
+                    obj['bankname'] = b_d;
+                    _this.banklist.push(obj);
+                });
+            });
+        });
+    };
+    AddborrowerComponent.prototype.borrower_table = function () {
+        var _this = this;
+        this.borrowerlist.length = 0;
+        this.ls.borrower_ids().then(function (ids) {
+            ids.forEach(function (element) {
+                var temp_obj = {};
+                _this.ls.borrower_map(element).then(function (details) {
+                    temp_obj['borrowerid'] = element;
+                    temp_obj['borrowername'] = details;
+                    _this.borrowerlist.push(temp_obj);
+                });
+            });
+        });
+    };
+    AddborrowerComponent.prototype.ngOnInit = function () {
+        this.table();
+        this.bank_table();
+        this.borrower_table();
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    meta.router.navigate(["login"]);
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    AddborrowerComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    AddborrowerComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-addborrower',
+            template: __webpack_require__(/*! ./addborrower.component.html */ "./src/app/addborrower/addborrower.component.html"),
+            styles: [__webpack_require__(/*! ./addborrower.component.scss */ "./src/app/addborrower/addborrower.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerService"]])
+    ], AddborrowerComponent);
+    return AddborrowerComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/addinvestor/addinvestor.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/addinvestor/addinvestor.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<html>\r\n<head>\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n</head>\r\n<body>\r\n<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-3\">\r\n        \r\n        </div>\r\n        <div class=\"col-sm-6\"><br><br>\r\n                <h3 >Investor Registeration</h3><br>\r\n                <div class=\"alert alert-info\">\r\n                                   \r\n                        <p class=\"big\"><font size=\"4\">\r\n                                An investor is a person that allocates capital with the expectation of a future financial return. \r\n                           </font> </p>\r\n                       <div class=\"form-group form-check\">\r\n                            </div>\r\n             </div><br>\r\n           \r\n            \r\n        <button class=\"btn btn-info\" (click)=\"investor_register()\">Register</button>\r\n        </div>\r\n        <div class=\"col-sm-3\">\r\n        \r\n        </div>\r\n        </div>\r\n</div>\r\n</body>\r\n</html>\r\n<ngx-spinner\r\nbdColor=\"rgba(51,51,51,0.8)\"\r\nsize=\"medium\"\r\ncolor=\"#fff\"\r\nloadingText=\"Transaction in process...\"\r\ntype=\"ball-scale-multiple\">\r\n</ngx-spinner>"
+
+/***/ }),
+
+/***/ "./src/app/addinvestor/addinvestor.component.scss":
+/*!********************************************************!*\
+  !*** ./src/app/addinvestor/addinvestor.component.scss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/addinvestor/addinvestor.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/addinvestor/addinvestor.component.ts ***!
+  \******************************************************/
+/*! exports provided: AddinvestorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddinvestorComponent", function() { return AddinvestorComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AddinvestorComponent = /** @class */ (function () {
+    function AddinvestorComponent(ls, router, spinner) {
+        this.ls = ls;
+        this.router = router;
+        this.spinner = spinner;
+    }
+    AddinvestorComponent.prototype.investor_register = function () {
+        var _this = this;
+        this.spinner.show();
+        this.ls.get_cookie().then(function (key) {
+            _this.ls.register_investor(key).then(function (res) {
+                _this.spinner.hide();
+                if (res == 0) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("You Rejected this Transaction");
+                }
+                else if (res == 2) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Transaction Failed !");
+                }
+                else if (res == 1) {
+                    _this.ls.investor_ids().then(function (inv_ids) {
+                        sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("You Successfully Registered As An Investor, Your Investor Id Is:  " + inv_ids.length);
+                    });
+                }
+            });
+        });
+    };
+    AddinvestorComponent.prototype.ngOnInit = function () {
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    meta.router.navigate(["login"]);
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    AddinvestorComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    AddinvestorComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-addinvestor',
+            template: __webpack_require__(/*! ./addinvestor.component.html */ "./src/app/addinvestor/addinvestor.component.html"),
+            styles: [__webpack_require__(/*! ./addinvestor.component.scss */ "./src/app/addinvestor/addinvestor.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"]])
+    ], AddinvestorComponent);
+    return AddinvestorComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/addloan/addloan.component.html":
+/*!************************************************!*\
+  !*** ./src/app/addloan/addloan.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<br>\r\n\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n        <div class=\"col-sm-8\">\r\n            <div class=\"row\">\r\n                     \r\n                        <div class=\"col-sm-12\">\r\n                                <h3><strong>Add Loan Details:</strong></h3><br>\r\n        \r\n                                <div class=\"row\">\r\n                                                \r\n                                <div class=\"col-sm-6\">\r\n                                   \r\n                                    <div class=\"group\">      \r\n                                        <input type=\"text\" id=\"id1\"  #borrowerid required>\r\n                                        <span class=\"highlight\"></span>\r\n                                        <span class=\"bar\"></span>\r\n                                        <label >Enter Borrower Id</label>\r\n                                      </div>\r\n                                  </div>\r\n                                  <div class=\"col-sm-6\">\r\n                                    \r\n                                       \r\n                                        <div class=\"group\">      \r\n                                            <input type=\"text\" id=\"id2\"  #borrowerloanAmount required>\r\n                                            <span class=\"highlight\"></span>\r\n                                            <span class=\"bar\"></span>\r\n                                            <label >Enter Borrower Loan Amount(Rs)</label>\r\n                                          </div>\r\n                                        \r\n                                      </div>\r\n                              \r\n                                  </div>\r\n                              \r\n                                    <div class=\"row\">\r\n                                            <div class=\"col-sm-6\">\r\n                                                    <!-- <br> -->\r\n                                     \r\n                                                    <div class=\"group\">      \r\n                                                        <input type=\"text\" id=\"id3\"  #interestrate required>\r\n                                                        <span class=\"highlight\"></span>\r\n                                                        <span class=\"bar\"></span>\r\n                                                        <label>Enter Interest rate</label>\r\n                                                      </div>\r\n                    \r\n                                                  </div>\r\n                                    \r\n                                        <div class=\"col-sm-6\">\r\n                                            <!-- <br> -->\r\n                                         \r\n                                            <div class=\"group\">      \r\n                                                <input type=\"text\" id=\"id4\"  #loanduration required>\r\n                                                <span class=\"highlight\"></span>\r\n                                                <span class=\"bar\"></span>\r\n                                                <label >Enter Loan Duration(in months)</label>\r\n                                              </div>\r\n                    \r\n                                          </div>\r\n                    \r\n                                      </div>\r\n                              \r\n                                      <div class=\"row\">\r\n                                       \r\n                                            <div class=\"col-sm-6\">\r\n                                                <!-- <br> -->\r\n                                             \r\n                                                <div class=\"group\">      \r\n                                                    <input type=\"text\" id=\"id5\"  #assetdetails required>\r\n                                                    <span class=\"highlight\"></span>\r\n                                                    <span class=\"bar\"></span>\r\n                                                    <label >Enter Asset Details</label>\r\n                                                  </div>\r\n                              \r\n                                              </div>\r\n                    \r\n                                              <div class=\"col-sm-6\">\r\n                                                  <br>\r\n                                      \r\n                              \r\n                                                  <div class=\"group\">      \r\n                                                      <input type=\"text\" id=\"id6\"  #assetamt required>\r\n                                                      <span class=\"highlight\"></span>\r\n                                                      <span class=\"bar\"></span>\r\n                                                      <label >Enter Asset Amount(in rupees)</label>\r\n                                                    </div>\r\n                    \r\n                                                </div>\r\n                    \r\n                                            </div>\r\n                              \r\n                                            <div class=\"row\">\r\n                                             \r\n                                                   \r\n                                                <div class=\"col-sm-6\">\r\n                                                    <br>\r\n                                     \r\n                                                    <div class=\"group\">      \r\n                                                        <input type=\"text\" id=\"id7\"  #borrowerpaid required>\r\n                                                        <span class=\"highlight\"></span>\r\n                                                        <span class=\"bar\"></span>\r\n                                                        <label >Enter Borrower Paid(in rupees) *Optional</label>\r\n                                                      </div>\r\n                    \r\n                                                  </div>\r\n                                                  <div class=\"col-sm-6\">\r\n                                                        <br>\r\n                                                    <button class=\"btn btn-primary\" (click)=\"upload(borrowerid.value,borrowerloanAmount.value,interestrate.value,loanduration.value,assetdetails.value,assetamt.value,borrowerpaid.value)\">Upload Details</button>     \r\n                                                    </div>    \r\n                                                </div>\r\n                                                           \r\n                        </div>\r\n                      \r\n                        \r\n                    </div>\r\n                        \r\n                    </div>\r\n\r\n       <div class=\"col-sm-3\">\r\n        <h4><b>Borrower Details</b></h4><br>\r\n        <table class=\"table\" style=\"overflow-y:auto;display:block;height:400px;width:195px;\">\r\n            <thead class=\"tablecolor\">\r\n              <tr>\r\n                <th>Borrower Name</th>\r\n                <th>Borrower ID</th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let borrower of borrowerlist\" >\r\n                <td>{{ borrower.borrowername }}</td>\r\n                <td>{{ borrower.borrowerid }}</td>\r\n              </tr>\r\n            </tbody>\r\n        </table>\r\n       </div>                                                              \r\n                               \r\n\r\n    \r\n    <!-- <div class=\"col-sm-6\">\r\n        <h4><b>Loan Details</b></h4><br>\r\n<div style=\"overflow-y:auto;display:block;height:300px;\">\r\n        <table class=\"table\" >\r\n                <thead class=\"tablecolor\">\r\n                  <tr>\r\n                    <th>Loan ID</th>\r\n                    <th> Borrower ID</th>\r\n                    <th>Borrower Loan Amount(Rs)</th>\r\n                    <th> Borrower Interest Rate</th>\r\n                    <th>Loan Duration</th>\r\n                    <th>Asset ID</th>\r\n                    <th>Asset Details</th>\r\n                    <th>Asset Amount (Rs)</th>\r\n                    <th>Borrower Paid</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody id=\"loantable\">\r\n                    <tr *ngFor=\"let issuer of loan_details\">\r\n                        <td>{{ issuer.loanid }}</td>\r\n                        <td>{{ issuer.borrowerid }}</td>\r\n                        <td >{{ issuer. borrowerloanamt}}</td>\r\n                        <td>{{ issuer.borrowerintrest }}</td>\r\n                        <td>{{ issuer.loanduration }}</td>\r\n                        <td>{{ issuer.assetid }}</td>\r\n                        <td>{{ issuer.assetdetails }}</td>\r\n                        <td >{{ issuer.assetamt }}</td>\r\n                        <td >{{ issuer.borrowerpaid }}</td>\r\n                     </tr>\r\n                 </tbody>\r\n              </table>\r\n</div>\r\n\r\n    </div> -->\r\n</div>\r\n<div class=\"row\">\r\n        <div class=\"col-sm-12\">\r\n                <h4><b>Loan Details</b></h4><br>\r\n        <div style=\"overflow-y:auto;display:block;height:300px;\">\r\n                <table class=\"table\" >\r\n                        <thead class=\"tablecolor\">\r\n                          <tr>\r\n                            <th>Loan ID</th>\r\n                            <th> Borrower ID</th>\r\n                            <th>Borrower Loan Amount(Rs)</th>\r\n                            <th> Borrower Interest Rate</th>\r\n                            <th>Loan Duration</th>\r\n                            <th>Asset ID</th>\r\n                            <th>Asset Details</th>\r\n                            <th>Asset Amount (Rs)</th>\r\n                            <th>Borrower Paid</th>\r\n                          </tr>\r\n                        </thead>\r\n                        <tbody id=\"loantable\">\r\n                            <tr *ngFor=\"let issuer of loan_details\">\r\n                                <td>{{ issuer.loanid }}</td>\r\n                                <td>{{ issuer.borrowerid }}</td>\r\n                                <td >{{ issuer. borrowerloanamt}}</td>\r\n                                <td>{{ issuer.borrowerintrest }}</td>\r\n                                <td>{{ issuer.loanduration }}</td>\r\n                                <td>{{ issuer.assetid }}</td>\r\n                                <td>{{ issuer.assetdetails }}</td>\r\n                                <td >{{ issuer.assetamt }}</td>\r\n                                <td >{{ issuer.borrowerpaid }}</td>\r\n                             </tr>\r\n                         </tbody>\r\n                      </table>\r\n        </div>\r\n        \r\n            </div>\r\n</div>\r\n</div>\r\n\r\n<ngx-spinner\r\nbdColor=\"rgba(51,51,51,0.8)\"\r\nsize=\"medium\"\r\ncolor=\"#fff\"\r\nloadingText=\"Transaction in process...\"\r\ntype=\"ball-scale-multiple\">\r\n</ngx-spinner>"
+
+/***/ }),
+
+/***/ "./src/app/addloan/addloan.component.scss":
+/*!************************************************!*\
+  !*** ./src/app/addloan/addloan.component.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "* {\n  box-sizing: border-box; }\n\n/* basic stylings ------------------------------------------ */\n\nbody {\n  background: url(https://scotch.io/wp-content/uploads/2014/07/61.jpg); }\n\n.container {\n  font-family: 'Roboto';\n  width: 600px;\n  margin: 30px auto 0;\n  display: block;\n  background: #FFF;\n  padding: 10px 50px 50px; }\n\nh2 {\n  text-align: center;\n  margin-bottom: 50px; }\n\nh2 small {\n  font-weight: normal;\n  color: #888;\n  display: block; }\n\n.footer {\n  text-align: center; }\n\n.footer a {\n  color: #53B2C8; }\n\n/* form starting stylings ------------------------------- */\n\n.group {\n  position: relative;\n  margin-bottom: 45px; }\n\ninput {\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\ninput:focus {\n  outline: none; }\n\n/* LABEL ======================================= */\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n/* active state */\n\ninput:focus ~ label, input:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n/* BOTTOM BARS ================================= */\n\n.bar {\n  position: relative;\n  display: block;\n  width: 300px; }\n\n.bar:before, .bar:after {\n  content: '';\n  height: 2px;\n  width: 0;\n  bottom: 1px;\n  position: absolute;\n  background: green;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n.bar:before {\n  left: 50%; }\n\n.bar:after {\n  right: 50%; }\n\n/* active state */\n\ninput:focus ~ .bar:before, input:focus ~ .bar:after {\n  width: 50%; }\n\n/* HIGHLIGHTER ================================== */\n\n.highlight {\n  position: absolute;\n  height: 60%;\n  width: 100px;\n  top: 25%;\n  left: 0;\n  pointer-events: none;\n  opacity: 0.5; }\n\n/* active state */\n\ninput:focus ~ .highlight {\n  -webkit-animation: inputHighlighter 0.3s ease;\n  animation: inputHighlighter 0.3s ease; }\n\n/* ANIMATIONS ================ */\n\n@-webkit-keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n@keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n.tablecolor {\n  background-color: #3f51b5;\n  color: white; }\n\n::-webkit-scrollbar {\n  width: 8px;\n  height: 0px; }\n\n/* Track */\n\n::-webkit-scrollbar-track {\n  background: #f1f1f1; }\n\n/* Handle */\n\n::-webkit-scrollbar-thumb {\n  background: darkgrey; }\n\n/* Handle on hover */\n\n::-webkit-scrollbar-thumb:hover {\n  background: #3f51b5; }\n"
+
+/***/ }),
+
+/***/ "./src/app/addloan/addloan.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/addloan/addloan.component.ts ***!
+  \**********************************************/
+/*! exports provided: AddloanComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddloanComponent", function() { return AddloanComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AddloanComponent = /** @class */ (function () {
+    function AddloanComponent(ls, router, spinner) {
+        this.ls = ls;
+        this.router = router;
+        this.spinner = spinner;
+        this.loan_details = [];
+        this.borrowerlist = [];
+    }
+    AddloanComponent.prototype.upload = function (borrowerid, borrowerloanAmount, interestrate, loanduration, assetdetails, assetamt, borrowerpaid) {
+        var _this = this;
+        if (borrowerid.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Enter Borrower Id");
+            return;
+        }
+        if (borrowerloanAmount.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Enter Borrower Loan Amount");
+            return;
+        }
+        if (interestrate.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Enter Interest rate");
+            return;
+        }
+        if (loanduration.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Enter Loan Duration");
+            return;
+        }
+        if (assetdetails.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Enter Asset Details");
+            return;
+        }
+        if (assetamt.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Enter Asset Amount(in rupees)");
+            return;
+        }
+        this.spinner.show();
+        this.ls.get_cookie().then(function (key) {
+            _this.ls.add_loan(borrowerid, borrowerloanAmount, interestrate, loanduration, assetdetails, assetamt, borrowerpaid, key).then(function (result) {
+                document.getElementById('id1').value = '';
+                document.getElementById('id2').value = '';
+                document.getElementById('id3').value = '';
+                document.getElementById('id4').value = '';
+                document.getElementById('id5').value = '';
+                document.getElementById('id6').value = '';
+                document.getElementById('id7').value = '';
+                _this.spinner.hide();
+                if (result == 0) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("You Rejected this Transaction");
+                }
+                else if (result == 2) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Transaction Failed !");
+                }
+                else if (result == 1) {
+                    _this.table();
+                    _this.ls.loan_ids().then(function (loan_ids) {
+                        sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Loan Added Successfully and Generated Loan Id Is:  " + loan_ids.length);
+                    });
+                }
+            });
+        });
+    };
+    AddloanComponent.prototype.table = function () {
+        var _this = this;
+        this.loan_details = [];
+        this.ls.loan_ids().then(function (ids) {
+            ids.forEach(function (element) {
+                var obj = {};
+                _this.ls.borrower_details_map(element).then(function (result) {
+                    obj['loanid'] = element;
+                    obj['borrowerid'] = result[0];
+                    obj['borrowerloanamt'] = result[1];
+                    obj['borrowerintrest'] = result[2];
+                    obj['loanduration'] = result[3];
+                    obj['assetid'] = result[4];
+                    obj['assetdetails'] = result[5];
+                    obj['assetamt'] = result[6];
+                    obj['borrowerpaid'] = result[7];
+                    _this.loan_details.push(obj);
+                });
+            });
+        });
+    };
+    AddloanComponent.prototype.borrower_table = function () {
+        var _this = this;
+        this.borrowerlist.length = 0;
+        this.ls.borrower_ids().then(function (ids) {
+            ids.forEach(function (element) {
+                var temp_obj = {};
+                _this.ls.borrower_map(element).then(function (details) {
+                    temp_obj['borrowername'] = details;
+                    temp_obj['borrowerid'] = element;
+                    _this.borrowerlist.push(temp_obj);
+                });
+            });
+        });
+    };
+    AddloanComponent.prototype.ngOnInit = function () {
+        this.table();
+        this.borrower_table();
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    meta.router.navigate(["login"]);
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    AddloanComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    AddloanComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-addloan',
+            template: __webpack_require__(/*! ./addloan.component.html */ "./src/app/addloan/addloan.component.html"),
+            styles: [__webpack_require__(/*! ./addloan.component.scss */ "./src/app/addloan/addloan.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"]])
+    ], AddloanComponent);
+    return AddloanComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/addspv/addspv.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/addspv/addspv.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<html>\r\n<head>\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n</head>\r\n<body>\r\n<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-3\">\r\n        \r\n        </div>\r\n        <div class=\"col-sm-6\"><br><br>\r\n                <h3>SPV Registeration</h3><br>\r\n                <div class=\"alert alert-info\">\r\n                       \r\n                                 <p class=\"big\"><font size=\"4\">\r\n                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a title=\"service purchase vechicle\" data-toggle=\"popover\" data-trigger=\"hover\" data-content=\"Some content\">SPVs</a>\r\n                                       are mostly formed to raise funds from the market. Technically, an SPV is a  company.\r\n                                        It has to follow the rules of formation of a company laid down in the  Companies Act. \r\n                                       Like a company, the SPV is an artificial person. It has all the  attributes of a legal person. \r\n                                       It is independent of members subscribing to the  shares of the SPV. \r\n                                       The SPV has an existence of its own in the eyes of law. It can  sue and be sued in its name.\r\n                                        The SPV has to adhere to all the regulations laid  down in the Companies Act. Members of an\r\n                                        SPV are mostly the companies and  individuals sponsoring the entity. An SPV can also be a partnership firm.\r\n                                    </font> </p>\r\n                                </div>                      \r\n                    \r\n           <button class=\"btn btn-info\" (click)=\"spv_registeration()\">Register</button>\r\n   \r\n        </div>\r\n        <div class=\"col-sm-3\">\r\n        \r\n        </div>\r\n        </div>\r\n      \r\n\r\n\r\n</div>\r\n</body>\r\n</html> \r\n\r\n<ngx-spinner\r\nbdColor=\"rgba(51,51,51,0.8)\"\r\nsize=\"medium\"\r\ncolor=\"#fff\"\r\nloadingText=\"Transaction in process...\"\r\ntype=\"ball-scale-multiple\">\r\n</ngx-spinner>"
+
+/***/ }),
+
+/***/ "./src/app/addspv/addspv.component.scss":
+/*!**********************************************!*\
+  !*** ./src/app/addspv/addspv.component.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".view {\n  height: 94vh !important; }\n"
+
+/***/ }),
+
+/***/ "./src/app/addspv/addspv.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/addspv/addspv.component.ts ***!
+  \********************************************/
+/*! exports provided: AddspvComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddspvComponent", function() { return AddspvComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AddspvComponent = /** @class */ (function () {
+    function AddspvComponent(ls, route, spinner) {
+        this.ls = ls;
+        this.route = route;
+        this.spinner = spinner;
+    }
+    AddspvComponent.prototype.spv_registeration = function () {
+        var _this = this;
+        this.spinner.show();
+        this.ls.get_cookie().then(function (key) {
+            _this.ls.register_spv(key).then(function (res) {
+                _this.spinner.hide();
+                if (res == 0) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("You Rejected this Transaction");
+                }
+                else if (res == 2) {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Transaction Failed");
+                }
+                else if (res == 1) {
+                    _this.ls.spv_ids().then(function (spv_ids) {
+                        sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("You Successfully Registered As An SPV , Your SPV Id Is:  " + spv_ids.length);
+                        _this.route.navigate(['spv']);
+                    });
+                }
+            });
+        });
+    };
+    AddspvComponent.prototype.ngOnInit = function () {
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    meta.route.navigate(["login"]);
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    AddspvComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    AddspvComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-addspv',
+            template: __webpack_require__(/*! ./addspv.component.html */ "./src/app/addspv/addspv.component.html"),
+            styles: [__webpack_require__(/*! ./addspv.component.scss */ "./src/app/addspv/addspv.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"]])
+    ], AddspvComponent);
+    return AddspvComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/app-routing/app-routing.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/app-routing/app-routing.component.ts ***!
+  \******************************************************/
+/*! exports provided: AppRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes */ "./src/app/app-routing/routes.ts");
+// import { Component, OnInit } from '@angular/core';
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+// @Component({
+//   selector: 'app-app-routing',
+//   templateUrl: './app-routing.component.html',
+//   styleUrls: ['./app-routing.component.scss']
+// })
+// export class AppRoutingComponent implements OnInit {
+//   constructor() { }
+//   ngOnInit() {
+//   }
+// }
+
+
+
+
+
+var AppRoutingModule = /** @class */ (function () {
+    function AppRoutingModule() {
+    }
+    AppRoutingModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_3__["routes"])
+            ],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+            declarations: [],
+            providers: [
+                { provide: _angular_common__WEBPACK_IMPORTED_MODULE_1__["APP_BASE_HREF"], useValue: '/' }
+            ]
+        })
+    ], AppRoutingModule);
+    return AppRoutingModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/app-routing/routes.ts":
+/*!***************************************!*\
+  !*** ./src/app/app-routing/routes.ts ***!
+  \***************************************/
+/*! exports provided: routes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _addbank_addbank_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../addbank/addbank.component */ "./src/app/addbank/addbank.component.ts");
+/* harmony import */ var _addborrower_addborrower_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../addborrower/addborrower.component */ "./src/app/addborrower/addborrower.component.ts");
+/* harmony import */ var _addloan_addloan_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../addloan/addloan.component */ "./src/app/addloan/addloan.component.ts");
+/* harmony import */ var _createpack_createpack_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../createpack/createpack.component */ "./src/app/createpack/createpack.component.ts");
+/* harmony import */ var _updateloan_updateloan_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../updateloan/updateloan.component */ "./src/app/updateloan/updateloan.component.ts");
+/* harmony import */ var _withdraw_withdraw_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../withdraw/withdraw.component */ "./src/app/withdraw/withdraw.component.ts");
+/* harmony import */ var _spv_spv_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../spv/spv.component */ "./src/app/spv/spv.component.ts");
+/* harmony import */ var _investor_investor_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../investor/investor.component */ "./src/app/investor/investor.component.ts");
+/* harmony import */ var _addinvestor_addinvestor_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../addinvestor/addinvestor.component */ "./src/app/addinvestor/addinvestor.component.ts");
+/* harmony import */ var _addspv_addspv_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../addspv/addspv.component */ "./src/app/addspv/addspv.component.ts");
+/* harmony import */ var _metamask_error_metamask_error_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../metamask-error/metamask-error.component */ "./src/app/metamask-error/metamask-error.component.ts");
+/* harmony import */ var _guard_spv_guard__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../guard/spv.guard */ "./src/app/guard/spv.guard.ts");
+/* harmony import */ var _guard_issuer_guard__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../guard/issuer.guard */ "./src/app/guard/issuer.guard.ts");
+/* harmony import */ var _guard_investor_guard__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../guard/investor.guard */ "./src/app/guard/investor.guard.ts");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: 'login',
+        component: _login_login_component__WEBPACK_IMPORTED_MODULE_0__["LoginComponent"],
+    },
+    {
+        path: 'home',
+        component: _home_home_component__WEBPACK_IMPORTED_MODULE_1__["HomeComponent"]
+    },
+    {
+        path: 'addbank',
+        component: _addbank_addbank_component__WEBPACK_IMPORTED_MODULE_2__["AddbankComponent"],
+        canActivate: [_guard_issuer_guard__WEBPACK_IMPORTED_MODULE_14__["IssuerGuard"]]
+    },
+    {
+        path: 'addloan',
+        component: _addloan_addloan_component__WEBPACK_IMPORTED_MODULE_4__["AddloanComponent"],
+        canActivate: [_guard_issuer_guard__WEBPACK_IMPORTED_MODULE_14__["IssuerGuard"]]
+    },
+    {
+        path: 'addborrower',
+        component: _addborrower_addborrower_component__WEBPACK_IMPORTED_MODULE_3__["AddborrowerComponent"],
+        canActivate: [_guard_issuer_guard__WEBPACK_IMPORTED_MODULE_14__["IssuerGuard"]]
+    },
+    {
+        path: 'createpack',
+        component: _createpack_createpack_component__WEBPACK_IMPORTED_MODULE_5__["CreatepackComponent"],
+        canActivate: [_guard_issuer_guard__WEBPACK_IMPORTED_MODULE_14__["IssuerGuard"]]
+    },
+    {
+        path: 'updateloan',
+        component: _updateloan_updateloan_component__WEBPACK_IMPORTED_MODULE_6__["UpdateloanComponent"],
+        canActivate: [_guard_issuer_guard__WEBPACK_IMPORTED_MODULE_14__["IssuerGuard"]]
+    },
+    {
+        path: 'withdraw',
+        component: _withdraw_withdraw_component__WEBPACK_IMPORTED_MODULE_7__["WithdrawComponent"],
+        canActivate: [_guard_issuer_guard__WEBPACK_IMPORTED_MODULE_14__["IssuerGuard"]]
+    },
+    {
+        path: 'spv',
+        component: _spv_spv_component__WEBPACK_IMPORTED_MODULE_8__["SpvComponent"],
+        canActivate: [_guard_spv_guard__WEBPACK_IMPORTED_MODULE_13__["SpvGuard"]]
+    },
+    {
+        path: 'investor',
+        component: _investor_investor_component__WEBPACK_IMPORTED_MODULE_9__["InvestorComponent"],
+        canActivate: [_guard_investor_guard__WEBPACK_IMPORTED_MODULE_15__["InvestorGuard"]]
+    },
+    {
+        path: 'addspv',
+        component: _addspv_addspv_component__WEBPACK_IMPORTED_MODULE_11__["AddspvComponent"]
+    },
+    {
+        path: 'addinvestor',
+        component: _addinvestor_addinvestor_component__WEBPACK_IMPORTED_MODULE_10__["AddinvestorComponent"]
+    },
+    {
+        path: 'metamask',
+        component: _metamask_error_metamask_error_component__WEBPACK_IMPORTED_MODULE_12__["MetamaskErrorComponent"]
+    },
+    {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+    }
+];
+
+
+/***/ }),
+
+/***/ "./src/app/app.component.html":
+/*!************************************!*\
+  !*** ./src/app/app.component.html ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-header></app-header>\r\n<router-outlet></router-outlet>"
+
+/***/ }),
+
+/***/ "./src/app/app.component.scss":
+/*!************************************!*\
+  !*** ./src/app/app.component.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/app.component.ts":
+/*!**********************************!*\
+  !*** ./src/app/app.component.ts ***!
+  \**********************************/
+/*! exports provided: AppComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var AppComponent = /** @class */ (function () {
+    function AppComponent() {
+        this.title = 'app';
+    }
+    AppComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-root',
+            template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
+            styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")]
+        })
+    ], AppComponent);
+    return AppComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/app.module.ts":
+/*!*******************************!*\
+  !*** ./src/app/app.module.ts ***!
+  \*******************************/
+/*! exports provided: AppModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/esm5/angular-bootstrap-md.es5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _app_routing_app_routing_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing/app-routing.component */ "./src/app/app-routing/app-routing.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _addbank_addbank_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./addbank/addbank.component */ "./src/app/addbank/addbank.component.ts");
+/* harmony import */ var _addborrower_addborrower_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./addborrower/addborrower.component */ "./src/app/addborrower/addborrower.component.ts");
+/* harmony import */ var _addloan_addloan_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./addloan/addloan.component */ "./src/app/addloan/addloan.component.ts");
+/* harmony import */ var _createpack_createpack_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./createpack/createpack.component */ "./src/app/createpack/createpack.component.ts");
+/* harmony import */ var _updateloan_updateloan_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./updateloan/updateloan.component */ "./src/app/updateloan/updateloan.component.ts");
+/* harmony import */ var _withdraw_withdraw_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./withdraw/withdraw.component */ "./src/app/withdraw/withdraw.component.ts");
+/* harmony import */ var _spv_spv_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./spv/spv.component */ "./src/app/spv/spv.component.ts");
+/* harmony import */ var _investor_investor_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./investor/investor.component */ "./src/app/investor/investor.component.ts");
+/* harmony import */ var _addinvestor_addinvestor_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./addinvestor/addinvestor.component */ "./src/app/addinvestor/addinvestor.component.ts");
+/* harmony import */ var _addspv_addspv_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./addspv/addspv.component */ "./src/app/addspv/addspv.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _metamask_error_metamask_error_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./metamask-error/metamask-error.component */ "./src/app/metamask-error/metamask-error.component.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [
+                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_19__["LoginComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
+                _header_header_component__WEBPACK_IMPORTED_MODULE_8__["HeaderComponent"],
+                _addbank_addbank_component__WEBPACK_IMPORTED_MODULE_9__["AddbankComponent"],
+                _addborrower_addborrower_component__WEBPACK_IMPORTED_MODULE_10__["AddborrowerComponent"],
+                _addloan_addloan_component__WEBPACK_IMPORTED_MODULE_11__["AddloanComponent"],
+                _createpack_createpack_component__WEBPACK_IMPORTED_MODULE_12__["CreatepackComponent"],
+                _updateloan_updateloan_component__WEBPACK_IMPORTED_MODULE_13__["UpdateloanComponent"],
+                _withdraw_withdraw_component__WEBPACK_IMPORTED_MODULE_14__["WithdrawComponent"],
+                _spv_spv_component__WEBPACK_IMPORTED_MODULE_15__["SpvComponent"],
+                _investor_investor_component__WEBPACK_IMPORTED_MODULE_16__["InvestorComponent"],
+                _addinvestor_addinvestor_component__WEBPACK_IMPORTED_MODULE_17__["AddinvestorComponent"],
+                _addspv_addspv_component__WEBPACK_IMPORTED_MODULE_18__["AddspvComponent"],
+                _metamask_error_metamask_error_component__WEBPACK_IMPORTED_MODULE_20__["MetamaskErrorComponent"],
+            ],
+            imports: [
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+                _app_routing_app_routing_component__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_4__["MDBBootstrapModule"].forRoot(),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+                ngx_spinner__WEBPACK_IMPORTED_MODULE_21__["NgxSpinnerModule"],
+            ],
+            providers: [ngx_cookie_service__WEBPACK_IMPORTED_MODULE_22__["CookieService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
+            schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]],
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/createpack/createpack.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/createpack/createpack.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<br>\r\n<br>\r\n<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-12\">\r\n                <blockquote class=\"blockquote bq-primary\">\r\n                        <p class=\"bq-title\">Note:</p>\r\n                        <p>You can enter multiple loan Id's &nbsp;<strong>(ex:- 1,2,3)</strong></p>\r\n                    </blockquote><br>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n\r\n        <div class=\"col-sm-3\">\r\n\r\n<div class=\"row\">\r\n    <div class=\"col-sm-1\">\r\n\r\n    </div>\r\n    <div class=\"col-sm-11\">\r\n            <h3><strong>Create Pool:</strong></h3><br>           \r\n            <!-- <div class=\"alert alert-info\">\r\n                <strong>Info!</strong> </strong>.\r\n            </div><br>     -->\r\n                    <div class=\"col-sm-12\">\r\n                <div class=\"group\">      \r\n                        <input type=\"text\" id=\"id1\" #loanid required>\r\n                        <span class=\"highlight\"></span>\r\n                        <span class=\"bar\"></span>\r\n                        <label >Enter Loan id</label>\r\n                    </div>\r\n            </div>\r\n            <div class=\"col-sm-12\">\r\n                <div class=\"group\">      \r\n                        <input type=\"text\" id=\"id2\"  #totvalue required>\r\n                        <span class=\"highlight\"></span>\r\n                        <span class=\"bar\"></span>\r\n                        <label >Enter pool Amount(in ether)</label>\r\n                    </div>\r\n                </div>\r\n            <div class=\"col-sm-12\">\r\n                <br>\r\n                <button class=\"btn btn-primary\" (click)=\"createpool(loanid.value,totvalue.value)\">Create</button>\r\n                </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n           \r\n        </div>\r\n        <div class=\"col-sm-6\">\r\n            <div class=\"row\">\r\n               \r\n                <div class=\"col-sm-12\">\r\n                        <h4><b>Loan Details</b></h4><br>\r\n                        <table class=\"table\" style=\"overflow-y:auto;display:block;height:300px;\">\r\n                            <thead class=\"tablecolor\">\r\n                                <tr>\r\n                                <th>Loan ID</th>\r\n                                <th> Borrower ID</th>\r\n                                <th>Borrower Loan Amount(Rs)</th>\r\n                                <th> Borrower Interest Rate</th>\r\n                                <th>Loan Duration</th>\r\n                                <th>Asset ID</th>\r\n                                <th>Asset Details</th>\r\n                                <th>Asset Amount (Rs)</th>\r\n                                <th>Borrower Paid</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody id=\"loantable\">\r\n                                <tr *ngFor=\"let issuer of loan_details\">\r\n                                    <td>{{ issuer.loanid }}</td>\r\n                                    <td>{{ issuer.borrowerid }}</td>\r\n                                    <td >{{ issuer. borrowerloanamt}}</td>\r\n                                    <td>{{ issuer.borrowerintrest }}</td>\r\n                                    <td>{{ issuer.loanduration }}</td>\r\n                                    <td>{{ issuer.assetid }}</td>\r\n                                    <td>{{ issuer.assetdetails }}</td>\r\n                                    <td >{{ issuer.assetamt }}</td>\r\n                                    <td >{{ issuer.borrowerpaid }}</td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                </div>\r\n            </div>\r\n           \r\n            \r\n        </div>\r\n\r\n  \r\n      \r\n    <div class=\"col-sm-3\">\r\n        <div class=\"row\">\r\n                <div class=\"col-sm-3\"></div>\r\n                <div class=\"col-sm-9\">\r\n                        <h4><b>Pool Details</b></h4><br>\r\n                        <table class=\"table\" style=\"overflow-y:auto;display:block;height:300px;\">\r\n                            <thead class=\"tablecolor\">\r\n                              <tr>\r\n                                <th>Pool ID</th>\r\n                                <th>Total Value</th>\r\n                                <th>Status</th>\r\n                                <th>Loan Ids</th>\r\n                              </tr>\r\n                            </thead>\r\n                            <tbody id=\"pooltable\">\r\n                                <tr *ngFor=\"let pool of pool_details\" [ngSwitch]=\"pool.status\">\r\n                                    <td>{{ pool.id }}</td>\r\n                                    <td>{{ pool.value }}</td>\r\n                                    <td *ngSwitchCase='true'>sold</td>\r\n                                    <td *ngSwitchCase='false'>Available</td>\r\n                                    <td>{{pool.loanids}}</td>\r\n                                 </tr>\r\n                             </tbody>\r\n                          </table>\r\n                        \r\n                </div>\r\n               \r\n                </div>  \r\n        </div>\r\n      \r\n     \r\n     \r\n    </div>\r\n       \r\n</div>\r\n<ngx-spinner\r\nbdColor=\"rgba(51,51,51,0.8)\"\r\nsize=\"medium\"\r\ncolor=\"#fff\"\r\nloadingText=\"Transaction in process...\"\r\ntype=\"ball-scale-multiple\">\r\n</ngx-spinner>"
+
+/***/ }),
+
+/***/ "./src/app/createpack/createpack.component.scss":
+/*!******************************************************!*\
+  !*** ./src/app/createpack/createpack.component.scss ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "* {\n  box-sizing: border-box; }\n\n/* basic stylings ------------------------------------------ */\n\n.container {\n  font-family: 'Roboto';\n  width: 600px;\n  margin: 30px auto 0;\n  display: block;\n  background: #FFF;\n  padding: 10px 50px 50px; }\n\nh2 {\n  text-align: center;\n  margin-bottom: 50px; }\n\nh2 small {\n  font-weight: normal;\n  color: #888;\n  display: block; }\n\n.footer {\n  text-align: center; }\n\n.footer a {\n  color: #53B2C8; }\n\n/* form starting stylings ------------------------------- */\n\n.group {\n  position: relative;\n  margin-bottom: 45px; }\n\ninput {\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\ninput:focus {\n  outline: none; }\n\n/* LABEL ======================================= */\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n/* active state */\n\ninput:focus ~ label, input:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n/* BOTTOM BARS ================================= */\n\n.bar {\n  position: relative;\n  display: block;\n  width: 300px; }\n\n.bar:before, .bar:after {\n  content: '';\n  height: 2px;\n  width: 0;\n  bottom: 1px;\n  position: absolute;\n  background: green;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n.bar:before {\n  left: 50%; }\n\n.bar:after {\n  right: 50%; }\n\n/* active state */\n\ninput:focus ~ .bar:before, input:focus ~ .bar:after {\n  width: 50%; }\n\n/* HIGHLIGHTER ================================== */\n\n.highlight {\n  position: absolute;\n  height: 60%;\n  width: 100px;\n  top: 25%;\n  left: 0;\n  pointer-events: none;\n  opacity: 0.5; }\n\n/* active state */\n\ninput:focus ~ .highlight {\n  -webkit-animation: inputHighlighter 0.3s ease;\n  animation: inputHighlighter 0.3s ease; }\n\n/* ANIMATIONS ================ */\n\n@-webkit-keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n@keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n.tablecolor {\n  background-color: #3f51b5;\n  color: white; }\n\n::-webkit-scrollbar {\n  width: 8px;\n  height: 0px; }\n\n/* Track */\n\n::-webkit-scrollbar-track {\n  background: #f1f1f1; }\n\n/* Handle */\n\n::-webkit-scrollbar-thumb {\n  background: darkgrey; }\n\n/* Handle on hover */\n\n::-webkit-scrollbar-thumb:hover {\n  background: #3f51b5; }\n"
+
+/***/ }),
+
+/***/ "./src/app/createpack/createpack.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/createpack/createpack.component.ts ***!
+  \****************************************************/
+/*! exports provided: CreatepackComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreatepackComponent", function() { return CreatepackComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CreatepackComponent = /** @class */ (function () {
+    function CreatepackComponent(ls, router, spinner) {
+        this.ls = ls;
+        this.router = router;
+        this.spinner = spinner;
+        this.loan_details = [];
+        this.pool_details = [];
+        this.array = [];
+        this.all_packed_loans = [];
+        this.duplicate = [];
+        this.error_input = [];
+        this.multiple_times = [];
+    }
+    CreatepackComponent.prototype.createpool = function (loanid, totvalue) {
+        var _this = this;
+        if (loanid.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Enter Loan Id");
+            return;
+        }
+        if (totvalue.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Enter pool amount");
+            return;
+        }
+        this.spinner.show();
+        this.duplicate.length = 0;
+        this.error_input.length = 0;
+        var amount = totvalue * 1000000000000000000;
+        var ids = [];
+        var tmp;
+        tmp = loanid.trim().split(",");
+        for (var i = 0; i < tmp.length; i++) {
+            ids.push(parseInt(tmp[i]));
+        }
+        this.ls.loan_ids().then(function (loan_ids) {
+            // this.ls.getAccount().then(address=>{
+            ids.forEach(function (id) {
+                if (id < 1 || id > loan_ids.length) {
+                    _this.error_input.push(id);
+                }
+                _this.all_packed_loans.forEach(function (loan_id) {
+                    if (loan_id == id) {
+                        _this.duplicate.push(id);
+                    }
+                });
+            });
+            if (_this.error_input.length >= 1) {
+                _this.spinner.hide();
+                sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("ERROR INPUT: " + _this.error_input + "  These Ids are not exist");
+            }
+            else if (_this.duplicate.length >= 1) {
+                _this.spinner.hide();
+                sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Loan Ids " + _this.duplicate + " were Already Packed !");
+            }
+            else {
+                // var key="a3c0074742371bfbfa3b2ffae0cac027ab1dcecb49fa0c7ea34f640aa89b3dd4";
+                _this.ls.get_cookie().then(function (key) {
+                    _this.ls.create_pool(ids, amount, key).then(function (res) {
+                        document.getElementById('id1').value = '';
+                        document.getElementById('id2').value = '';
+                        _this.spinner.hide();
+                        if (res == 0) {
+                            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("You Rejected this Transaction");
+                        }
+                        else if (res == 2) {
+                            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Transaction Failed !");
+                        }
+                        else if (res == 1) {
+                            _this.pools();
+                            _this.packed_loans();
+                            _this.table();
+                            _this.ls.pool_ids().then(function (pool_ids) {
+                                sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Pool Successfully Created and Generated Pool Id Is  :" + pool_ids.length);
+                            });
+                        }
+                    });
+                });
+            }
+        });
+    };
+    CreatepackComponent.prototype.packed_loans = function () {
+        var _this = this;
+        this.all_packed_loans.length = 0;
+        this.ls.pool_ids().then(function (pool_ids) {
+            pool_ids.forEach(function (pool_id) {
+                _this.ls.show_loanids_of_pool(pool_id).then(function (loan_ids) {
+                    loan_ids.forEach(function (loan_id) {
+                        _this.all_packed_loans.push(loan_id);
+                    });
+                });
+            });
+        });
+    };
+    CreatepackComponent.prototype.pools = function () {
+        var _this = this;
+        this.pool_details.length = 0;
+        this.ls.pool_ids().then(function (ids) {
+            ids.forEach(function (element) {
+                var pool_obj = {};
+                _this.ls.pool_details(element).then(function (data) {
+                    _this.ls.show_loanids_of_pool(element).then(function (loan_ids) {
+                        pool_obj['id'] = element;
+                        pool_obj['value'] = data[0] / 1000000000000000000;
+                        pool_obj['status'] = data[1];
+                        pool_obj["loanids"] = loan_ids;
+                        _this.pool_details.push(pool_obj);
+                    });
+                });
+            });
+        });
+    };
+    CreatepackComponent.prototype.table = function () {
+        var _this = this;
+        this.loan_details.length = 0;
+        this.ls.loan_ids().then(function (ids) {
+            ids.forEach(function (element) {
+                var obj = {};
+                _this.ls.borrower_details_map(element).then(function (result) {
+                    obj['loanid'] = element;
+                    obj['borrowerid'] = result[0];
+                    obj['borrowerloanamt'] = result[1];
+                    obj['borrowerintrest'] = result[2];
+                    obj['loanduration'] = result[3];
+                    obj['assetid'] = result[4];
+                    obj['assetdetails'] = result[5];
+                    obj['assetamt'] = result[6];
+                    obj['borrowerpaid'] = result[7];
+                    _this.loan_details.push(obj);
+                });
+            });
+        });
+    };
+    CreatepackComponent.prototype.ngOnInit = function () {
+        this.table();
+        this.pools();
+        this.packed_loans();
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    meta.router.navigate(["login"]);
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    CreatepackComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    CreatepackComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-createpack',
+            template: __webpack_require__(/*! ./createpack.component.html */ "./src/app/createpack/createpack.component.html"),
+            styles: [__webpack_require__(/*! ./createpack.component.scss */ "./src/app/createpack/createpack.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"]])
+    ], CreatepackComponent);
+    return CreatepackComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/guard/investor.guard.ts":
+/*!*****************************************!*\
+  !*** ./src/app/guard/investor.guard.ts ***!
+  \*****************************************/
+/*! exports provided: InvestorGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InvestorGuard", function() { return InvestorGuard; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var InvestorGuard = /** @class */ (function () {
+    function InvestorGuard(ls, route) {
+        var _this = this;
+        this.ls = ls;
+        this.route = route;
+        ls.getAccount().then(function (acc) { return _this.address = acc; });
+    }
+    InvestorGuard.prototype.canActivate = function (next, state) {
+        var _this = this;
+        return this.ls.check_investor().then(function (issuer) {
+            if (issuer == true) {
+                return true;
+            }
+            else {
+                _this.route.navigate(["addinvestor"]);
+                return false;
+            }
+        });
+    };
+    InvestorGuard = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], InvestorGuard);
+    return InvestorGuard;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/guard/issuer.guard.ts":
+/*!***************************************!*\
+  !*** ./src/app/guard/issuer.guard.ts ***!
+  \***************************************/
+/*! exports provided: IssuerGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IssuerGuard", function() { return IssuerGuard; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var IssuerGuard = /** @class */ (function () {
+    function IssuerGuard(ls, route) {
+        var _this = this;
+        this.ls = ls;
+        this.route = route;
+        ls.getAccount().then(function (acc) { return _this.address = acc; });
+    }
+    IssuerGuard.prototype.canActivate = function (next, state) {
+        var _this = this;
+        return this.ls.check_issuer().then(function (issuer) {
+            if (issuer == true) {
+                return true;
+            }
+            else {
+                _this.route.navigate(["home"]);
+                return false;
+            }
+        });
+    };
+    IssuerGuard = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], IssuerGuard);
+    return IssuerGuard;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/guard/spv.guard.ts":
+/*!************************************!*\
+  !*** ./src/app/guard/spv.guard.ts ***!
+  \************************************/
+/*! exports provided: SpvGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SpvGuard", function() { return SpvGuard; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SpvGuard = /** @class */ (function () {
+    function SpvGuard(ls, route) {
+        this.ls = ls;
+        this.route = route;
+    }
+    SpvGuard.prototype.canActivate = function (next, state) {
+        var _this = this;
+        return this.ls.check_spv().then(function (spv) {
+            if (spv == true) {
+                return true;
+            }
+            else {
+                _this.route.navigate(["addspv"]);
+                return false;
+            }
+        });
+    };
+    SpvGuard = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], SpvGuard);
+    return SpvGuard;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/header/header.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/header/header.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark indigo\">\r\n       \r\n\r\n    <links>\r\n \r\n        <ul class=\" nav nav-tabs navbar-nav mr-auto \">\r\n              \r\n                <li class=\"nav-item \" *ngIf=\"!check_key\">\r\n                        <a class=\"nav-link waves-light\"  routerLink=\"/login\" mdbWavesEffect>LOGIN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"caret\"></span></a>\r\n                    </li>\r\n\r\n                   \r\n                 \r\n\r\n            <li class=\"nav-item \" *ngIf=\"check_key\">\r\n                    \r\n                <a class=\"nav-link waves-light \" id=\"homeid\" routerLink=\"/home\" mdbWavesEffect>HOME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"caret\"></span></a>\r\n            </li>\r\n            \r\n              <!-- Dropdown -->\r\n              <li  *ngIf=\"check_key\" id=\"dropid\" class=\"nav-item dropdown\" dropdown >\r\n                <a  dropdownToggle mdbWavesEffect type=\"button\" class=\"nav-link dropdown-toggle waves-light \" role=\"tab\" mdbWavesEffect>\r\n                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISSUER<span class=\"caret\"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>\r\n                <div *dropdownMenu  class=\"dropdown-menu dropdown dropdown-primary\" role=\"menu\">              \r\n                    <a class=\"dropdown-item waves-light  \" mdbWavesEffect href=\"#\" routerLink=\"/addbank\">Add Bank</a>\r\n                    <a class=\"dropdown-item waves-light\" mdbWavesEffect href=\"#\" routerLink=\"/addborrower\">Add Borrower</a>\r\n                    <a class=\"dropdown-item waves-light\" mdbWavesEffect href=\"#\" routerLink=\"/addloan\">Add Loan</a>\r\n                    <a class=\"dropdown-item waves-light\" mdbWavesEffect href=\"#\" routerLink=\"/updateloan\">Update Loan</a>\r\n                    <a class=\"dropdown-item waves-light\" mdbWavesEffect href=\"#\" routerLink=\"/createpack\">Create Pool</a>\r\n                    <a class=\"dropdown-item waves-light\" mdbWavesEffect href=\"#\" routerLink=\"/withdraw\">Withdraw</a>                    \r\n                </div>\r\n            </li>\r\n\r\n            <li  *ngIf=\"check_key\" id=\"spvid\" class=\"nav-item \" role=\"tab\">\r\n                    <a class=\"nav-link waves-light \" data-toggle=\"tab\"   routerLink=\"/spv\" mdbWavesEffect>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"caret\"></span></a>\r\n                </li>\r\n                <li *ngIf=\"check_key\" id=\"investorid\" class=\"nav-item \" role=\"tab\">\r\n                        <a class=\"nav-link waves-light\"  data-toggle=\"tab\" routerLink=\"/investor\" mdbWavesEffect>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INVESTOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"caret\"></span></a>\r\n                    </li>\r\n\r\n                    <li  id=\"liid\" >\r\n                        <!-- <font color=\"white\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"text\" class=\"form-control\" value=ETH:{{balance}} placeholder=\"Balance\"readonly/></font> -->\r\n                </li>\r\n\r\n        </ul>\r\n        <ul  class=\"nav navbar-nav navbar-right\">\r\n             \r\n               \r\n              \r\n\r\n            <li  *ngIf=\"check_key\" id=\"signout\" class=\"nav-item \">\r\n                <a class=\"nav-link waves-light\"  (click)=\"sign_out()\"  mdbWavesEffect>\r\n                    <i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i>\r\n                    SignOut<span class=\"caret\"></span></a>\r\n            </li>\r\n          </ul>\r\n\r\n    </links>\r\n\r\n\r\n</mdb-navbar>\r\n\r\n"
+
+/***/ }),
+
+/***/ "./src/app/header/header.component.scss":
+/*!**********************************************!*\
+  !*** ./src/app/header/header.component.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#liid {\n  color: white;\n  margin-top: 8px; }\n\n.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {\n  color: #495057;\n  /* background-color: #fff; */\n  border-color: #dee2e6 #dee2e6 #fff; }\n"
+
+/***/ }),
+
+/***/ "./src/app/header/header.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/header/header.component.ts ***!
+  \********************************************/
+/*! exports provided: HeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var HeaderComponent = /** @class */ (function () {
+    function HeaderComponent(ls, cookie) {
+        this.ls = ls;
+        this.cookie = cookie;
+        this.check_admin();
+    }
+    HeaderComponent.prototype.sign_out = function () {
+        this.cookie.delete("privateKey");
+    };
+    HeaderComponent.prototype.acc_balance = function () {
+        var _this = this;
+        this.ls.getAccount().then(function (add) {
+            _this.address = add;
+            _this.ls.getUserBalance(add).then(function (balance) {
+                _this.balance = balance;
+                document.getElementById("liid").innerText = "Balance in Eth: " + balance.toString();
+            });
+        });
+    };
+    HeaderComponent.prototype.check_admin = function () {
+        this.ls.check_issuer().then(function (issuer) {
+            if (issuer == true) {
+                document.getElementById("dropid").hidden = false;
+            }
+            else {
+                document.getElementById("dropid").hidden = true;
+            }
+        });
+    };
+    HeaderComponent.prototype.ngOnInit = function () {
+        var instance = this;
+        instance.id1 = setInterval(function () {
+            var _this = this;
+            instance.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    document.getElementById("liid").innerText = "";
+                    instance.check_key = check;
+                    clearInterval(_this.interval);
+                }
+                else if (check == true) {
+                    instance.check_key = check;
+                    instance.acc_balance();
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    HeaderComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    HeaderComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-header',
+            template: __webpack_require__(/*! ./header.component.html */ "./src/app/header/header.component.html"),
+            styles: [__webpack_require__(/*! ./header.component.scss */ "./src/app/header/header.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__["LoanServiceService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])
+    ], HeaderComponent);
+    return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.html":
+/*!******************************************!*\
+  !*** ./src/app/home/home.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = " <section class=\"view intro-2\">\r\n        <div class=\"full-bg-img mask rgba-stylish-strong\">\r\n            \r\n            <div style=\"height: 100vh\">\r\n                    <div class=\"flex-center flex-column\">\r\n                            <div class=\"white-text\">\r\n                      <h4 class=\"animated fadeIn mb-4 h1 display-4 wow\">Welcome to Loan Securitization</h4>\r\n                      <hr class=\"hr-light wow fadeInLeft\" data-wow-delay=\"0.3s\">\r\n                      <h4 class=\"animated fadeIn mb-4 h1 display-4 wow\">Your Account Address:</h4>\r\n                      <h3 class=\"animated fadeIn mb-4 h1 display-4 wow\" id=\"ptag\"></h3>\r\n                  \r\n                     \r\n                   \r\n                  </div>\r\n        </div>\r\n        </div>\r\n        </div>\r\n    </section>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.scss":
+/*!******************************************!*\
+  !*** ./src/app/home/home.component.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".intro-2 {\n  background: url(\"https://mdbootstrap.com/img/Photos/Others/img%20(46).jpg\") no-repeat center center;\n  background-size: cover; }\n\n.view {\n  height: 94vh !important; }\n"
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/home/home.component.ts ***!
+  \****************************************/
+/*! exports provided: HomeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+// import { HeaderComponent } from '../header/header.component';
+
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent(ls, router) {
+        this.ls = ls;
+        this.router = router;
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == true) {
+                    meta.ls.privatekey_by_address().then(function (senderaddress) {
+                        document.getElementById("ptag").hidden = false;
+                        document.getElementById("ptag").innerHTML = senderaddress["address"];
+                        clearInterval(_this.interval);
+                    });
+                }
+                else {
+                    meta.router.navigate(["login"]);
+                }
+            });
+        }), 200;
+    };
+    HomeComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    HomeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-home',
+            template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
+            styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/home/home.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], HomeComponent);
+    return HomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/investor/investor.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/investor/investor.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<br>\r\n<br>\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n <div class=\"col-sm-3\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-10\">\r\n            <h3><b>Purchase Pool</b></h3><br>\r\n            <div class=\"col-sm-12\">\r\n              \r\n           \r\n                    <div class=\"group\">      \r\n                        <input type=\"text\" id=\"id1\"  #poolid required>\r\n                        <span class=\"highlight\"></span>\r\n                        <span class=\"bar\"></span>\r\n                        <label >Enter pool Id</label>\r\n                      </div>\r\n                \r\n            </div>\r\n    \r\n            \r\n            <div class=\"col-sm-12\">\r\n               <br> \r\n                <button class=\"btn btn-primary\" (click)=\"investor_purchase_pool(poolid.value)\">Purchase</button>\r\n            </div>\r\n        </div>\r\n        </div>\r\n   \r\n </div>\r\n <div class=\"col-sm-2\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-10\">\r\n\r\n            <h4><b>Purchased Pools</b></h4><br>\r\n            <table class=\"table\" style=\"overflow-y:auto;display:block;height:250px;width:165px\">\r\n              <thead class=\"tablecolor\">\r\n                <tr>\r\n                  <th>Pool ID</th>\r\n                  <th>Pool Value</th>\r\n                </tr>\r\n              </thead>\r\n              <tbody id=\"purchasedpools\">\r\n                <tr *ngFor=\"let pool of purchased_pools\">\r\n                  <td>{{ pool.poolid }}</td>\r\n                  <td>{{ pool.poolvalue }}</td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n        </div>\r\n        </div>\r\n \r\n\r\n </div>\r\n\r\n\r\n <div class=\"col-sm-2\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-10\">\r\n            <h4><b>Available Pools</b></h4><br>\r\n            <table class=\"table\" style=\"overflow-y:auto;display:block;height:250px;width:165px\">\r\n              <thead class=\"tablecolor\">\r\n                <tr>\r\n                  <th >Pool ID</th>\r\n                  <th>Pool Value</th>\r\n                </tr>\r\n              </thead>\r\n              <tbody>\r\n                <tr *ngFor=\"let pool of available_pools\" >\r\n                  <td >{{ pool.poolid }}</td>\r\n                  <td>{{ pool.poolvalue }}</td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n\r\n        </div>\r\n        </div>\r\n   \r\n </div>\r\n\r\n <div class=\"col-sm-2\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-10\">\r\n            <h4><b>Loans of Pool</b></h4><br>\r\n            <table class=\"table\" style=\"overflow-y:auto;display:block;height:250px;width:160px\">\r\n        <thead class=\"tablecolor\">\r\n          <tr><th>Pool Id</th><th>Loan Ids</th></tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor = \"let obj of loans_of_pool\">\r\n            <td>{{obj.poolid}}</td>\r\n            <td>{{obj.loanids}}</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n        </div>\r\n        </div>\r\n   \r\n\r\n </div>\r\n\r\n <div class=\"col-sm-2\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-10\">\r\n            <h4 style=\"text-align:center\"><b>Amount Gained</b></h4><br>\r\n            <h1 style=\"text-align:center;color:green\">Rs.{{investor_gain_amount}}</h1>\r\n        </div>\r\n        </div>\r\n  \r\n\r\n\r\n </div>\r\n</div>\r\n \r\n</div>\r\n<ngx-spinner\r\nbdColor=\"rgba(51,51,51,0.8)\"\r\nsize=\"medium\"\r\ncolor=\"#fff\"\r\nloadingText=\"Transaction in process...\"\r\ntype=\"ball-scale-multiple\">\r\n</ngx-spinner>"
+
+/***/ }),
+
+/***/ "./src/app/investor/investor.component.scss":
+/*!**************************************************!*\
+  !*** ./src/app/investor/investor.component.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "* {\n  box-sizing: border-box; }\n\n/* basic stylings ------------------------------------------ */\n\n.container {\n  font-family: 'Roboto';\n  width: 600px;\n  margin: 30px auto 0;\n  display: block;\n  background: #FFF;\n  padding: 10px 50px 50px; }\n\nh2 {\n  text-align: center;\n  margin-bottom: 50px; }\n\nh2 small {\n  font-weight: normal;\n  color: #888;\n  display: block; }\n\n.footer {\n  text-align: center; }\n\n.footer a {\n  color: #53B2C8; }\n\n/* form starting stylings ------------------------------- */\n\n.group {\n  position: relative;\n  margin-bottom: 45px; }\n\ninput {\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\ninput:focus {\n  outline: none; }\n\n/* LABEL ======================================= */\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n/* active state */\n\ninput:focus ~ label, input:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n/* BOTTOM BARS ================================= */\n\n.bar {\n  position: relative;\n  display: block;\n  width: 300px; }\n\n.bar:before, .bar:after {\n  content: '';\n  height: 2px;\n  width: 0;\n  bottom: 1px;\n  position: absolute;\n  background: green;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n.bar:before {\n  left: 50%; }\n\n.bar:after {\n  right: 50%; }\n\n/* active state */\n\ninput:focus ~ .bar:before, input:focus ~ .bar:after {\n  width: 50%; }\n\n/* HIGHLIGHTER ================================== */\n\n.highlight {\n  position: absolute;\n  height: 60%;\n  width: 100px;\n  top: 25%;\n  left: 0;\n  pointer-events: none;\n  opacity: 0.5; }\n\n/* active state */\n\ninput:focus ~ .highlight {\n  -webkit-animation: inputHighlighter 0.3s ease;\n  animation: inputHighlighter 0.3s ease; }\n\n/* ANIMATIONS ================ */\n\n@-webkit-keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n@keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n.tablecolor {\n  background-color: #3f51b5;\n  color: white; }\n\n::-webkit-scrollbar {\n  width: 8px;\n  height: 0px; }\n\n/* Track */\n\n::-webkit-scrollbar-track {\n  background: #f1f1f1; }\n\n/* Handle */\n\n::-webkit-scrollbar-thumb {\n  background: darkgrey; }\n\n/* Handle on hover */\n\n::-webkit-scrollbar-thumb:hover {\n  background: #3f51b5; }\n"
+
+/***/ }),
+
+/***/ "./src/app/investor/investor.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/investor/investor.component.ts ***!
+  \************************************************/
+/*! exports provided: InvestorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InvestorComponent", function() { return InvestorComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! web3 */ "./node_modules/web3/src/index.js");
+/* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(web3__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_6__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var InvestorComponent = /** @class */ (function () {
+    function InvestorComponent(ls, router, spinner) {
+        this.ls = ls;
+        this.router = router;
+        this.spinner = spinner;
+        this.available_pools = [];
+        this.purchased_pools = [];
+        this.loans_of_pool = [];
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()("#investor").addClass("active");
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()("#spv").removeClass("active");
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()("#issuer").removeClass("active");
+        this.investor_gain();
+        this._web3 = new web3__WEBPACK_IMPORTED_MODULE_5___default.a(new web3__WEBPACK_IMPORTED_MODULE_5___default.a.providers.HttpProvider('https://ropsten.infura.io/Vr1GWcLG0XzcdrZHWMPu'));
+    }
+    InvestorComponent.prototype.investor_purchase_pool = function (poolid) {
+        var _this = this;
+        if (document.getElementById('id1').value == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Please enter a Pool Id ");
+            return;
+        }
+        // this.spinner.show()
+        this.ls.pool_ids().then(function (pool_ids) {
+            if (pool_ids.length >= poolid && poolid >= 1) {
+                _this.ls.show_loanids_of_pool(poolid).then(function (loan_ids) {
+                    loan_ids.forEach(function (id) {
+                        _this.ls.loan_status(id).then(function (state) {
+                            if (state[0] == 0 && state[1] == 0) {
+                                //pool not sold to spv
+                                document.getElementById('id1').value = '';
+                                sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Pool " + poolid + " Currently not Available");
+                            }
+                            else if (state[0] != 0 && state[1] != 0) {
+                                //pool aready sold to investor
+                                // swal(state)
+                                document.getElementById('id1').value = '';
+                                sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Pool " + poolid + " Already Sold !");
+                            }
+                            else if (state[0] != 0 && state[1] == 0) {
+                                //pool available
+                                _this.ls.pool_details(poolid).then(function (amo_obj) {
+                                    _this.spinner.show();
+                                    _this.ls.get_cookie().then(function (key) {
+                                        _this.ls.investor_purchase(poolid, key, amo_obj[0]).then(function (result) {
+                                            _this.spinner.hide();
+                                            if (result == 0) {
+                                                document.getElementById('id1').value = '';
+                                                sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("You Rejected this Transaction");
+                                            }
+                                            else if (result == 2) {
+                                                document.getElementById('id1').value = '';
+                                                sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("Transaction Failed !");
+                                            }
+                                            else if (result == 1) {
+                                                document.getElementById('id1').value = '';
+                                                _this.available_pools_table();
+                                                _this.purchased_pools_table();
+                                                _this.spinner.hide();
+                                                sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("You Purchased Pool " + poolid);
+                                            }
+                                        });
+                                    });
+                                });
+                            }
+                        }); //
+                    });
+                });
+            }
+            else {
+                document.getElementById('id1').value = '';
+                sweetalert__WEBPACK_IMPORTED_MODULE_6___default()("You Entered an Invalid Pool Id");
+                _this.spinner.hide();
+            }
+        });
+    };
+    InvestorComponent.prototype.investor_gain = function () {
+        var _this = this;
+        this.ls.privatekey_by_address().then(function (address) {
+            _this.ls.investor_id_get(address["address"]).then(function (inv_id) {
+                _this.ls.investor_details(inv_id).then(function (i_d) {
+                    _this.investor_gain_amount = i_d[1];
+                });
+            });
+        });
+    };
+    InvestorComponent.prototype.available_pools_table = function () {
+        var _this = this;
+        this.available_pools.length = 0;
+        this.ls.privatekey_by_address().then(function (address) {
+            _this.ls.investor_id_get(address["address"]).then(function (inv_id) {
+                _this.ls.spv_ids().then(function (spv_ids) {
+                    spv_ids.forEach(function (spv_id) {
+                        _this.ls.pool_ids().then(function (pool_ids) {
+                            pool_ids.forEach(function (pool_id) {
+                                _this.ls.is_owned_spv(spv_id, pool_id).then(function (result) {
+                                    _this.ls.pool_details(pool_id).then(function (result2) {
+                                        if (result == true) {
+                                            var obj = {};
+                                            obj['poolid'] = pool_id;
+                                            obj['poolvalue'] = result2[0] / 1000000000000000000;
+                                            _this.available_pools.push(obj);
+                                        }
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    };
+    InvestorComponent.prototype.purchased_pools_table = function () {
+        var _this = this;
+        this.purchased_pools.length = 0;
+        this.ls.privatekey_by_address().then(function (address) {
+            _this.ls.investor_id_get(address["address"]).then(function (inv_id) {
+                _this.ls.pool_ids().then(function (pool_ids) {
+                    pool_ids.forEach(function (pool_id) {
+                        _this.ls.is_owned_investor(inv_id, pool_id).then(function (result) {
+                            if (result == true) {
+                                _this.ls.pool_details(pool_id).then(function (p_d) {
+                                    var obj2 = {};
+                                    obj2['poolid'] = pool_id;
+                                    obj2['poolvalue'] = p_d[0] / 1000000000000000000;
+                                    _this.purchased_pools.push(obj2);
+                                });
+                            }
+                        });
+                    });
+                });
+            });
+        });
+    };
+    InvestorComponent.prototype.loans_of_pools = function () {
+        var _this = this;
+        this.loans_of_pool.length = 0;
+        this.ls.pool_ids().then(function (pool_ids) {
+            pool_ids.forEach(function (pool_id) {
+                var obj = {};
+                obj["poolid"] = pool_id;
+                _this.ls.show_loanids_of_pool(pool_id).then(function (loan_ids) {
+                    obj["loanids"] = loan_ids;
+                    _this.loans_of_pool.push(obj);
+                });
+            });
+        });
+    };
+    InvestorComponent.prototype.ngOnInit = function () {
+        this.available_pools_table();
+        this.investor_gain();
+        this.loans_of_pools();
+        this.purchased_pools_table();
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    meta.router.navigate(["login"]);
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    InvestorComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    InvestorComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-investor',
+            template: __webpack_require__(/*! ./investor.component.html */ "./src/app/investor/investor.component.html"),
+            styles: [__webpack_require__(/*! ./investor.component.scss */ "./src/app/investor/investor.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_3__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_4__["NgxSpinnerService"]])
+    ], InvestorComponent);
+    return InvestorComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.html":
+/*!********************************************!*\
+  !*** ./src/app/login/login.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<html>\n  <head>\n   <script src=\"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\"></script>\n    <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.2.0/css/all.css\" integrity=\"sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ\" crossorigin=\"anonymous\">\n  \n  </head>\n  <body>  \n\n  <!-- <div class=\"container\">     \n    <div class=\"row\">\n      <div class=\"col-sm-3\"></div>\n  \n      <div class=\"col-sm-6\" id=\"div\">\n        \n       \n        </div>\n      <div class=\"col-sm-3\">\n          \n      </div>\n    </div>  \n  </div> -->\n  <section class=\"view intro-2\">\n    <div class=\"full-bg-img mask rgba-stylish-strong\">\n        <div class=\"container flex-center\">\n            <div class=\"d-flex align-items-center w-100\">\n                <div class=\"row flex-center pt-5 mt-3 w-100\">\n                    \n\n                    <div class=\"col-md-6 col-xl-5 offset-xl-1\">\n                        <!--Form-->\n                        <div class=\"jumbotron\"  style=\"background-image:linear-gradient(45deg, rgb(7, 3, 218) 10%, rgba(59, 56, 246, 0.712) 90%);\">\n                            <h5 style=\"color: wheat\"><strong>LOGIN</strong></h5>\n                              <hr style=\"border-color: wheat\"><br>\n                          <div  >\n                              <h5 style=\"color: wheat\"><strong>Enter Private Key</strong></h5>\n                              <br>\n                              <input type=\"text\" placeholder=\"Enter your private key\" class=\"form-control\" #privatekey >\n                              <br><br> \n                              <div style=\"text-align:center\">\n                                  <input type=\"button\" style=\"color:black\" class=\"btn\"  value=\"Sign in\" (click)=\"prikey(privatekey.value)\">\n                              </div> \n                          \n                        \n                            </div>\n                          </div>\n                        <!--/.Form-->\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>\n  </body>\n  </html>"
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.scss":
+/*!********************************************!*\
+  !*** ./src/app/login/login.component.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".intro-2 {\n  background: url(\"https://mdbootstrap.com/img/Photos/Others/img%20(46).jpg\") no-repeat center center;\n  background-size: cover; }\n\n.view {\n  height: 94.1vh !important; }\n\n.top-nav-collapse {\n  background-color: #ff8a65 !important; }\n\n.navbar:not(.top-nav-collapse) {\n  background: transparent !important; }\n\n@media (max-width: 768px) {\n  .navbar:not(.top-nav-collapse) {\n    background: #ff8a65 !important; } }\n\n.md-form .prefix {\n  font-size: 1.5rem;\n  margin-top: 1rem; }\n\nh6 {\n  line-height: 1.7; }\n\n@media (max-width: 740px) {\n  .full-height,\n  .full-height body,\n  .full-height header,\n  .full-height header .view {\n    height: 1150px; } }\n"
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/login/login.component.ts ***!
+  \******************************************/
+/*! exports provided: LoginComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent(ls, router) {
+        this.ls = ls;
+        this.router = router;
+    }
+    LoginComponent.prototype.prikey = function (privatekey) {
+        var meta = this;
+        this.ls.set_cookie(privatekey);
+    };
+    LoginComponent.prototype.ngOnInit = function () {
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    meta.router.navigate(["login"]);
+                    clearInterval(_this.interval);
+                }
+                else {
+                    meta.router.navigate(["home"]);
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    LoginComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    LoginComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-login',
+            template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
+            styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/login/login.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], LoginComponent);
+    return LoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/metamask-error/metamask-error.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/metamask-error/metamask-error.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<html>\r\n\t<head>\r\n\t\t<title>Ethereum Account Connectivity Error Page</title>\r\n\t</head>\r\n\t<body style=\"margin:75px  700px\"> \r\n\t\t <img src=\"../assets/metamask.png\"/> \r\n\r\n\t\t\t<p>\r\n\t\t\t\t<br>There was an error while fetching your account.\r\n\t\t\t\t<br>Make sure your Ethereum client is configured correctly\r\n\r\n\t\t\t\t<br>Tips:\r\n\t\t\t\t<br>Ensure you unlocked your MetaMask plugin.\r\n\t\t\t\t<br>If you don't have MetaMask plugin install here: \r\n\t\t\t\t<br><a href =\"https://metamask.io/ \">https://metamask.io/</a>\r\n\t\t\t</p>\t\t\r\n\t</body>\r\n</html>"
+
+/***/ }),
+
+/***/ "./src/app/metamask-error/metamask-error.component.scss":
+/*!**************************************************************!*\
+  !*** ./src/app/metamask-error/metamask-error.component.scss ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/metamask-error/metamask-error.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/metamask-error/metamask-error.component.ts ***!
+  \************************************************************/
+/*! exports provided: MetamaskErrorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MetamaskErrorComponent", function() { return MetamaskErrorComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var MetamaskErrorComponent = /** @class */ (function () {
+    function MetamaskErrorComponent(wcs, router) {
+        this.wcs = wcs;
+        this.router = router;
+    }
+    MetamaskErrorComponent.prototype.ngOnInit = function () {
+        var meta = this;
+        // this.id1 = setInterval(function() {
+        //   if (typeof window.web3 !== 'undefined') {
+        //     meta._web3 = new Web3(window.web3.currentProvider);
+        //     if (meta._web3.eth.accounts[0] !== undefined) {
+        //       meta.router.navigate(['home']);
+        //     }
+        //   }
+        // }, 200);
+    };
+    MetamaskErrorComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    MetamaskErrorComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-metamask-error',
+            template: __webpack_require__(/*! ./metamask-error.component.html */ "./src/app/metamask-error/metamask-error.component.html"),
+            styles: [__webpack_require__(/*! ./metamask-error.component.scss */ "./src/app/metamask-error/metamask-error.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_1__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], MetamaskErrorComponent);
+    return MetamaskErrorComponent;
+}());
+
+
 
 /***/ }),
 
@@ -2987,7 +3579,18 @@ module.exports = "th,td {\r\n    text-align:center\r\n}\r\n.table-wrapper-2 {\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div><h1 style=\"color:#338ecf;text-align:center;\">SPV Details</h1></div> \r\n  <br>\r\n  <br>\r\n  <div id=\"spv_registered\">\r\n      <div class=\"row\">\r\n   <div class=\"col-sm-4\" id=\"spvdetail_hide\">\r\n     <div class=\"container\" style=\"border:3px solid #428bca;background:white;overflow-y:auto;height:200px;\">\r\n        <h3 style=\"color: #338ecf;text-align:center;\" >SPV Details</h3>  \r\n          <table class=\"table table-hover\">\r\n            <thead>\r\n              <tr>\r\n                <th><h4 style=\"color: black;\">SPV Address</h4></th>\r\n                <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n                <th><h4 style=\"color: black;\">Available Loan</h4></th>\r\n                <th><h4 style=\"color: black;\">Available pack</h4></th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let spv of details;\">\r\n                    <td >{{spv.spvaddress}} </td>\r\n                    <td>{{spv.totalamount}}</td>\r\n                    <td>{{spv.totalloan}}</td>\r\n                    <td>{{spv.availablepack}}</td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n      </div>\r\n      </div>\r\n      </div>\r\n     <br><br><br><br><br>\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-8\" id=\"spv_loan_detail\">\r\n          <div class=\"container\" style=\"border:3px solid #428bca;background:white;overflow-y:auto;height:450px;\">\r\n            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style=\"color: #338ecf;text-align:center;\">SPV Loan Details</h3></div> \r\n        <table  class=\"table table-responsive-md\">\r\n            <thead>\r\n              <tr>\r\n                <th><h4 style=\"color: black;\">Loan Id</h4></th>\r\n                <th><h4 style=\"color: black;\">Token address</h4></th>\r\n                <th><h4 style=\"color: black;\">Token value</h4></th>\r\n                <th><h4 style=\"color: black;\">Bank Address</h4></th>\r\n                <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let bank of loandetails;\">\r\n                    <td>{{bank.loanid}}</td>\r\n                    <td>{{bank.tokenaddress}} </td>\r\n                    <td>{{bank.tokenvalue}}</td>\r\n                    <td>{{bank.bankaddress}}</td>\r\n                    <td>{{bank.totalamount}}</td>\r\n                </tr>\r\n            </tbody>\r\n          </table>\r\n          </div>\r\n        </div>  \r\n        </div>\r\n\r\n      <!--purchaseloan-->\r\n<!-- <div id=\"purchaseloan\" class=\"tab-pane fade\">\r\n<div class=\"col-sm-8\" id=\"fidetail_hide1\">\r\n<div class=\"container\" style=\"background:white;overflow-y:scroll;height:350px;\">\r\n  <h3 style=\"color: #338ecf;\">Financial Institute Details</h3> \r\n<table  class=\"table table-responsive-md\">\r\n<thead>\r\n<tr>\r\n<th><h4 style=\"color: black;\">Financial Institute Address</h4></th>\r\n<th><h4 style=\"color: black;\">Bank Name</h4></th>\r\n<th><h4 style=\"color: black;\">Balance</h4></th>\r\n<th><h4 style=\"color: black;\">Fixed Int.</h4></th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n    <tr *ngFor=\"let bank of detail;\">\r\n        <td >{{bank.bank_address}}</td>\r\n        <td >{{bank.bank_name}} </td>\r\n        <td>{{bank.deposit_amount}}</td>\r\n        <td>{{bank.loan_interest}}</td>\r\n        <td><button class=\"btn btn-primary\" (click)=\"choosefi(bank.bank_address)\">choose</button></td>\r\n    </tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n&nbsp;  &nbsp;  &nbsp;  &nbsp;\r\n<div class=\"col-sm-8\" id=\"spv_deta\">\r\n&nbsp;\r\n<div class=\"container\" style=\"background:white;overflow-y:scroll;height:400px;\">\r\n  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style=\"color: #338ecf;\">FI Loan Details</h3></div>\r\n<table  class=\"table table-responsive-md\">\r\n    <thead>\r\n      <tr>\r\n        <th><h4 style=\"color: black;\">Loan Id</h4></th>\r\n        <th><h4 style=\"color: black;\">token address</h4></th>\r\n        <th><h4 style=\"color: black;\">Token Value</h4></th>\r\n        <th><h4 style=\"color: black;\">Bank Address</h4></th>\r\n        <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n      </tr>\r\n    </thead>\r\n    <tbody >\r\n      <tr *ngFor=\"let spv of purdetails;\">\r\n        <td >{{spv.loanid}}</td>\r\n        <td >{{spv.tokenaddress}} </td>\r\n        <td>{{spv.tokenvalue}}</td>\r\n        <td>{{spv.bankaddress}}</td>\r\n        <td>{{spv.totalamount}}</td>\r\n        <td><button class=\"btn btn-primary\" (click)=\"pur_loan(spv.loanid,spv.bankaddress)\">Buy</button></td>\r\n\r\n      \r\n    </tr>\r\n\r\n    </tbody>\r\n  </table>\r\n  </div>\r\n</div>  \r\n\r\n</div>  \r\n<!--createpack--\r\n<div id=\"createpack\" class=\"tab-pane fade\">   \r\n    <div class=\"row\">   \r\n<div class=\"form-group col-sm-4\" id=\"create_pack\"> \r\n<div class=\"container\" style=\"background:white;width:370px;\">\r\n<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style=\"color: #338ecf;\">Create Pack</h3></div>\r\n<input type=\"text\" [(ngModel)]=\"pack_id\" #a class=\"form-control\" placeholder=\"loan id\"/>\r\n<input type=\"button\" class=\"btn btn-primary\" (click)=\"createPack(a.value)\" value=\"Create\"/>\r\n\r\n<div id=\"status\"></div>\r\n</div>\r\n</div>\r\n  \r\n</div>  \r\n&nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r\n<div class=\"row\">\r\n<div class=\"col-sm-8\" id=\"spv_loan_detail\">\r\n  <div class=\"container\" style=\"background:white;overflow-y:scroll;height:350px;\">\r\n    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style=\"color: #338ecf;\">SPV Loan Details</h3></div> \r\n<table  class=\"table table-responsive-md\">\r\n    <thead>\r\n      <tr>\r\n        <th><h4 style=\"color: black;\">Loan Id</h4></th>\r\n        <th><h4 style=\"color: black;\">Token address</h4></th>\r\n        <th><h4 style=\"color: black;\">Token value</h4></th>\r\n        <th><h4 style=\"color: black;\">Bank Address</h4></th>\r\n        <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let bank of loandetails;\">\r\n            <td>{{bank.loanid}}</td>\r\n            <td>{{bank.tokenaddress}} </td>\r\n            <td>{{bank.tokenvalue}}</td>\r\n            <td>{{bank.bankaddress}}</td>\r\n            <td>{{bank.totalamount}}</td>\r\n        </tr>\r\n    </tbody>\r\n  </table>\r\n  </div>\r\n</div>  \r\n</div>\r\n</div>\r\n<!--spvpack\r\n<div id=\"spvpack\" class=\"tab-pane fade\">\r\n    <div class=\"col-sm-4\" id=\"spv_pack\">\r\n    <div class=\"container\" style=\"background:white;overflow-y:scroll;height:350px;\">\r\n <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style=\"color: #338ecf;\">SPV package details</h3></div> \r\n  <table  class=\"table table-responsive-md\">\r\n      <thead>\r\n        <tr>\r\n          <th><h4 style=\"color: black;\">Package Id</h4></th>\r\n          <th><h4 style=\"color: black;\">token value</h4></th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n          <tr *ngFor=\"let spv of packdetails;\">\r\n              <td>{{spv.packid}}</td>\r\n              <td>{{spv.tokenvalue}} </td>\r\n              \r\n          </tr>\r\n      </tbody>\r\n    </table>\r\n    </div>\r\n    </div>\r\n</div> -->\r\n</div>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<br>\r\n<br>\r\n<div class=\"tab-content\">\r\n\r\n<div class=\"tab-pane fade in show active\" role=\"tabpanel\">\r\n<!-- <div class=\"container-fluid tab-content\"> -->\r\n  <div class=\"row \">\r\n  <div class=\"col-sm-3\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-2\"></div>\r\n      <div class=\"col-sm-10\">\r\n          <h3><b>Purchase Pools</b></h3><br>\r\n          <div class=\"text-input\">\r\n                <div class=\"group\">      \r\n                    <input type=\"text\" id=\"id1\"  #poolid required>\r\n                    <span class=\"highlight\"></span>\r\n                    <span class=\"bar\"></span>\r\n                    <label > Enter Pool ID</label>\r\n                  </div>\r\n              </div>\r\n         \r\n            \r\n            <div class=\"col-sm-6\">\r\n              <br>\r\n                <button class=\"btn btn-primary\" (click)=\"purchasepool(poolid.value)\">Purchase</button>\r\n              </div>\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n \r\n\r\n<div class=\"col-sm-2\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-10\">\r\n            <h4><b>Purchased Pools</b></h4><br>\r\n            <table class=\"table\" style=\"overflow-y:auto;display:block;height:250px;width:165px\">\r\n                <thead class=\"tablecolor\">\r\n                  <tr>\r\n                    <th>Pool ID</th>\r\n                    <th>Pool Value</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody id=\"purchasedpools\">\r\n                    <tr *ngFor=\"let pool of purchased_pools\">\r\n                        <td>{{ pool.id }}</td>\r\n                        <td>{{ pool.value }}</td>\r\n                     </tr>\r\n                 </tbody>\r\n              </table>  \r\n        </div>\r\n      </div>\r\n    \r\n</div>\r\n\r\n\r\n  <div class=\"col-sm-2\">\r\n      <div class=\"row\">\r\n          <div class=\"col-sm-2\"></div>\r\n          <div class=\"col-sm-10\">\r\n              <h4><b>Available Pools</b></h4><br>\r\n              <table class=\"table\" style=\"overflow-y:auto;display:block;height:250px;width:165px\">\r\n                 <thead class=\"tablecolor\">\r\n                   <tr>\r\n                     <th>Pool ID</th>\r\n                     <th>Pool Value</th>                \r\n                   </tr>\r\n                 </thead>\r\n                 <tbody id=\"availablepools\">\r\n                     <tr *ngFor=\"let pool of available_pools\" [ngSwitch]=\"pool.status\">\r\n                         <td>{{ pool.id }}</td>\r\n                         <td>{{ pool.value }}</td>\r\n                         <td *ngSwitchCase='false'>Unsold</td>  \r\n                      </tr>\r\n                  </tbody>\r\n               </table>\r\n          </div>\r\n        </div>\r\n          \r\n  </div>\r\n\r\n  \r\n  <div class=\"col-sm-2\">\r\n      <div class=\"row\">\r\n          <div class=\"col-sm-2\"></div>\r\n          <div class=\"col-sm-10\">\r\n              <h4><b>Loans of Pool</b></h4><br>\r\n              <table class=\"table\" style=\"overflow-y:auto;display:block;height:250px;width:165px\">\r\n          <thead class=\"tablecolor\">\r\n            <tr><th>Pool Id</th><th>Loan Ids</th></tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr *ngFor = \"let obj of loans_of_pool\">\r\n              <td>{{obj.poolid}}</td>\r\n              <td>{{obj.loanids}}</td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n          </div>\r\n        </div>\r\n      \r\n    </div>\r\n\r\n    <div class=\"col-sm-2\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-10\">\r\n            <h4 style=\"text-align:center\"><b>Amount Gained</b></h4><br>\r\n        <h1 style=\"text-align:center;color:green\">Rs. {{spv_gain_amount}}</h1>\r\n        </div>\r\n      </div>\r\n      \r\n      </div>\r\n  </div>\r\n</div>\r\n</div>\r\n<ngx-spinner\r\nbdColor=\"rgba(51,51,51,0.8)\"\r\nsize=\"medium\"\r\ncolor=\"#fff\"\r\nloadingText=\"Transaction in process...\"\r\ntype=\"ball-scale-multiple\">\r\n</ngx-spinner>"
+
+/***/ }),
+
+/***/ "./src/app/spv/spv.component.scss":
+/*!****************************************!*\
+  !*** ./src/app/spv/spv.component.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "* {\n  box-sizing: border-box; }\n\n/* basic stylings ------------------------------------------ */\n\nh2 {\n  text-align: center;\n  margin-bottom: 50px; }\n\nh2 small {\n  font-weight: normal;\n  color: #888;\n  display: block; }\n\n.footer {\n  text-align: center; }\n\n.footer a {\n  color: #53B2C8; }\n\n/* form starting stylings ------------------------------- */\n\n.group {\n  position: relative;\n  margin-bottom: 45px; }\n\ninput {\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\ninput:focus {\n  outline: none; }\n\n/* LABEL ======================================= */\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n/* active state */\n\ninput:focus ~ label, input:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n/* BOTTOM BARS ================================= */\n\n.bar {\n  position: relative;\n  display: block;\n  width: 300px; }\n\n.bar:before, .bar:after {\n  content: '';\n  height: 2px;\n  width: 0;\n  bottom: 1px;\n  position: absolute;\n  background: green;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n.bar:before {\n  left: 50%; }\n\n.bar:after {\n  right: 50%; }\n\n/* active state */\n\ninput:focus ~ .bar:before, input:focus ~ .bar:after {\n  width: 50%; }\n\n/* HIGHLIGHTER ================================== */\n\n.highlight {\n  position: absolute;\n  height: 60%;\n  width: 100px;\n  top: 25%;\n  left: 0;\n  pointer-events: none;\n  opacity: 0.5; }\n\n/* active state */\n\ninput:focus ~ .highlight {\n  -webkit-animation: inputHighlighter 0.3s ease;\n  animation: inputHighlighter 0.3s ease; }\n\n/* ANIMATIONS ================ */\n\n@-webkit-keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n@keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n.tablecolor {\n  background-color: #3f51b5;\n  color: white; }\n\n::-webkit-scrollbar {\n  width: 8px;\n  height: 0px; }\n\n/* Track */\n\n::-webkit-scrollbar-track {\n  background: #f1f1f1; }\n\n/* Handle */\n\n::-webkit-scrollbar-thumb {\n  background: darkgrey; }\n\n/* Handle on hover */\n\n::-webkit-scrollbar-thumb:hover {\n  background: #3f51b5; }\n"
 
 /***/ }),
 
@@ -2995,14 +3598,21 @@ module.exports = "<div><h1 style=\"color:#338ecf;text-align:center;\">SPV Detail
 /*!**************************************!*\
   !*** ./src/app/spv/spv.component.ts ***!
   \**************************************/
-/*! exports provided: SPVComponent */
+/*! exports provided: SpvComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SPVComponent", function() { return SPVComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SpvComponent", function() { return SpvComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_5__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3014,421 +3624,215 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-var SPVComponent = /** @class */ (function () {
-    function SPVComponent(spv) {
-        var _this = this;
-        this.spv = spv;
-        this.loanid = [];
-        this.details = [];
-        this.detail = [];
-        this.loandetails = [];
-        this.purdetails = [];
-        this.packdetails = [];
-        spv.getAccount().then(function (address) { return _this.address = address; });
+
+
+
+
+var SpvComponent = /** @class */ (function () {
+    function SpvComponent(ls, router, spinner) {
+        this.ls = ls;
+        this.router = router;
+        this.spinner = spinner;
+        this.available_pools = [];
+        this.purchased_pools = [];
+        this.loans_of_pool = [];
+        jquery__WEBPACK_IMPORTED_MODULE_4___default()("#spv").addClass("active");
+        jquery__WEBPACK_IMPORTED_MODULE_4___default()("#issuer").removeClass("active");
+        jquery__WEBPACK_IMPORTED_MODULE_4___default()("#investor").removeClass("active");
     }
-    SPVComponent.prototype.choosefi = function (bank_address) {
+    SpvComponent.prototype.spv_gain = function () {
         var _this = this;
-        this.spv.bank_reg(bank_address).then(function (val) {
-            for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                _this.spv.loandetails(val[9], j).then(function (result) {
-                    if (result[0] > 0) {
-                        _this.purdetails.push({ "loanid": result[0], "tokenaddress": result[8], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
-                    }
+        this.ls.privatekey_by_address().then(function (address) {
+            _this.ls.spv_id_get(address["address"]).then(function (spv_id) {
+                _this.ls.spv_details(spv_id).then(function (s_d) {
+                    _this.spv_gain_amount = s_d[1];
                 });
-            }
+            });
         });
     };
-    SPVComponent.prototype.createPack = function (a) {
-        var value = a.split(",");
-        console.log(value);
-        for (var i = 0; i < value.length; i++) {
-            console.log(value.length);
-            this.loanid.push(parseInt(value[i]));
+    SpvComponent.prototype.purchasepool = function (poolid) {
+        var _this = this;
+        if (poolid.trim() == '') {
+            sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Please enter a Pool Id ");
+            return;
         }
-        this.spv.createPack(this.loanid).then(function (res) {
-        });
-    };
-    SPVComponent.prototype.pur_loan = function (loanid, bankaddress) {
-        this.spv.pur_loan(loanid, bankaddress).then(function (res) {
-        });
-    };
-    SPVComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.spv.getAccount().then(function (address) { return _this.address = address; });
-        this.spv.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        this.spv.spv_reg1().then(function (result) {
-            _this.spv.investortable().then(function (obj1) {
-                _this.details.push({ "spvaddress": _this.address, "totalamount": result[11], "totalloan": obj1[1], "availablepack": result[13] });
-            });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (result) {
-                    _this.detail.push({ "bank_address": result[9], "bank_name": result[10], "deposit_amount": result[0], "loan_interest": result[2] });
-                });
-            });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (val) {
-                    for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                        var a = j;
-                        _this.spv.loandetails(item, a).then(function (result) {
-                            _this.spv.spv_loanid(result[0]).then(function (result1) {
-                                if (_this.address == result1[0]) {
-                                    _this.loandetails.push({ "loanid": result[0], "tokenaddress": result[8], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
+        console.log("1");
+        this.ls.pool_ids().then(function (pool_ids) {
+            if (pool_ids.length >= poolid && poolid >= 1) {
+                console.log("2");
+                _this.ls.pool_details(poolid).then(function (data) {
+                    _this.spinner.show();
+                    if (data[1] == false) {
+                        _this.ls.get_cookie().then(function (key) {
+                            console.log(key);
+                            _this.ls.spv_buy_pool(poolid, data[0], key).then(function (result) {
+                                _this.spinner.hide();
+                                if (result == 0) {
+                                    document.getElementById('id1').value = '';
+                                    _this.spinner.hide();
+                                    sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("You Rejected this Transaction");
+                                }
+                                else if (result == 2) {
+                                    document.getElementById('id1').value = '';
+                                    _this.spinner.hide();
+                                    sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Transaction Failed !");
+                                }
+                                else if (result == 1) {
+                                    document.getElementById('id1').value = '';
+                                    _this.purchased();
+                                    _this.available();
+                                    _this.spinner.hide();
+                                    sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("You Bought the Pool " + poolid);
                                 }
                             });
                         });
                     }
-                });
-            });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (val) {
-                    for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                        _this.spv.loandetails(item, j).then(function (result) {
-                            if (_this.address == result[3]) {
-                                _this.purdetails.push({ "loanid": result[0], "tokenaddress": result[8], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
-                            }
-                        });
-                    }
-                });
-            });
-        });
-        this.spv.spv_reg1().then(function (res) {
-            for (var i = res[5].toNumber(); i <= res[6].toNumber(); i++) {
-                _this.spv.loandetails(res[7], i).then(function (result) {
-                    var a = result[1] / 1000000000000000000;
-                    if (a > 0) {
-                        _this.packdetails.push({ "packid": result[0], "tokenvalue": a });
+                    else {
+                        document.getElementById('id1').value = '';
+                        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("pool " + poolid + " already sold");
+                        _this.spinner.hide();
                     }
                 });
             }
+            else {
+                document.getElementById('id1').value = '';
+                sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("You had Entered an Invalid Pool Id");
+                _this.spinner.hide();
+            }
         });
     };
-    SPVComponent = __decorate([
+    SpvComponent.prototype.purchased = function () {
+        var _this = this;
+        this.purchased_pools.length = 0;
+        this.ls.privatekey_by_address().then(function (address) {
+            _this.ls.spv_id_get(address["address"]).then(function (spvid) {
+                if (spvid > 0) {
+                    _this.ls.pool_ids().then(function (p_ids) {
+                        p_ids.forEach(function (index) {
+                            _this.ls.is_owned_spv(spvid, index).then(function (status) {
+                                if (status == true) {
+                                    _this.ls.pool_details(index).then(function (result) {
+                                        var obj = {};
+                                        obj['id'] = index;
+                                        obj['value'] = result[0] / 1000000000000000000;
+                                        _this.purchased_pools.push(obj);
+                                    });
+                                }
+                            });
+                        });
+                    });
+                }
+                else {
+                    sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Still not purchased");
+                }
+            });
+        });
+    };
+    SpvComponent.prototype.available = function () {
+        var _this = this;
+        this.available_pools.length = 0;
+        this.ls.pool_ids().then(function (ids) {
+            ids.forEach(function (element) {
+                var pool_obj = {};
+                _this.ls.pool_details(element).then(function (data) {
+                    if (data[1] == false) {
+                        pool_obj['id'] = element;
+                        pool_obj['value'] = data[0] / 1000000000000000000;
+                        _this.available_pools.push(pool_obj);
+                    }
+                });
+            });
+        });
+    };
+    SpvComponent.prototype.loans_of_pools = function () {
+        var _this = this;
+        this.loans_of_pool.length = 0;
+        this.ls.pool_ids().then(function (pool_ids) {
+            pool_ids.forEach(function (pool_id) {
+                var obj = {};
+                obj["poolid"] = pool_id;
+                _this.ls.show_loanids_of_pool(pool_id).then(function (loan_ids) {
+                    obj["loanids"] = loan_ids;
+                    _this.loans_of_pool.push(obj);
+                });
+            });
+        });
+    };
+    SpvComponent.prototype.ngOnInit = function () {
+        this.purchased();
+        this.available();
+        this.spv_gain();
+        this.loans_of_pools();
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    meta.router.navigate(["login"]);
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    SpvComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    SpvComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-spv',
             template: __webpack_require__(/*! ./spv.component.html */ "./src/app/spv/spv.component.html"),
-            styles: [__webpack_require__(/*! ./spv.component.css */ "./src/app/spv/spv.component.css")]
+            styles: [__webpack_require__(/*! ./spv.component.scss */ "./src/app/spv/spv.component.scss")]
         }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"]])
-    ], SPVComponent);
-    return SPVComponent;
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"]])
+    ], SpvComponent);
+    return SpvComponent;
 }());
 
 
 
 /***/ }),
 
-/***/ "./src/app/spvpackdetail/spvpackdetail.component.css":
-/*!***********************************************************!*\
-  !*** ./src/app/spvpackdetail/spvpackdetail.component.css ***!
-  \***********************************************************/
+/***/ "./src/app/updateloan/updateloan.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/updateloan/updateloan.component.html ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\r\n<br>\r\n<br>\r\n<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n    <div class=\"col-sm-3\">\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-1\"></div>\r\n            <div class=\"col-sm-11\">\r\n                <h3><strong>Update Loan Details</strong></h3><br>\r\n                <div class=\"col-sm-12\"> \r\n                  <div class=\"group\">      \r\n                      <input type=\"text\" id=\"id1\"  #loanid required>\r\n                      <span class=\"highlight\"></span>\r\n                      <span class=\"bar\"></span>\r\n                      <label >Enter Loan Id</label>\r\n                    </div>\r\n                </div>  \r\n                <div class=\"col-sm-12\">\r\n      \r\n                    <div class=\"group\">      \r\n                        <input type=\"text\" id=\"id2\"  #loanvalue required>\r\n                        <span class=\"highlight\"></span>\r\n                        <span class=\"bar\"></span>\r\n                        <label >Enter amount</label>\r\n                      </div>\r\n                  </div>\r\n                <div class=\"col-sm-12\">\r\n                  <br>\r\n                    <button class=\"btn btn-primary\" (click)=\"updateloan(loanid.value,loanvalue.value)\">Update</button>\r\n                  </div>  \r\n            </div>\r\n        </div>\r\n       \r\n      \r\n    </div>\r\n\r\n    <div class=\"col-sm-9\">\r\n      <div class=\"row\">\r\n          <!-- <div class=\"col-sm-1\"></div> -->\r\n          <div class=\"col-sm-12\">\r\n              <h4><b>Loan Details</b></h4><br>\r\n              <table class=\"table\" style=\"overflow-y:auto;display:block;height:280px;width:1000px\">\r\n                <thead class=\"tablecolor\">\r\n                    <tr>\r\n                      <th>Loan ID</th>\r\n                      <th> Borrower ID</th>\r\n                      <th>Borrower Loan Amount(Rs)</th>\r\n                      <th> Borrower Interest Rate</th>\r\n                      <th>Loan Duration</th>\r\n                      <th>Asset ID</th>\r\n                      <th>Asset Details</th>\r\n                      <th>Asset Amount (Rs)</th>\r\n                      <th>Borrower Paid</th>\r\n                    </tr>\r\n                  </thead>\r\n                  <tbody id=\"loantable\">\r\n                      <tr *ngFor=\"let issuer of updated_loan_details\">\r\n                          <td>{{ issuer.loanid }}</td>\r\n                          <td>{{ issuer.borrowerid }}</td>\r\n                          <td>{{ issuer. borrowerloanamt}}</td>\r\n                          <td>{{ issuer.borrowerintrest }}</td>\r\n                          <td>{{ issuer.loanduration }}</td>\r\n                          <td>{{ issuer.assetid }}</td>\r\n                          <td>{{ issuer.assetdetails }}</td>\r\n                          <td>{{ issuer.assetamt }}</td>\r\n                          <td>{{ issuer.borrowerpaid }}</td>\r\n                       </tr>\r\n                   </tbody>\r\n              </table>\r\n          </div>\r\n      </div>\r\n     \r\n       \r\n        \r\n      </div>\r\n     \r\n    </div>\r\n</div>\r\n<ngx-spinner\r\nbdColor=\"rgba(51,51,51,0.8)\"\r\nsize=\"medium\"\r\ncolor=\"#fff\"\r\nloadingText=\"Transaction in process...\"\r\ntype=\"ball-scale-multiple\">\r\n</ngx-spinner>"
 
 /***/ }),
 
-/***/ "./src/app/spvpackdetail/spvpackdetail.component.html":
-/*!************************************************************!*\
-  !*** ./src/app/spvpackdetail/spvpackdetail.component.html ***!
-  \************************************************************/
+/***/ "./src/app/updateloan/updateloan.component.scss":
+/*!******************************************************!*\
+  !*** ./src/app/updateloan/updateloan.component.scss ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div><h1 style=\"color:#338ecf;text-align:center;\">SPV PackDetails</h1></div> \r\n<br>\r\n<br><br>\r\n<div class=\"col-sm-4\" id=\"spv_pack\">\r\n    <div class=\"container\" style=\"border:3px solid #428bca;background:white;overflow-y:auto;height:350px;\">\r\n <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style=\"color: #338ecf;text-align:center;\">SPV package details</h3></div> \r\n  <table  class=\"table table-responsive-md\">\r\n      <thead>\r\n        <tr>\r\n          <th><h4 style=\"color: black;\">Package Id</h4></th>\r\n          <th><h4 style=\"color: black;\">Total Amount</h4></th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n          <tr *ngFor=\"let spv of packdetails;\">\r\n              <td>{{spv.packid}}</td>\r\n              <td>{{spv.tokenvalue}} </td>\r\n              \r\n          </tr>\r\n      </tbody>\r\n    </table>\r\n    </div>\r\n    </div>"
+module.exports = "* {\n  box-sizing: border-box; }\n\n/* basic stylings ------------------------------------------ */\n\n.container {\n  font-family: 'Roboto';\n  width: 600px;\n  margin: 30px auto 0;\n  display: block;\n  background: #FFF;\n  padding: 10px 50px 50px; }\n\nh2 {\n  text-align: center;\n  margin-bottom: 50px; }\n\nh2 small {\n  font-weight: normal;\n  color: #888;\n  display: block; }\n\n.footer {\n  text-align: center; }\n\n.footer a {\n  color: #53B2C8; }\n\n/* form starting stylings ------------------------------- */\n\n.group {\n  position: relative;\n  margin-bottom: 45px; }\n\ninput {\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\ninput:focus {\n  outline: none; }\n\n/* LABEL ======================================= */\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n/* active state */\n\ninput:focus ~ label, input:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n/* BOTTOM BARS ================================= */\n\n.bar {\n  position: relative;\n  display: block;\n  width: 300px; }\n\n.bar:before, .bar:after {\n  content: '';\n  height: 2px;\n  width: 0;\n  bottom: 1px;\n  position: absolute;\n  background: green;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n.bar:before {\n  left: 50%; }\n\n.bar:after {\n  right: 50%; }\n\n/* active state */\n\ninput:focus ~ .bar:before, input:focus ~ .bar:after {\n  width: 50%; }\n\n/* HIGHLIGHTER ================================== */\n\n.highlight {\n  position: absolute;\n  height: 60%;\n  width: 100px;\n  top: 25%;\n  left: 0;\n  pointer-events: none;\n  opacity: 0.5; }\n\n/* active state */\n\ninput:focus ~ .highlight {\n  -webkit-animation: inputHighlighter 0.3s ease;\n  animation: inputHighlighter 0.3s ease; }\n\n/* ANIMATIONS ================ */\n\n@-webkit-keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n@keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n.tablecolor {\n  background-color: #3f51b5;\n  color: white; }\n\n::-webkit-scrollbar {\n  width: 8px;\n  height: 0px; }\n\n/* Track */\n\n::-webkit-scrollbar-track {\n  background: #f1f1f1; }\n\n/* Handle */\n\n::-webkit-scrollbar-thumb {\n  background: darkgrey; }\n\n/* Handle on hover */\n\n::-webkit-scrollbar-thumb:hover {\n  background: #3f51b5; }\n"
 
 /***/ }),
 
-/***/ "./src/app/spvpackdetail/spvpackdetail.component.ts":
-/*!**********************************************************!*\
-  !*** ./src/app/spvpackdetail/spvpackdetail.component.ts ***!
-  \**********************************************************/
-/*! exports provided: SpvpackdetailComponent */
+/***/ "./src/app/updateloan/updateloan.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/updateloan/updateloan.component.ts ***!
+  \****************************************************/
+/*! exports provided: UpdateloanComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SpvpackdetailComponent", function() { return SpvpackdetailComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-// import { Component, OnInit } from '@angular/core';
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-// @Component({
-//   selector: 'app-spvpackdetail',
-//   templateUrl: './spvpackdetail.component.html',
-//   styleUrls: ['./spvpackdetail.component.css']
-// })
-// export class SpvpackdetailComponent implements OnInit {
-//   constructor() { }
-//   ngOnInit() {
-//   }
-// }
-
-
-var SpvpackdetailComponent = /** @class */ (function () {
-    function SpvpackdetailComponent(spv) {
-        var _this = this;
-        this.spv = spv;
-        this.loanid = [];
-        this.details = [];
-        this.detail = [];
-        this.loandetails = [];
-        this.purdetails = [];
-        this.packdetails = [];
-        spv.getAccount().then(function (address) { return _this.address = address; });
-    }
-    SpvpackdetailComponent.prototype.choosefi = function (bank_address) {
-        var _this = this;
-        this.spv.bank_reg(bank_address).then(function (val) {
-            for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                _this.spv.loandetails(val[9], j).then(function (result) {
-                    if (result[0] > 0) {
-                        _this.purdetails.push({ "loanid": result[0], "tokenaddress": result[7], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
-                    }
-                });
-            }
-        });
-    };
-    SpvpackdetailComponent.prototype.createPack = function (a) {
-        var value = a.split(",");
-        console.log(value);
-        for (var i = 0; i < value.length; i++) {
-            console.log(value.length);
-            this.loanid.push(parseInt(value[i]));
-        }
-        this.spv.createPack(this.loanid).then(function (res) {
-        });
-    };
-    SpvpackdetailComponent.prototype.pur_loan = function (loanid, bankaddress) {
-        this.spv.pur_loan(loanid, bankaddress).then(function (res) {
-        });
-    };
-    SpvpackdetailComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.spv.getAccount().then(function (address) { return _this.address = address; });
-        this.spv.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        this.spv.spv_reg1().then(function (result) {
-            _this.details.push({ "spvaddress": _this.address, "totalamount": result[11], "totalloan": result[1], "availablepack": result[13] });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (result) {
-                    _this.detail.push({ "bank_address": result[9], "bank_name": result[10], "deposit_amount": result[0], "loan_interest": result[2] });
-                });
-            });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (val) {
-                    for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                        var a = j;
-                        _this.spv.loandetails(item, a).then(function (result) {
-                            _this.spv.spv_loanid(result[0]).then(function (result1) {
-                                if (_this.address == result1[0]) {
-                                    _this.loandetails.push({ "loanid": result[0], "tokenaddress": result[7], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
-                                }
-                            });
-                        });
-                    }
-                });
-            });
-        });
-        this.spv.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                _this.spv.bank_reg(item).then(function (val) {
-                    for (var j = val[3].toNumber(); j < val[4].toNumber(); j++) {
-                        _this.spv.loandetails(item, j).then(function (result) {
-                            if (_this.address == result[3]) {
-                                _this.purdetails.push({ "loanid": result[0], "tokenaddress": result[7], "tokenvalue": result[1], "bankaddress": result[2], "totalamount": result[4] });
-                            }
-                        });
-                    }
-                });
-            });
-        });
-        this.spv.spv_reg1().then(function (res) {
-            for (var i = res[5].toNumber(); i <= res[6].toNumber(); i++) {
-                _this.spv.loandetails(res[7], i).then(function (result) {
-                    var a = result[1] / 1000000000000000000;
-                    if (a > 0) {
-                        _this.packdetails.push({ "packid": result[0], "tokenvalue": a });
-                    }
-                });
-            }
-        });
-    };
-    SpvpackdetailComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-spvpackdetail',
-            template: __webpack_require__(/*! ./spvpackdetail.component.html */ "./src/app/spvpackdetail/spvpackdetail.component.html"),
-            styles: [__webpack_require__(/*! ./spvpackdetail.component.css */ "./src/app/spvpackdetail/spvpackdetail.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"]])
-    ], SpvpackdetailComponent);
-    return SpvpackdetailComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/spvreg/spvreg.component.css":
-/*!*********************************************!*\
-  !*** ./src/app/spvreg/spvreg.component.css ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/* .container\r\n{\r\n    margin: 20% 50%;\r\n    \r\n} */\r\nbody {font-family: Arial, Helvetica, sans-serif;}\r\n* {box-sizing: border-box}\r\n/* Full-width input fields */\r\n/* input[type=text], input[type=password],input[type=number] {\r\n    width: 95%;\r\n    padding: 15px;\r\n    margin: 5px 0 22px 0;\r\n    display: inline-block;\r\n    border: none;\r\n    background: #f1f1f1;\r\n} */\r\ninput[type=text]:focus, input[type=password]:focus,input[type=number]:focus {\r\n    background-color: #ddd;\r\n    outline: none;\r\n}\r\nhr {\r\n    border: 1px solid #f1f1f1;\r\n    margin-bottom: 25px;\r\n}\r\n/* Set a style for all buttons */\r\nbutton {\r\n   \r\n    color: white;\r\n    padding: 14px 20px;\r\n    margin: 8px 0;\r\n    border: none;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    opacity: 0.9;\r\n}\r\nbutton:hover {\r\n    opacity:1;\r\n}\r\n/* Extra styles for the cancel button */\r\n.btn-danger {\r\n    padding: 14px 20px;\r\n    background-color: #f44336;\r\n}\r\n/* Float cancel and signup buttons and add an equal width */\r\n.btn-primary, .btn-danger {\r\n  float: left;\r\n  width: 50%;\r\n}\r\n/* Add padding to container elements */\r\n.container {\r\n    padding: 16px;\r\n}\r\n/* Clear floats */\r\n.clearfix::after {\r\n    content: \"\";\r\n    clear: both;\r\n    display: table;\r\n}\r\n/* Change styles for cancel button and signup button on extra small screens */\r\n@media screen and (max-width: 300px) {\r\n    .btn-primary, .btn-danger {\r\n       width: 100%;\r\n    }\r\n}\r\n"
-
-/***/ }),
-
-/***/ "./src/app/spvreg/spvreg.component.html":
-/*!**********************************************!*\
-  !*** ./src/app/spvreg/spvreg.component.html ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\r\n<div class=\"container\">\r\n    \r\n     \r\n          <div class=\"container\" style=\"border:3px solid #428bca;;background:white\">\r\n              <h1>Register The SPV Here...</h1>\r\n              <p>Please fill in this form to create an account.</p>\r\n              <hr style=\"border:1px solid #428bca;\">\r\n              <form [formGroup]=\"angForm\" #fid novalidate>\r\n          \r\n                <div class=\"form-group\">\r\n                    <label>Deposit Amount</label>\r\n                    <input class=\"form-control\" formControlName=\"amt\" type=\"text\" placeholder=\"Enter the amount in Ether\" #a>\r\n                </div>\r\n                <div *ngIf=\"angForm.controls['amt'].invalid && (angForm.controls['amt'].dirty || angForm.controls['amt'].touched)\" class=\"alert alert-danger\" >\r\n                    <div *ngIf=\"angForm.controls['amt'].errors.required\">\r\n                      Deposit is required.\r\n                    </div>\r\n                </div>\r\n                <button type=\"submit\"\r\n                    [disabled]=\"angForm.pristine || angForm.invalid\" class=\"btn btn-primary\" (click)=\"spv_reg(a.value)\">Register\r\n                </button>\r\n                <button type=\"submit\" class=\"btn btn-danger\" (click)=\"fid.reset()\">Cancel</button>\r\n          </form>\r\n           </div>\r\n</div>\r\n\r\n  \r\n\r\n\r\n\r\n<ngx-spinner\r\n      bdColor=\"rgba(51,51,51,0.8)\"\r\n      size=\"medium\"\r\n      color=\"#fff\"\r\n      loadingText=\"Loading...\"\r\n      type=\"ball-scale-multiple\">\r\n</ngx-spinner>\r\n\r\n"
-
-/***/ }),
-
-/***/ "./src/app/spvreg/spvreg.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/spvreg/spvreg.component.ts ***!
-  \********************************************/
-/*! exports provided: SpvregComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SpvregComponent", function() { return SpvregComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var SpvregComponent = /** @class */ (function () {
-    function SpvregComponent(spv, router, spinner, fb) {
-        var _this = this;
-        this.spv = spv;
-        this.router = router;
-        this.spinner = spinner;
-        this.fb = fb;
-        spv.getAccount().then(function (address) { return _this.address = address; });
-        this.createForm();
-    }
-    SpvregComponent.prototype.createForm = function () {
-        this.angForm = this.fb.group({
-            amt: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]
-        });
-    };
-    SpvregComponent.prototype.cancel = function () {
-        this.router.navigate(['home']);
-    };
-    SpvregComponent.prototype.spv_reg = function (a) {
-        var _this = this;
-        //alert("hai");
-        this.spinner.show();
-        this.spv.spv_reg(a).then(function (res) {
-            // alert("second")
-            console.log("Hash :" + res);
-            if (res === 0) {
-                _this.spinner.hide();
-            }
-            else
-                _this.spv.hash(res).then(function (result) {
-                    console.log("result : " + result);
-                    _this.spinner.hide();
-                    _this.router.navigate(['SPV']);
-                });
-        });
-    };
-    SpvregComponent.prototype.ngOnInit = function () {
-    };
-    SpvregComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-spvreg',
-            template: __webpack_require__(/*! ./spvreg.component.html */ "./src/app/spvreg/spvreg.component.html"),
-            styles: [__webpack_require__(/*! ./spvreg.component.css */ "./src/app/spvreg/spvreg.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_1__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]])
-    ], SpvregComponent);
-    return SpvregComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/totalfi/totalfi.component.css":
-/*!***********************************************!*\
-  !*** ./src/app/totalfi/totalfi.component.css ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/totalfi/totalfi.component.html":
-/*!************************************************!*\
-  !*** ./src/app/totalfi/totalfi.component.html ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div><h1 style=\"color:#338ecf;text-align:center;\">Loan Request</h1></div> \r\n<br><br>\r\n      <div class=\"container\" style=\"border:3px solid #428bca;background:white;overflow-y:auto;height:350px;\">\r\n          <div class=\"col-sm-12\" id=\"fidetail_hide\">\r\n          <h3 style=\"color: #338ecf;text-align:center;\">Financial Institution Details</h3>\r\n              <table class=\"table table-responsive-md\" >\r\n              <!-- <thead class=\"mdb-color lighten-4\"> -->\r\n                <tr>\r\n                    <th><h4 style=\"color: black;\">Financial Institute Address</h4></th>\r\n                    <th><h4 style=\"color: black;\">Bank Name</h4></th>\r\n                    <th><h4 style=\"color: black;\">Balance</h4></th>\r\n                    <th><h4 style=\"color: black;\">Fixed Int</h4></th>\r\n                    <th><h4 style=\"color: black;\">Duration</h4></th>\r\n                    <th><h4 style=\"color:black\">Select FI</h4></th>\r\n                    \r\n                  </tr>\r\n            <!-- </thead> -->\r\n            <tbody>\r\n                <tr *ngFor=\"let bank of alldetails;\">\r\n                    <td >{{bank.bank_address}}</td>\r\n                    <td >{{bank.bank_name}} </td>\r\n                    <td>{{bank.deposit_amount}}</td>\r\n                    <td>{{bank.loan_interest}}</td>\r\n                    <td>{{bank.duration}}</td>\r\n                    <td> <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#myModal\" (click)=\"choosefi(bank.bank_address)\">GetLoan</button></td>\r\n                </tr>     \r\n            </tbody>\r\n          </table>\r\n    </div>\r\n     </div>\r\n               \r\n                <div class=\"modal fade\" id=\"myModal\" role=\"dialog\">\r\n                  <div class=\"modal-dialog modal-lg\">\r\n                    <div class=\"modal-content\">\r\n                      <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                        <h4 class=\"modal-title\">Loan Request</h4>\r\n                      </div>\r\n                      <div class=\"modal-body\">\r\n                        <form [formGroup]=\"angForm\" novalidate>\r\n  \r\n                          <div class=\"form-group\">\r\n                              <label>Token Address</label>\r\n                              <input class=\"form-control\" formControlName=\"add\" type=\"text\" placeholder=\"Enter the token address\" #a>\r\n                          </div>\r\n                          <div *ngIf=\"angForm.controls['add'].invalid && (angForm.controls['add'].dirty || angForm.controls['add'].touched)\" class=\"alert alert-danger\" >\r\n                              <div *ngIf=\"angForm.controls['add'].errors.required\">\r\n                                Token Address is required.\r\n                              </div>\r\n                          </div>\r\n                          <div class=\"form-group\">\r\n                            <label>Financial Institution Address</label>\r\n                          <input type=\"text\"  class=\"form-control\" #b value={{_address}} placeholder=\"Bank Address\" readonly/>\r\n                          </div>\r\n                          <div class=\"form-group\">\r\n                            <label>Number of Token</label>\r\n                            <input class=\"form-control\" formControlName=\"num\" type=\"text\" placeholder=\"Enter the number of Tokens\" #c>\r\n                          </div>\r\n  \r\n                          <div *ngIf=\"angForm.controls['num'].invalid && (angForm.controls['num'].dirty || angForm.controls['num'].touched)\" class=\"alert alert-danger\" >\r\n                            <div *ngIf=\"angForm.controls['num'].errors.required\">\r\n                              Number of Token  is required.\r\n                            </div>\r\n                          </div>\r\n                          <button type=\"submit\"\r\n                              [disabled]=\"angForm.pristine || angForm.invalid\" class=\"btn btn-primary\" (click)=\"req_loan(a.value,b.value,c.value)\">Register\r\n                          </button>\r\n                    </form>\r\n                      </div>\r\n                      <div class=\"modal-footer\">\r\n                        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              \r\n              \r\n\r\n              <ngx-spinner\r\n              bdColor=\"rgba(51,51,51,0.8)\"\r\n              size=\"medium\"\r\n              color=\"#fff\"\r\n              loadingText=\"Loading...\"\r\n              type=\"ball-scale-multiple\">\r\n        </ngx-spinner>"
-
-/***/ }),
-
-/***/ "./src/app/totalfi/totalfi.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/totalfi/totalfi.component.ts ***!
-  \**********************************************/
-/*! exports provided: TotalfiComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TotalfiComponent", function() { return TotalfiComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateloanComponent", function() { return UpdateloanComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _service_contactservice_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/contactservice.service */ "./src/app/service/contactservice.service.ts");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
 /* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
 /* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_4__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3440,125 +3844,180 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-// declare let window: any;
-// import * as Web3 from 'web3';
 
 
 
-var TotalfiComponent = /** @class */ (function () {
-    function TotalfiComponent(get, router, spinner, fb) {
-        var _this = this;
-        this.get = get;
+var UpdateloanComponent = /** @class */ (function () {
+    function UpdateloanComponent(ls, router, spinner) {
+        this.ls = ls;
         this.router = router;
         this.spinner = spinner;
-        this.fb = fb;
-        this.alldetails = [];
-        this.loandetails = [];
-        get.getAccount().then(function (address) { return _this.address = address; });
-        get.borrower_view_fi();
-        this.createForm();
+        this.updated_loan_details = [];
     }
-    TotalfiComponent.prototype.createForm = function () {
-        this.angForm = this.fb.group({
-            add: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            //fi:['', Validators.required ],
-            num: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]
-        });
-    };
-    TotalfiComponent.prototype.choosefi = function (bank_address) {
-        this._address = bank_address;
-    };
-    TotalfiComponent.prototype.req_loan = function (a, b, c) {
+    UpdateloanComponent.prototype.updateloan = function (text_loan_id, amount) {
         var _this = this;
-        this.spinner.show();
-        console.log(a, b, c);
-        this.get.request_loan(a, b, c).then(function (res) {
-            console.log(res);
-            console.log("Hash :" + res);
-            if (res === 0) {
-                _this.spinner.hide();
+        this.ls.get_cookie().then(function (key) {
+            // console.log();
+            if (text_loan_id.trim() == '') {
+                sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Please Enter Loan Id");
+                return;
             }
-            else
-                _this.get.hash(res).then(function (result) {
-                    console.log("result : " + result);
-                    _this.spinner.hide();
-                    _this.router.navigate(['Monthlypayment']);
-                });
+            if (amount.trim() == '') {
+                sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Please Enter amount");
+                return;
+            }
+            _this.spinner.show();
+            // this.ls.getAccount().then(address =>{
+            _this.ls.loan_status(text_loan_id).then(function (result) {
+                if (result[0] == 0 && result[1] == 0) {
+                    _this.ls.update_loan(text_loan_id, amount, 0, 0, 0, key).then(function (res) {
+                        document.getElementById('id1').value = '';
+                        document.getElementById('id2').value = '';
+                        _this.spinner.hide();
+                        if (res == 0) {
+                            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("You Rejected this Transaction");
+                        }
+                        else if (res == 2) {
+                            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Transaction Failed !");
+                        }
+                        else if (res == 1) {
+                            _this.table();
+                            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Loan Amount Updated");
+                        }
+                    });
+                }
+                else if (result[0] != 0 && result[1] == 0) {
+                    _this.ls.update_loan(text_loan_id, amount, 1, result[0], 0, key).then(function (res) {
+                        document.getElementById('id1').value = '';
+                        document.getElementById('id2').value = '';
+                        _this.spinner.hide();
+                        if (res == 0) {
+                            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("You Rejected this Transaction");
+                        }
+                        else if (res == 2) {
+                            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Transaction Failed !");
+                        }
+                        else if (res == 1) {
+                            _this.table();
+                            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Loan Amount Updated");
+                        }
+                    });
+                }
+                else if (result[0] != 0 && result[1] != 0) {
+                    _this.ls.update_loan(text_loan_id, amount, 2, result[0], result[1], key).then(function (res) {
+                        document.getElementById('id1').value = '';
+                        document.getElementById('id2').value = '';
+                        _this.spinner.hide();
+                        if (res == 0) {
+                            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("You Rejected this Transaction");
+                        }
+                        else if (res == 2) {
+                            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Transaction Failed !");
+                        }
+                        else if (res == 1) {
+                            _this.table();
+                            sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Loan Amount Updated");
+                        }
+                    });
+                }
+            });
         });
     };
-    TotalfiComponent.prototype.MonthlyPayment = function (loanid, bankaddress, balanceins) {
-        this.get.MonthlyPayment(loanid, bankaddress, balanceins).then(function (res) {
-            console.log(res);
-            alert;
-        });
-        alert(loanid);
-        console.log(loanid, bankaddress, balanceins);
-        alert;
-    };
-    TotalfiComponent.prototype.ngOnInit = function () {
+    UpdateloanComponent.prototype.table = function () {
         var _this = this;
-        this.get.getAccount().then(function (address) { return _this.address = address; });
-        this.get.getUserBalance().then(function (balance) { return _this.balance = balance; });
-        //full fi details//
-        this.get.borrower_view_fi().then(function (obj) {
-            obj.forEach(function (item) {
-                //  console.log(item);
-                _this.get.bank_reg(item).then(function (result) {
-                    //  console.log("work");   
-                    var a = result[2] / 100;
-                    _this.alldetails.push({ "bank_address": result[9], "bank_name": result[10], "deposit_amount": result[0], "loan_interest": a, "duration": result[1] });
+        this.updated_loan_details = [];
+        this.ls.loan_ids().then(function (ids) {
+            ids.forEach(function (element) {
+                var obj = {};
+                _this.ls.borrower_details_map(element).then(function (result) {
+                    obj['loanid'] = element;
+                    obj['borrowerid'] = result[0];
+                    obj['borrowerloanamt'] = result[1];
+                    obj['borrowerintrest'] = result[2];
+                    obj['loanduration'] = result[3];
+                    obj['assetid'] = result[4];
+                    obj['assetdetails'] = result[5];
+                    obj['assetamt'] = result[6];
+                    obj['borrowerpaid'] = result[7];
+                    _this.updated_loan_details.push(obj);
                 });
             });
         });
     };
-    TotalfiComponent = __decorate([
+    UpdateloanComponent.prototype.ngOnInit = function () {
+        this.table();
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    meta.router.navigate(["login"]);
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    UpdateloanComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    UpdateloanComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-totalfi',
-            template: __webpack_require__(/*! ./totalfi.component.html */ "./src/app/totalfi/totalfi.component.html"),
-            styles: [__webpack_require__(/*! ./totalfi.component.css */ "./src/app/totalfi/totalfi.component.css")]
+            selector: 'app-updateloan',
+            template: __webpack_require__(/*! ./updateloan.component.html */ "./src/app/updateloan/updateloan.component.html"),
+            styles: [__webpack_require__(/*! ./updateloan.component.scss */ "./src/app/updateloan/updateloan.component.scss")]
         }),
-        __metadata("design:paramtypes", [_service_contactservice_service__WEBPACK_IMPORTED_MODULE_2__["ContactserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]])
-    ], TotalfiComponent);
-    return TotalfiComponent;
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_3__["NgxSpinnerService"]])
+    ], UpdateloanComponent);
+    return UpdateloanComponent;
 }());
 
 
 
 /***/ }),
 
-/***/ "./src/app/welcome/welcome.component.css":
-/*!***********************************************!*\
-  !*** ./src/app/welcome/welcome.component.css ***!
-  \***********************************************/
+/***/ "./src/app/withdraw/withdraw.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/withdraw/withdraw.component.html ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<br><br><br><div class=\"container\">\r\n    \r\n    <div class=\"row\">\r\n      <div class=\"col-sm-3\">\r\n      \r\n      </div>\r\n    \r\n            <div class=\"col-sm-6\">\r\n              \r\n          <div class=\"row\">\r\n              <h3 style=\"text-align:center\"><b><strong>Contract Balance Details</strong></b></h3>\r\n             <div class=\"col-sm-12\">\r\n              \r\n                <br>&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;<h4 style=\"text-align:center\"><b>Balance in Ether</b></h4>\r\n            </div>\r\n            <div class=\"col-sm-12\">\r\n                <h2 style=\"text-align:center;color:green\">{{balance}}</h2>\r\n            </div>\r\n            <br> <br>\r\n            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h4 style=\"text-align: center\"><b>Withdraw</b></h4><br>\r\n            <br>                      \r\n            <br> \r\n            <div class=\"group\">      \r\n                <input type=\"text\" id=\"id1\" #withdrawamount required>\r\n                <span class=\"highlight\"></span>\r\n                <span class=\"bar\"></span>\r\n                <label >Enter Amount to Withdraw</label>\r\n              </div>\r\n            <div class=\"row\">\r\n                <div class=\"col-sm-3\">\r\n\r\n                  </div>\r\n                  <div class=\"col-sm-6\">\r\n                      <button  type=\"button\" class=\"btn btn-primary\" (click)=\"withdraw(withdrawamount.value)\">Withdraw</button>                          \r\n          \r\n                    </div>\r\n                    <div class=\"col-sm-3\">\r\n\r\n                      </div>\r\n\r\n            </div>\r\n\r\n             \r\n           \r\n  </div>\r\n      </div>\r\n      <div class=\"col-sm-3\">\r\n      \r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n  <ngx-spinner\r\n  bdColor=\"rgba(51,51,51,0.8)\"\r\n  size=\"medium\"\r\n  color=\"#fff\"\r\n  loadingText=\"Transaction in process...\"\r\n  type=\"ball-scale-multiple\">\r\n</ngx-spinner>"
 
 /***/ }),
 
-/***/ "./src/app/welcome/welcome.component.html":
+/***/ "./src/app/withdraw/withdraw.component.scss":
+/*!**************************************************!*\
+  !*** ./src/app/withdraw/withdraw.component.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "* {\n  box-sizing: border-box; }\n\n/* basic stylings ------------------------------------------ */\n\n.container {\n  font-family: 'Roboto';\n  width: 600px;\n  margin: 30px auto 0;\n  display: block;\n  background: #FFF;\n  padding: 10px 50px 50px; }\n\nh2 {\n  text-align: center;\n  margin-bottom: 50px; }\n\nh2 small {\n  font-weight: normal;\n  color: #888;\n  display: block; }\n\n.footer {\n  text-align: center; }\n\n.footer a {\n  color: #53B2C8; }\n\n/* form starting stylings ------------------------------- */\n\n.group {\n  position: relative;\n  margin-bottom: 45px; }\n\ninput {\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\ninput:focus {\n  outline: none; }\n\n/* LABEL ======================================= */\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n/* active state */\n\ninput:focus ~ label, input:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n/* BOTTOM BARS ================================= */\n\n.bar {\n  position: relative;\n  display: block;\n  width: 300px; }\n\n.bar:before, .bar:after {\n  content: '';\n  height: 2px;\n  width: 0;\n  bottom: 1px;\n  position: absolute;\n  background: green;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n.bar:before {\n  left: 50%; }\n\n.bar:after {\n  right: 50%; }\n\n/* active state */\n\ninput:focus ~ .bar:before, input:focus ~ .bar:after {\n  width: 50%; }\n\n/* HIGHLIGHTER ================================== */\n\n.highlight {\n  position: absolute;\n  height: 60%;\n  width: 100px;\n  top: 25%;\n  left: 0;\n  pointer-events: none;\n  opacity: 0.5; }\n\n/* active state */\n\ninput:focus ~ .highlight {\n  -webkit-animation: inputHighlighter 0.3s ease;\n  animation: inputHighlighter 0.3s ease; }\n\n/* ANIMATIONS ================ */\n\n@-webkit-keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n@keyframes inputHighlighter {\n  from {\n    background: skyblue; }\n  to {\n    width: 0;\n    background: transparent; } }\n"
+
+/***/ }),
+
+/***/ "./src/app/withdraw/withdraw.component.ts":
 /*!************************************************!*\
-  !*** ./src/app/welcome/welcome.component.html ***!
+  !*** ./src/app/withdraw/withdraw.component.ts ***!
   \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/welcome/welcome.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/welcome/welcome.component.ts ***!
-  \**********************************************/
-/*! exports provided: WelcomeComponent */
+/*! exports provided: WithdrawComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WelcomeComponent", function() { return WelcomeComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WithdrawComponent", function() { return WithdrawComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Service/loan-service.service */ "./src/app/Service/loan-service.service.ts");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_5__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3569,20 +4028,93 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var WelcomeComponent = /** @class */ (function () {
-    function WelcomeComponent() {
+
+
+
+
+
+var WithdrawComponent = /** @class */ (function () {
+    function WithdrawComponent(ls, router, spinner) {
+        var _this = this;
+        this.ls = ls;
+        this.router = router;
+        this.spinner = spinner;
+        this.loan_details = [];
+        jquery__WEBPACK_IMPORTED_MODULE_3___default()("#issuer").addClass("active");
+        jquery__WEBPACK_IMPORTED_MODULE_3___default()("#spv").removeClass("active");
+        jquery__WEBPACK_IMPORTED_MODULE_3___default()("#investor").removeClass("active");
+        this.borrower_id = '';
+        this.bank_id = '';
+        this.ls.contract_balance().then(function (result) { return _this.balance = result / 1000000000000000000; });
     }
-    WelcomeComponent.prototype.ngOnInit = function () {
+    WithdrawComponent.prototype.withdraw = function (amount) {
+        //  console.log("withdraw");
+        var _this = this;
+        if (amount.trim() == '' || amount <= 0) {
+            sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Please Enter a valid amount");
+            return;
+        }
+        this.ls.contract_balance().then(function (result) {
+            if (result < amount * 1000000000000000000) {
+                sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("You Can withdraw upto " + result / 1000000000000000000);
+                document.getElementById('id1').value = '';
+                // // /1000000000000000000
+                return;
+            }
+            _this.spinner.show();
+            _this.ls.get_cookie().then(function (key) {
+                _this.ls.issuer_withdraw(amount * 1000000000000000000, key).then(function (res) {
+                    document.getElementById('id1').value = '';
+                    _this.spinner.hide();
+                    if (res == 0) {
+                        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("You Rejected the Transaction");
+                    }
+                    else if (res == 2) {
+                        document.getElementById('id1').value = '';
+                        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Transaction Failed !");
+                    }
+                    else if (res == 1) {
+                        document.getElementById('id1').value = '';
+                        _this.fetch();
+                        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Amount Credited to Your Wallet");
+                    }
+                });
+            });
+        });
     };
-    WelcomeComponent = __decorate([
+    WithdrawComponent.prototype.fetch = function () {
+        var _this = this;
+        this.ls.contract_balance().then(function (result) {
+            _this.balance = result / 1000000000000000000;
+        });
+    };
+    WithdrawComponent.prototype.ngOnInit = function () {
+        this.fetch();
+        var meta = this;
+        meta.id1 = setInterval(function () {
+            var _this = this;
+            meta.ls.check_cookie("privateKey").then(function (check) {
+                if (check == false) {
+                    meta.router.navigate(["login"]);
+                    clearInterval(_this.interval);
+                }
+            });
+        }), 200;
+    };
+    WithdrawComponent.prototype.ngOnDestroy = function () {
+        if (this.id1) {
+            clearInterval(this.id1);
+        }
+    };
+    WithdrawComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-welcome',
-            template: __webpack_require__(/*! ./welcome.component.html */ "./src/app/welcome/welcome.component.html"),
-            styles: [__webpack_require__(/*! ./welcome.component.css */ "./src/app/welcome/welcome.component.css")]
+            selector: 'app-withdraw',
+            template: __webpack_require__(/*! ./withdraw.component.html */ "./src/app/withdraw/withdraw.component.html"),
+            styles: [__webpack_require__(/*! ./withdraw.component.scss */ "./src/app/withdraw/withdraw.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
-    ], WelcomeComponent);
-    return WelcomeComponent;
+        __metadata("design:paramtypes", [_Service_loan_service_service__WEBPACK_IMPORTED_MODULE_2__["LoanServiceService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_4__["NgxSpinnerService"]])
+    ], WithdrawComponent);
+    return WithdrawComponent;
 }());
 
 
@@ -3599,9 +4131,10 @@ var WelcomeComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
     production: false
 };
@@ -3649,8 +4182,52 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Ramya.0925\Desktop\LNA\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\loan2\Loan-Securitization-V2\src\main.ts */"./src/main.ts");
 
+
+/***/ }),
+
+/***/ 1:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 2:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 3:
+/*!************************!*\
+  !*** buffer (ignored) ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 4:
+/*!************************!*\
+  !*** crypto (ignored) ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ })
 
